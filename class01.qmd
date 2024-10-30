@@ -4,13 +4,30 @@
 
 O R é uma linguagem de programação, o que significa que podemos utilizá-la para comandar o computador a executar operações. Para isso, usamos comandos estruturados seguindo a sintaxe desta linguagem. Por exemplo, podemos simplesmente fazer cálculos algébricos com R.
 
+```{r}
+1+2
+```
+
+
 Podemos também usar funções, que são comandos programados para executar determinados procedimentos. Por exemplo, a função "sum" faz a soma de um conjunto de valores, como o "SOMA( )" no Excel.
+
+```{r}
+sum(1,2)
+```
+
 
 Você já está, intuitivamente, percebendo que a estrutura das funções no R é dada pelo nome da função (e.x. "sum"), seguido de atributos inseridos dentro de parênteses "( atributos aqui )". Nem todas as funções exigem atributos, mas todas as funções executam algum procedimento. Por exemplo, temos um conjunto de funções muito úteis para limpar a memória local (o que ajuda no processamento) e obter o diretório (pasta) principal onde estamos trabalhando.
 
 -   gc( ) : de "Garbage Clean", para limpeza da lixeira e liberação de memória.
 
 -   getwd( ) : de "Get Working Directory", para obter diretório base no qual está trabalhando.
+
+```{r}
+gc()
+
+getwd()
+```
+
 
 O que o torna especial para a pesquisa é ter sido desenvolvido para fins estatísticos, que ao longo do tempo tomou a forma de análise de dados. Os autores são os estatísticos Ross Ihaka (neozelandês) e Robert Gentleman (canadense). Eles iniciaram o projeto em meados dos anos 1990, tendo circulado a primeira cópia do arquivo binário, então embrião do R, em uma lista de e-mails de pesquisadores que trabalhavam com a linguagem S, chamada *s-news*. Com a circulação, Ross e Robert receberam uma indicação de Martin Mächler, professor no Departamento de Matemática da Universidade de Zurique (Suiça), para associarem o software ao projeto GNU, de desenvolvimento de softwares livres. Os autores acataram a ideia e em junho de 1995 estava disponível o código fonte do R sob licença da *GNU Free Software Foundation.* Essa história foi contada no artigo [*R: A Language for Data Analysis and Graphics*](https://www.tandfonline.com/doi/abs/10.1080/10618600.1996.10474713) (1996), onde os autores apresentaram o projeto publicamente para a comunidade acadêmica. Depois disso o projeto ganhou força. No ano seguinte, em 1997, foi fundado o *R Core Group*, composto por pessoas responsáveis pelo controle da versão do código fonte. Em 2002 foi disponibilizada a versão 1.0 do R, que passou por diversas atualizações até chegar a atual 4.4.1.
 
