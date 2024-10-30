@@ -4,13 +4,13 @@
 
 O R é uma linguagem de programação, o que significa que podemos utilizá-la para comandar o computador a executar operações. Para isso, usamos comandos estruturados seguindo a sintaxe desta linguagem. Por exemplo, podemos simplesmente fazer cálculos algébricos com R.
 
-```{r}
+```{r, eval=FALSE}
 2 + 3
 ```
 
 Podemos também usar funções, que são comandos programados para executar determinados procedimentos. Por exemplo, a função "sum" faz a soma de um conjunto de valores, como o "SOMA( )" no Excel.
 
-```{r}
+```{r, eval=FALSE}
 sum(2,3)
 ```
 
@@ -21,7 +21,7 @@ Você já está, intuitivamente, percebendo que a estrutura das funções no R �
 -   getwd( ) : de "Get Working Directory", para obter diretório base no qual está trabalhando.
 
 ```{r}
-gb()
+gc()
 
 getwd()
 ```

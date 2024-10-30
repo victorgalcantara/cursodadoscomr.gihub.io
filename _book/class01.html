@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,7 +64,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./summary.html" rel="next">
+<link href="./references.html" rel="next">
 <link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -120,12 +154,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./summary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
   </div>
@@ -135,8 +163,14 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#é-de-comer" id="toc-é-de-comer" class="nav-link active" data-scroll-target="#é-de-comer">É de comer?</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -160,9 +194,38 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Este é um curso de análise de dados com R voltado para cientistas sociais. O curso aborda o funcionamento da linguagem de programação R e do software de desenvolvimento RStudio/Posit, visando oferecer noções gerais e operações básicas para o domínio e a autonomia na análise de dados com programação. O curso envolve operações de importação, análise, visualização, exportação e comunicação de dados, e está estruturado seguindo os eixos do livro de&nbsp;<a href="https://r4ds.had.co.nz/">Wickham e Grolemund (2018)</a>. Por seguir o livro de referência, os tópicos mesclam com o inglês para estimular a adaptação ao software, à comunidade de programadores internacionais e aos manuais, que têm a língua inglesa como padrão.</p>
+<section id="é-de-comer" class="level2">
+<h2 class="anchored" data-anchor-id="é-de-comer">É de comer?</h2>
+<p>O R é uma linguagem de programação, o que significa que podemos utilizá-la para comandar o computador a executar operações. Para isso, usamos comandos estruturados seguindo a sintaxe desta linguagem. Por exemplo, podemos simplesmente fazer cálculos algébricos com R.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">+</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Podemos também usar funções, que são comandos programados para executar determinados procedimentos. Por exemplo, a função “sum” faz a soma de um conjunto de valores, como o “SOMA( )” no Excel.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="dv">2</span>,<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Você já está, intuitivamente, percebendo que a estrutura das funções no R é dada pelo nome da função (e.x. “sum”), seguido de atributos inseridos dentro de parênteses “( atributos aqui )”. Nem todas as funções exigem atributos, mas todas as funções executam algum procedimento. Por exemplo, temos um conjunto de funções muito úteis para limpar a memória local (o que ajuda no processamento) e obter o diretório (pasta) principal onde estamos trabalhando.</p>
+<ul>
+<li><p>gc( ) : de “Garbage Clean”, para limpeza da lixeira e liberação de memória.</p></li>
+<li><p>getwd( ) : de “Get Working Directory”, para obter diretório base no qual está trabalhando.</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gc</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          used (Mb) gc trigger (Mb) max used (Mb)
+Ncells  596008 31.9    1319125 70.5  1319125 70.5
+Vcells 1089874  8.4    8388608 64.0  1876245 14.4</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "C:/Users/13477365/Documents/book-dadoscomr"</code></pre>
+</div>
+</div>
+<p>O que o torna especial para a pesquisa é ter sido desenvolvido para fins estatísticos, que ao longo do tempo tomou a forma de análise de dados. Os autores são os estatísticos Ross Ihaka (neozelandês) e Robert Gentleman (canadense). Eles iniciaram o projeto em meados dos anos 1990, tendo circulado a primeira cópia do arquivo binário, então embrião do R, em uma lista de e-mails de pesquisadores que trabalhavam com a linguagem S, chamada <em>s-news</em>. Com a circulação, Ross e Robert receberam uma indicação de Martin Mächler, professor no Departamento de Matemática da Universidade de Zurique (Suiça), para associarem o software ao projeto GNU, de desenvolvimento de softwares livres. Os autores acataram a ideia e em junho de 1995 estava disponível o código fonte do R sob licença da <em>GNU Free Software Foundation.</em> Essa história foi contada no artigo <a href="https://www.tandfonline.com/doi/abs/10.1080/10618600.1996.10474713"><em>R: A Language for Data Analysis and Graphics</em></a> (1996), onde os autores apresentaram o projeto publicamente para a comunidade acadêmica. Depois disso o projeto ganhou força. No ano seguinte, em 1997, foi fundado o <em>R Core Group</em>, composto por pessoas responsáveis pelo controle da versão do código fonte. Em 2002 foi disponibilizada a versão 1.0 do R, que passou por diversas atualizações até chegar a atual 4.4.1.</p>
+<p>Até 2009, o R era usado por estatísticos, cientistas da computação e pesquisadores engajados com este tipo de expertise. O cenário mudou com o desenvolvimento de um ambiente integrado de trabalho, o RStudio, que facilitou o fluxo. Além disso, em 2016, o então cientista chefe da empresa RStudio, Hadley Wickham, em colaboração com Garrett Grolemund, publicaram um conjunto de funções e pacotes facilitando a análise de dados, todos integrados no <em>Tidyverse</em>.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -592,8 +655,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./summary.html" class="pagination-link" aria-label="Summary">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Summary</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./references.html" class="pagination-link" aria-label="References">
+        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

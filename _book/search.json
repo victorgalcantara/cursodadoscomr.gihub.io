@@ -24,7 +24,7 @@
     "href": "class01.html",
     "title": "Capítulo 1",
     "section": "",
-    "text": "Este é um curso de análise de dados com R voltado para cientistas sociais. O curso aborda o funcionamento da linguagem de programação R e do software de desenvolvimento RStudio/Posit, visando oferecer noções gerais e operações básicas para o domínio e a autonomia na análise de dados com programação. O curso envolve operações de importação, análise, visualização, exportação e comunicação de dados, e está estruturado seguindo os eixos do livro de Wickham e Grolemund (2018). Por seguir o livro de referência, os tópicos mesclam com o inglês para estimular a adaptação ao software, à comunidade de programadores internacionais e aos manuais, que têm a língua inglesa como padrão.",
+    "text": "É de comer?\nO R é uma linguagem de programação, o que significa que podemos utilizá-la para comandar o computador a executar operações. Para isso, usamos comandos estruturados seguindo a sintaxe desta linguagem. Por exemplo, podemos simplesmente fazer cálculos algébricos com R.\n2 + 3\nPodemos também usar funções, que são comandos programados para executar determinados procedimentos. Por exemplo, a função “sum” faz a soma de um conjunto de valores, como o “SOMA( )” no Excel.\nsum(2,3)\nVocê já está, intuitivamente, percebendo que a estrutura das funções no R é dada pelo nome da função (e.x. “sum”), seguido de atributos inseridos dentro de parênteses “( atributos aqui )”. Nem todas as funções exigem atributos, mas todas as funções executam algum procedimento. Por exemplo, temos um conjunto de funções muito úteis para limpar a memória local (o que ajuda no processamento) e obter o diretório (pasta) principal onde estamos trabalhando.\ngc()\n\n          used (Mb) gc trigger (Mb) max used (Mb)\nNcells  596008 31.9    1319125 70.5  1319125 70.5\nVcells 1089874  8.4    8388608 64.0  1876245 14.4\n\ngetwd()\n\n[1] \"C:/Users/13477365/Documents/book-dadoscomr\"\nO que o torna especial para a pesquisa é ter sido desenvolvido para fins estatísticos, que ao longo do tempo tomou a forma de análise de dados. Os autores são os estatísticos Ross Ihaka (neozelandês) e Robert Gentleman (canadense). Eles iniciaram o projeto em meados dos anos 1990, tendo circulado a primeira cópia do arquivo binário, então embrião do R, em uma lista de e-mails de pesquisadores que trabalhavam com a linguagem S, chamada s-news. Com a circulação, Ross e Robert receberam uma indicação de Martin Mächler, professor no Departamento de Matemática da Universidade de Zurique (Suiça), para associarem o software ao projeto GNU, de desenvolvimento de softwares livres. Os autores acataram a ideia e em junho de 1995 estava disponível o código fonte do R sob licença da GNU Free Software Foundation. Essa história foi contada no artigo R: A Language for Data Analysis and Graphics (1996), onde os autores apresentaram o projeto publicamente para a comunidade acadêmica. Depois disso o projeto ganhou força. No ano seguinte, em 1997, foi fundado o R Core Group, composto por pessoas responsáveis pelo controle da versão do código fonte. Em 2002 foi disponibilizada a versão 1.0 do R, que passou por diversas atualizações até chegar a atual 4.4.1.\nAté 2009, o R era usado por estatísticos, cientistas da computação e pesquisadores engajados com este tipo de expertise. O cenário mudou com o desenvolvimento de um ambiente integrado de trabalho, o RStudio, que facilitou o fluxo. Além disso, em 2016, o então cientista chefe da empresa RStudio, Hadley Wickham, em colaboração com Garrett Grolemund, publicaram um conjunto de funções e pacotes facilitando a análise de dados, todos integrados no Tidyverse.",
     "crumbs": [
       "Capítulo 1"
     ]
@@ -57,6 +57,16 @@
     "text": "Instruções para o Google Colab\nUma alternativa aos softwares de Desktop é o ambiente de desenvolvimento da Google, o Google Colaboratory. Veremos sobre o uso deste recurso em aula.",
     "crumbs": [
       "Introdução"
+    ]
+  },
+  {
+    "objectID": "class01.html#é-de-comer",
+    "href": "class01.html#é-de-comer",
+    "title": "Capítulo 1",
+    "section": "",
+    "text": "gc( ) : de “Garbage Clean”, para limpeza da lixeira e liberação de memória.\ngetwd( ) : de “Get Working Directory”, para obter diretório base no qual está trabalhando.",
+    "crumbs": [
+      "Capítulo 1"
     ]
   }
 ]
