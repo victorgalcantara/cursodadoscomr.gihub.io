@@ -1,6 +1,6 @@
 project:
   type: book
-  output-dir: docs
+  #output-dir: docs
 
 book:
   title: "Análise de dados com R"
