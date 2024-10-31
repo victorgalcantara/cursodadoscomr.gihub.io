@@ -273,7 +273,7 @@ gc()
 getwd()
 ```
 
-Há um conjunto extenso de funções de base do R, que já vem com o software a instalação. Há especialmente funções para gestão de memória e armazenamento, gestão de dados e estatística. Para além do R base, há também um universo de funções programadas pela comunidade de usuários, em diversos domínios, como ciências ambientais, psicologia, economia e até funções programadas por sociólogos! Diferente das do R base, porém, essas funções são associadas a pacotes externos que devem ser instalados e carregados. Isso veremos na próxima aula, quando formos tratar de manuseio de dados.
+Há um conjunto extenso de funções de base do R, que já vem com o software na instalação. Existem especialmente funções para gestão de memória, armazenamento, dados e estatística. Além do R base, há também um universo de funções programadas pela comunidade de usuários em diversos domínios, como ciências ambientais, psicologia, economia e até funções criadas por sociólogos! Diferente das funções do R base, essas estão associadas a pacotes externos que devem ser instalados e carregados. Isso veremos na próxima aula, quando abordaremos o manuseio de dados.
 
 ### Construindo um dado estruturado
 
@@ -292,6 +292,8 @@ esquerda <- c(T,F,T,F,T)
 meus_dados <- data.frame(nome,idade,sexo,esquerda)
 meus_dados
 ```
+
+Observe que cada vetor contido na base de dados é de um tipo. Todo o tratamento e análise das variáveis depende disso, como veremos adiante.
 
 ### Comandos lógicos
 

@@ -1,3 +1,66 @@
 # Capítulo 2 {.unnumbered}
 
 Calma, calabreso(a). Isso é papo pra próxima semana!
+
+### Comandos lógicos
+
+Além dos cálculos, podemos também fazer operações lógicas, que comparam valores e retornam TRUE ou FALSE. Os operadores principais são:
+
+Igual a (==): Verifica se dois valores são iguais.
+
+Diferente de (!=): Verifica se dois valores são diferentes.
+
+Maior que (>): Verifica se um valor é maior que o outro.
+
+Menor que (<): Verifica se um valor é menor que o outro.
+
+Maior ou igual a (>=): Verifica se um valor é maior ou igual ao outro.
+
+Menor ou igual a (<=): Verifica se um valor é menor ou igual ao outro.
+
+```{r}
+2 >  2  # MAIOR QUE
+2 < 2   # MENOR QUE
+2 == 3  # IGUALDADE
+
+2 >= 2 # MAIOR OU IGUAL
+
+# Por quê igualdade são dois sinais?
+# R: Porque apenas um significa atribuição de valor. Igual a setinha, como vimos.
+
+"eu" == "todo mundo" # Igualdade
+"eu" == "eu"
+"eu" != "vc"         # Diferença
+
+# Teste em grupo
+"eu" %in% c("vc","todo mundo") # Generalização - se contém
+
+# Nota importante: "!" opera como um sinal de negação/diferença
+
+!("eu" %in% c("vc","todo mundo"))
+```
+
+### Comandos relacionais
+
+As operações relacionais são usadas para combinar ou inverter condições. No R, você tem três operadores principais:
+
+AND (&): Retorna TRUE se ambas as condições forem verdadeiras.
+
+OR (|): Retorna TRUE se pelo menos uma condição for verdadeira.
+
+NOT (!): Inverte o valor lógico, transformando TRUE em FALSE e vice-versa.
+
+
+```{r}
+# "|" para "OU"
+2 > 2 | 2 == 2
+2 > 2 | 2 < 2
+
+# "&" para "E"
+2 > 2 & 2 == 2
+2 > 1 & 2 == 2
+```
+
+### Comandos condicionais
+
+As operações lógicas e relacionais são ferramentas fundamentais no R. Elas ajudam a fazer muitos manuseios básicos e dados, como filtro de casos, seleção e recodificação de variáveis.
