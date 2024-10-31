@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Victor G Alcantara">
-<meta name="dcterms.date" content="2026-06-10">
 
-<title>Análise de dados com R</title>
+<title>Capítulo 2 – Análise de dados com R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./class01.html" rel="next">
+<link href="./references.html" rel="next">
+<link href="./class01.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -83,7 +82,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Introdução</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./class02.html">Capítulo 2</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -110,7 +109,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introdução</span></a>
   </div>
 </li>
@@ -122,7 +121,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./class02.html" class="sidebar-item-text sidebar-link">
+  <a href="./class02.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Capítulo 2</span></a>
   </div>
 </li>
@@ -137,44 +136,22 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#introdução" id="toc-introdução" class="nav-link active" data-scroll-target="#introdução">Introdução</a>
-  <ul class="collapse">
-  <li><a href="#download-e-instalação-r-e-rstudio" id="toc-download-e-instalação-r-e-rstudio" class="nav-link" data-scroll-target="#download-e-instalação-r-e-rstudio">Download e instalação R e RStudio</a></li>
-  <li><a href="#instruções-para-o-google-colab" id="toc-instruções-para-o-google-colab" class="nav-link" data-scroll-target="#instruções-para-o-google-colab">Instruções para o Google Colab</a></li>
-  </ul></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Análise de dados com R</h1>
+<h1 class="title">Capítulo 2</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Victor G Alcantara </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">June 10, 2026</p>
-    </div>
-  </div>
   
     
   </div>
@@ -184,21 +161,9 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="introdução" class="level1 unnumbered">
-<h1 class="unnumbered">Introdução</h1>
-<p>Este é um curso de análise de dados com R voltado para cientistas sociais. O curso aborda o funcionamento da linguagem de programação R e do software de desenvolvimento RStudio/Posit, visando oferecer noções gerais e operações básicas para o domínio e a autonomia na análise de dados. O curso envolve operações de importação, análise, visualização, exportação e comunicação de dados, e está estruturado seguindo os eixos do livro &nbsp;<a href="https://r4ds.hadley.nz/">R for Data Science</a>. Por seguir o livro de referência, os tópicos mesclam com o inglês para estimular a adaptação ao software, à comunidade de programadores internacionais e aos manuais, que têm a língua inglesa como padrão.</p>
-<p>A proposta é que seja um curso “mão na massa”. Para o bom funcionamento das aulas, portanto, é importante acompanhar o conteúdo e praticar com os tutoriais e exercícios. Os materiais servirão como guias, mas recomendo que explorem o funcionamento desta ferramenta para ir conquistando o domínio.</p>
-<section id="download-e-instalação-r-e-rstudio" class="level2">
-<h2 class="anchored" data-anchor-id="download-e-instalação-r-e-rstudio">Download e instalação R e RStudio</h2>
-<p>O primeiro passo é baixar os softwares <a href="https://cran.r-project.org/">R</a> e seu auxiliar <a href="https://posit.co/downloads/">RStudio/Posit</a>, que serve como ambiente de desenvolvimento.</p>
-</section>
-<section id="instruções-para-o-google-colab" class="level2">
-<h2 class="anchored" data-anchor-id="instruções-para-o-google-colab">Instruções para o Google Colab</h2>
-<p>Uma alternativa aos softwares de Desktop é o ambiente de desenvolvimento da Google, o <a href="https://colab.research.google.com/">Google Colaboratory</a>. Veremos sobre o uso deste recurso em aula.</p>
+<p>Calma, calabreso(a). Isso é papo pra próxima semana!</p>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -623,10 +588,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./class01.html" class="pagination-link" aria-label="Capítulo 1">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Capítulo 1</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./class01.html" class="pagination-link" aria-label="Capítulo 1">
-        <span class="nav-page-text">Capítulo 1</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./references.html" class="pagination-link" aria-label="Referências">
+        <span class="nav-page-text">Referências</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -64,7 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./references.html" rel="next">
+<link href="./class02.html" rel="next">
 <link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -155,8 +155,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./class02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Capítulo 2</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">References</span></a>
+ <span class="menu-text">Referências</span></a>
   </div>
 </li>
     </ul>
@@ -169,9 +175,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#é-de-comer" id="toc-é-de-comer" class="nav-link active" data-scroll-target="#é-de-comer">É de comer?</a></li>
+  <li><a href="#é-de-comer" id="toc-é-de-comer" class="nav-link active" data-scroll-target="#é-de-comer">É de comer?</a>
+  <ul class="collapse">
   <li><a href="#mas-por-que-o-r-e-não-outro" id="toc-mas-por-que-o-r-e-não-outro" class="nav-link" data-scroll-target="#mas-por-que-o-r-e-não-outro">Mas… por que o R e não outro?</a></li>
-  <li><a href="#ok.-entendi.-então-como-eu-uso" id="toc-ok.-entendi.-então-como-eu-uso" class="nav-link" data-scroll-target="#ok.-entendi.-então-como-eu-uso">Ok. Entendi. Então como eu uso?</a></li>
+  <li><a href="#o-uso-de-linguagem-de-programação-nas-ciências-sociais" id="toc-o-uso-de-linguagem-de-programação-nas-ciências-sociais" class="nav-link" data-scroll-target="#o-uso-de-linguagem-de-programação-nas-ciências-sociais">O uso de linguagem de programação nas Ciências Sociais</a></li>
+  </ul></li>
+  <li><a href="#entendi-o-que-é.-então-como-eu-uso" id="toc-entendi-o-que-é.-então-como-eu-uso" class="nav-link" data-scroll-target="#entendi-o-que-é.-então-como-eu-uso">Entendi o que é. Então como eu uso?</a>
+  <ul class="collapse">
+  <li><a href="#primeiro-contato-r-como-calculadora" id="toc-primeiro-contato-r-como-calculadora" class="nav-link" data-scroll-target="#primeiro-contato-r-como-calculadora">Primeiro contato: R como calculadora</a></li>
+  <li><a href="#explorado-comandos-com-rstudio" id="toc-explorado-comandos-com-rstudio" class="nav-link" data-scroll-target="#explorado-comandos-com-rstudio">Explorado comandos com RStudio</a></li>
+  <li><a href="#funções" id="toc-funções" class="nav-link" data-scroll-target="#funções">Funções</a></li>
+  <li><a href="#construindo-um-dado-estruturado" id="toc-construindo-um-dado-estruturado" class="nav-link" data-scroll-target="#construindo-um-dado-estruturado">Construindo um dado estruturado</a></li>
+  <li><a href="#comandos-lógicos" id="toc-comandos-lógicos" class="nav-link" data-scroll-target="#comandos-lógicos">Comandos lógicos</a></li>
+  <li><a href="#comandos-relacionais" id="toc-comandos-relacionais" class="nav-link" data-scroll-target="#comandos-relacionais">Comandos relacionais</a></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -199,18 +217,255 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="é-de-comer" class="level2">
 <h2 class="anchored" data-anchor-id="é-de-comer">É de comer?</h2>
-<p>O R é uma linguagem de programação, o que significa que podemos utilizá-la para comandar o computador a executar operações. Para isso, usamos comandos estruturados seguindo a sintaxe desta linguagem. Por exemplo, podemos simplesmente fazer cálculos com R.</p>
+<p>O R é uma linguagem de programação, o que significa que podemos utilizá-la para nos comunicar com o computador. Isto é, seguimos a sintaxe da linguagem para usar comandos que orientam o computador a executar operações. Uma definição mais específica do R é a de linguagem voltada a objetos. Isso porque o R fuciona muito direcionado às informações guardadas como objetos na memória.</p>
+<p>Como uma linguagem, o R tem uma sintaxe e para dominá-la precisamos praticar. Por isso este livro é mesclado entre explicações e exemplos práticos. Não é pavê, nem pacumê. É pa praticar!</p>
+<section id="mas-por-que-o-r-e-não-outro" class="level3">
+<h3 class="anchored" data-anchor-id="mas-por-que-o-r-e-não-outro">Mas… por que o R e não outro?</h3>
+<p>O que torna o R especial para a pesquisa é ter sido desenvolvido para fins estatísticos, que ao longo do tempo tomou a forma de análise de dados. Os autores da linguagem são os estatísticos Ross Ihaka (neozelandês) e Robert Gentleman (canadense). Eles iniciaram o projeto em meados dos anos 1990, tendo circulado a primeira cópia do arquivo binário, embrião do R, em uma lista de e-mails de pesquisadores que trabalhavam com a linguagem S, chamada <em>s-news</em>.</p>
+<p>Com a circulação do projeto, Ross e Robert receberam uma indicação de Martin Mächler, professor no Departamento de Matemática da Universidade de Zurique (Suiça), para associarem o software ao projeto GNU, de desenvolvimento de softwares livres. Os autores acataram a ideia e em junho de 1995 estava disponível o código fonte do R sob licença da <em>GNU Free Software Foundation.</em> Essa história foi contada no artigo <a href="https://www.tandfonline.com/doi/abs/10.1080/10618600.1996.10474713"><em>R: A Language for Data Analysis and Graphics</em></a> (1996), onde os autores apresentaram o projeto publicamente para a comunidade acadêmica. Depois disso o projeto ganhou adesão e força. No ano seguinte, em 1997, foi fundado o <em>R Core Group</em>, composto por pessoas responsáveis pelo controle da versão do código fonte, que atualmente gere o <em>Comprehensive R Archive Network</em> (<a href="https://cran.r-project.org/">CRAN</a>), onde são registradas e distribuídas as atualizações do R. A versão 1.0 do R foi divulgada em 2002 e passou por diversas atualizações até chegar a atual 4.4.1.</p>
+<p>Até 2009, o R era usado por estatísticos, cientistas da computação e pesquisadores engajados com este tipo de expertise. O cenário mudou com o desenvolvimento de um ambiente integrado de trabalho, o RStudio, que facilitou o fluxo. Além disso, em 2016, o então cientista chefe da empresa RStudio, Hadley Wickham, em colaboração com Garrett Grolemund, concretizou o projeto <a href="https://www.jstatsoft.org/article/view/v059i10/#:~:text=This%20framework%20makes%20it%20easy%20to%20tidy%20messy,tools%20that%20both%20input%20and%20output%20tidy%20datasets.">Tidy Data</a>, visando aprimorar o manuseio de dados, publicando um conjunto de funções em pacotes voltados para a análise de dados, todos integrados ao <em>Tidyverse</em>. O projeto foi costruído por quatro princípios: 1. reutilização de estrutura de dados existentes; 2. composição de funções simples com o <em>pipe</em>; 3. incetivar programação que seja funcional e; 4. códigos que seja interpretáveis para humanos. Por enquanto estamos conhecendo a história, mas a transformação que isso causou será percebida quando começarmos a utilizar o pacote <em>tidyverse</em>.</p>
+<p>Perceba que toda a história do R foi construída na contramão dos softwares de mercado, como o SPSS da IBM e o pacote office da Microsoft. Trata-se de um projeto conduzido por pesquisas acadêmicas de ponta, visando facilitar o trabalho com a análise de dados. Trabalhar com o R, portanto, implica em um outro paradigma. Ao invés de ter o software como um produto administrado por uma empresa, onde as funções já estão programadas e disponíveis por botões e comandos, temos uma linguagem a partir da qual podemos programar funções e executar comandos diversos. Há diversas implicações nessa mudança que transformaram completamente o trabalho com dados nas Ciências Sociais, permitindo maior abertura para a criatividade e replicabilidade. Todo o nosso fluxo de trabalho é escrito em um documento, que pode ser compartilhado com outras pessoas, que podem verificar o passo-a-passo e replicar. Além disso, a forma como utilizamos o software possibilita eficiência nos processamentos, com baixo custo de tempo e recursos de hardware. Veremos isso ao longo o curso.</p>
+</section>
+<section id="o-uso-de-linguagem-de-programação-nas-ciências-sociais" class="level3">
+<h3 class="anchored" data-anchor-id="o-uso-de-linguagem-de-programação-nas-ciências-sociais">O uso de linguagem de programação nas Ciências Sociais</h3>
+<p>Dados e metodologias são os principais elementos para o trabalho com pesquisa e operacionalização de teorias. Em geral, formulamos hipóteses sobre o mundo informadas por literaturas específicas, e testamos essas hipóteses coletando dados e utilizando metodologias. As linguagens de programação nos ajudam na parte operacional de tratamento e análise dos dados.</p>
+<p>Nos últimos anos, estamos experimentando uma mudança no paradigma de análise de dados nas Ciências Sociais. Ao invés do consumo de softwares com funções estatísticas programadas, disponíveis no mercado, como o <em>Statistical Package for Social Sciences</em> (SPSS), produto da IBM, e o Pacote Office, produto da Microsoft, estamos migrando para linguagens de programação de acesso livre e gratuito.</p>
+<p>Ser parte do Projeto GNU de softwares livres é o primeiro ponto forte do R. Com as demais linguagens de programação, porém, há também pontos impotantes, como:</p>
+<ul>
+<li><strong>Eficiência:</strong> o fluxo de trabalho com funções reduz o custo de memória e processamento.</li>
+</ul>
+<!-- -->
+<ul>
+<li><p><strong>Potência:</strong> não estamos mais limitados às funções programadas no software, como é vendido. Podemos programar funções novas e fazer (quase) tudo com R. Excel e SPSS estão anos atrás!</p></li>
+<li><p><strong>Replicabilidade e transparência:</strong> os procedimentos são registrados em código, portando mais transparentes e possíveis de serem replicados. Práticas fundamentais e cada vez mais impulsionadas por revistas e instituições acadêmicas.</p></li>
+<li><p><strong>Popularidade:</strong> movido por uma comunidade internacional extensa, que desenvolve e acompanha o software. Cada vez mais adotado em instituições (principalmente públicas) e pela comunidade acadêmica.</p></li>
+</ul>
+<p>O manuseio e a análise de dados é um desafio de longa data. Do ponto de vista do armazenamento e processamento, a principal pesquisa nacional, o Censo Demográfico, já era um desafio desde, pelo menos, 1960 (<a href="https://www.scielo.br/j/nec/a/nJnk3y84WffXCjwp76FNjJr/">para saber mais sobre a história dos censos</a>).</p>
+<p>Uma área que emergiu diante desses desafios é a de Ciências Sociais Computacionais, que aborda desde o desenvolvimento de algoritmos para a extração e análise de dados até a discussão teórica sobre ambientes digitais.</p>
+<p>Ainda que a programação esteja relacionada com lógica e cálculo, não se trata apenas de informações quantitativas. Podemos tratar, além dos famosos <em>surveys</em>, também dados não estruturados, textos, imagens, sons e tudo o mais que puder ser registrado. Tudo isso torna mais atraente a análise de dados com uso de programação.</p>
+<p>Se você é uma pessoa curiosa e que quer explorar a criatividade, a sofisticação e a elegância em seu trabalho, está no lugar certo.</p>
+</section>
+</section>
+<section id="entendi-o-que-é.-então-como-eu-uso" class="level2">
+<h2 class="anchored" data-anchor-id="entendi-o-que-é.-então-como-eu-uso">Entendi o que é. Então como eu uso?</h2>
+<p>Como vimos, o R é pa praticar! Então, ferramentas em mãos.</p>
+<p>É fudamental saber que o R é a linguagem, e o RStudio é o ambiente de desenvolvimento. Não adianta tentar usar o RStudio sem o R. Portato, faça a instalação do R e RStudio de acordo com as especificações do seu computador.</p>
+<p>Como uma experiência antropológica <del>e de choque</del> , abra o R (não o RStudio!). Caso tenha dificuldade em econtrar o software, digite na busca do seu computador apenas a letra “R” e procure em aplicativos.</p>
+<p>Você deve abrir algo parecido com essa janela.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/cosole-r.png" class="img-fluid figure-img"></p>
+<figcaption>Console R</figcaption>
+</figure>
+</div>
+<p>A janela onde escrevemos as linhas de comandos executáveis chamamos de “console”. Abrindo o R diretamente, temos apenas a janela do console para inserir os comandos. Triste, né? Mas tudo fica mais <em>sexy</em> com o RStudio. Para fins didáticos, vamos continuar com o R base. Precisamos olhar um pouco para o console como faziam os egípcios e os hebreus.</p>
+<p>Neste livro, por ser escrito no R, temos as linhas de comando destacadas, que podem ser copiadas e coladas no console para executar.</p>
+<section id="primeiro-contato-r-como-calculadora" class="level3">
+<h3 class="anchored" data-anchor-id="primeiro-contato-r-como-calculadora">Primeiro contato: R como calculadora</h3>
+<p>Executar cálculos simples com o R é uma forma mais amigável de começar entender como a linguagem funciona. Podemos pensar no computador como uma grande calculadora que computa operações e, no R, como um meio para comandar o computador.</p>
+<p>Por exemplo, no comando abaixo, eu computo um cálculo simples no R e, em seguida, recebo um resultado. Faça o mesmo no console do R base. Digite 1+2 e dê um enter para computar</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">+</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 3</code></pre>
 </div>
 </div>
-<p>Podemos também usar funções, que são comandos programados para executar determinados procedimentos. Por exemplo, a função “sum” faz a soma de um conjunto de valores, como o “SOMA( )” no Excel.</p>
+<p>Legal, não é? Talvez não ainda. Mas vai ficar!</p>
+<p>Além de números e cálculos, podemos executar outros tipos de informações como caracteres (texto) e valores lógicos (Verdadeiro e Falso). Para caracteres, devemos sempre utilizar aspas simples ou duplas, conforme a linha abaixo.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="dv">1</span>,<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="st">"Utilize sempre aspas para informações textuais"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Utilize sempre aspas para informações textuais"</code></pre>
+</div>
+</div>
+<p>Para valores lógicos, usamos o inglês TRUE e FALSE, que podem ser abreviados pelas iniciais T e F, conforme a linha abaixo.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="cn">TRUE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="cn">FALSE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>T</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>F</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+</div>
+<p>Com o tempo, vamos escrevendo códigos (<em>scripts</em>) que compilam um conjunto sequencial de comandos. Os códigos vão ficando cada vez mais complexos na medida em que vamos trabalhando. Um recurso muito importante para torná-los interpretáveis para humanos são os comentários. Para que o R não interprete uma linha de um documento como um comando, devemos marcá-la com “#”. Toda informação que vem depois de um “#”, na linha, é descosiderada pelo R.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Este comentário não é executado. Simples assim.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Como exercício, escreva um comentário e execute no console do R base. Depois escreva o mesmo sem a marcação de comentário.</p>
+<p>Você vai perceber que, sem indicar que e um comentário (#), o R tenta computar os valores e retorna erro, porque não consegue identificar nada associado.</p>
+<p>Em geral, números, caracteres, valores lógicos e comentários compõem a base fundamental da linguagem R.</p>
+<p>Vamos fazer um exercício didático para introduzir o uso de códigos. Copie as linhas de comando abaixo e cole na janela console, no R base. Você pode ir colando linha a linha e executado os comandos para observar o que acontece.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Primeiro código com o R</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Autor: Victor G Alcantara</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># R como calculadora</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="do">## Fazedo cálculos simples</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">+</span><span class="dv">2</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span><span class="sc">+</span><span class="dv">5</span><span class="sc">*</span><span class="dv">4</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span><span class="sc">/</span><span class="dv">2</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="do">## Computando texto</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="st">"Trabalhar com programação é desafiador"</span></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a><span class="do">## Computado valores lógicos</span></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a><span class="cn">TRUE</span></span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a><span class="cn">FALSE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Uma vez compreedendo as bases, podemos operá-las utilizando a memória do computador.</p>
+<p>Para guardar valores na memória, como objetos, utilizamos os sinais se atribuição “&lt;-” e “=”.</p>
+<ul>
+<li><p>Sinais de atribuição de valores à memória:</p>
+<ul>
+<li><p>Seta: objeto &lt;- valor</p></li>
+<li><p>Um igual: objeto = valor</p></li>
+</ul></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>resultado <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">+</span><span class="dv">2</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>resultado</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 3</code></pre>
+</div>
+</div>
+<p>No exemplo acima, guardamos o cálculo 1+2 no objeto “resultado”, armazenado na memória. Perceba que estamos interpretando a linha de código. O que o R interpreta é o mesmo. Podemos ler como: atribua ao objeto “resultado” o valor da conta 1+2.</p>
+<p>Uma vez guardado na memória, podemos nos referir ao objeto para acessar o valor, conforme ilustra o exemplo abaixo.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>resultado <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4</code></pre>
+</div>
+</div>
+<p>Para guardar mais de um valor em um objeto, devemos utilizar uma função para concatenar os valores, expressa por um “c” seguido de parêteses e os valores contidos, separados por vírgula.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>valores_num <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>valores_num</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1 2 3 4 5</code></pre>
+</div>
+</div>
+<p>Podemos fazer operações com todos os valores guardados em um objeto. Por definição, chamamos um objeto que contenha apenas um tipo ou classe de valores como um <strong>vetor</strong>. Podemos dizer, assim, que criamos um vetor guardado no objeto “valores_num” que recebe os valores de 1 a 5.</p>
+<p>Podemos fazer operações com nosso vetor, como no exemplo abaixo.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> valores_num</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2 3 4 5 6</code></pre>
+</div>
+</div>
+<p>Toda vez que nos referirmos ao nome do objeto guardado, sem o uso de aspas, o R vai entender que estamos nos referindo a todos os valores guardados no vetor. Por isso a soma 1 + vetor tem como resultado todos os valores + 1.</p>
+<p>Para acessar um valor específico em um vetor, podemos indicar a localização do valor utilizando colchetes [ ].</p>
+<p>vetor[ posição do valor ]</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>valores_num[<span class="dv">3</span>] <span class="co"># Obtendo o valor guardado na posição 3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3</code></pre>
+</div>
+</div>
+<p>Um vetor guarda sempre um tipo ou classe de valores. Podemos fazer operações que sejam adequadas a cada tipo de valor contido. Por exemplo, para vetores que guardam textos, não podemos fazer cálculos (o R retornará como erro).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>valores_chr <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"A"</span>,<span class="st">"B"</span>,<span class="st">"C"</span>,<span class="st">"D"</span>,<span class="st">"E"</span>)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>valores_chr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "A" "B" "C" "D" "E"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>valores_chr[<span class="dv">1</span>] <span class="co"># Obtendo o valor guardado na posição 1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "A"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>valores_chr[<span class="dv">3</span>] <span class="co"># Obtendo o valor guardado na posição 3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "C"</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>valores_chr <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in valores_chr + 1: argumento não-numérico para operador binário</code></pre>
+</div>
+</div>
+<p>Não se assuste com a mensagem de erro. Ela sempre aparecerá com alguma explicação que te ajudará a entender. Neste caso, ele está dizendo que o argumento não é um valor numérico para fazer cálculo. O R se esforça para ser nosso amigo e muitas vezes, quando notar que pode ter algo errado, vai nos avisar com <em>Warning</em>.</p>
+<p>Embora tente ser nosso amigo, nunca se esqueça de que o R é burro e o inteligente é você. No caminho, vão surgir muitos erros que vão te fazer pensar o contrário. Mas todos têm solução.</p>
+<p>Até aqui vimos o suficiente do R base. Agora, precisamos do RStudio para avança de uma forma mais atrativa.</p>
+</section>
+<section id="explorado-comandos-com-rstudio" class="level3">
+<h3 class="anchored" data-anchor-id="explorado-comandos-com-rstudio">Explorado comandos com RStudio</h3>
+<p>Abra o RStudio no seu computador.</p>
+<p>Você deve abrir algo parecido com a imagem abaixo. Uma das inovações deste ambiente de trabalho é dividir o fluxo em quatro janelas. A primeira, geralmente localizada no quadrante 1) script; 2) console; 3) gestão de aquivos e <em>outputs</em> e; 4) ambiente global (gestão de memória).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/layout-rstudio.png" class="img-fluid figure-img"></p>
+<figcaption>RStudio Layout</figcaption>
+</figure>
+</div>
+<ul>
+<li><div>
+<ol type="1">
+<li><strong>Editor de Scripts</strong>: Essa janela é sua amiga da organização! É onde você escreve e salva seu código em arquivos. Em vez de rodar cada comando diretamente, você pode escrever vários comandos e depois executá-los da forma que quiser, selecionando partes ou tudo, quando estiver pronto.</li>
+</ol>
+</div></li>
+<li><div>
+<ol start="2" type="1">
+<li><strong>Console</strong>: É onde a mágica acontece! É a mesma janela que abrimos no R base. Aqui você executa comandos e vê os resultados imediatamente. Pense nele como uma “calculadora” poderosa: basta digitar o código, apertar Enter, e o R responde!</li>
+</ol>
+</div></li>
+<li><div>
+<ol start="3" type="1">
+<li><strong>Files/Plots/Packages/Help</strong>: Essa janela multifuncional é super versátil. No <strong>Files</strong>, você navega nos arquivos do projeto; em <strong>Plots</strong>, visualiza gráficos; em <strong>Packages</strong>, gerencia as bibliotecas instaladas; e em <strong>Help</strong>, encontra ajuda para funções e pacotes. É um verdadeiro canivete suíço para explorar recursos e referências do R!</li>
+</ol>
+</div></li>
+<li><div>
+<ol start="4" type="1">
+<li><strong>Ambiente/Histórico</strong>: Aqui fica o “quadro de controle” dos seus dados e variáveis. No <strong>Ambiente</strong>, você vê todas as variáveis e dados carregados na sessão, enquanto o <strong>Histórico</strong> mostra os comandos que você já executou. Se você quiser repetir ou ajustar um comando anterior, é só buscá-lo aqui.</li>
+</ol>
+</div></li>
+</ul>
+<p>Agora, com o RStudio, registraremos nossos códigos no editor de script. Perceba que podemos criar diversos tipos de arquivos para edição. O RStudio comporta, inclusive, arquivos para serem executados em outras linguagens, como Python, C++ e SQL.</p>
+<p>Seguindo a sintaxe da linguagem e as funções disponíveis, escrevemos nossos códigos no editor de script. Em nosso curso, veremos comandos e funções importantes para importação, tratamento, manuseio e análise de dados. Mas para um bom domínio da ferramenta, é importante entendermos como ela opera.</p>
+<p>Por convenção, seguimos padrões de escrita do código, que chamamos de <strong>identação</strong>. A identação auxilia a deixar o código organizado e interpretável para humanos. Mesmo os softwares de desenvolvimento, como o RStudio, são capazes de interpretar padrões de identação. Por exemplo, quando iserimos um comentário com “#” e finalizamos com traços “—-”, o RStudio entende que se trata de um título para um segmento do código. Veremos como fazer isso mais pra frente.</p>
+<p>Em geral, orgaizamos os códigos seguindo a lógica do fluxo de trabalho. Que pode ser descrito por:</p>
+<ul>
+<li><strong>Setup e configurações básicas</strong></li>
+<li><strong>Armazenamento</strong></li>
+<li><strong>Manuseio</strong></li>
+<li><strong>Análise</strong></li>
+<li><strong>Exportação dos resultados</strong></li>
+</ul>
+<p>Agora, vamos retomar os fundamentos da linguagem R em um script organizado usando o RStudio.</p>
+</section>
+<section id="funções" class="level3">
+<h3 class="anchored" data-anchor-id="funções">Funções</h3>
+<p>Além dos comandos básicos, podemos também usar funções, que são comandos já programados para executar determinados procedimentos. Elas são algoritmos que fazem um determinado procedimento. São caixas pretas onde colocamos um input e recebemos um output.</p>
+<p>Por exemplo, a função “sum” faz a soma de um conjunto de valores, como o “=SOMA( )” no Excel.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="dv">1</span>,<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3</code></pre>
+</div>
+</div>
+<p>Escrevemos o nome da função seguido de parênteses. Dentro dos parênteses inserimos os argumentos necessários, veja:</p>
+<p><em>função</em>(atributo1 = isso, atributo2 = aquilo)</p>
+<p>Vamos ver um exemplo.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1 é maior do que 3? Se sim, retorne "Verdade", se não, "Mentira" </span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ifelse</span>( <span class="at">test =</span> <span class="dv">1</span><span class="sc">&gt;</span><span class="dv">3</span>, <span class="at">yes =</span> <span class="st">"Verdade"</span>, <span class="at">no =</span><span class="st">"Mentira"</span> ) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Mentira"</code></pre>
 </div>
 </div>
 <p>Você já está, intuitivamente, percebendo que a estrutura das funções no R é dada pelo nome da função (ex. “sum”), seguido de atributos inseridos dentro de parênteses “( atributos aqui )”. Nem todas as funções exigem atributos, mas todas as funções executam algum procedimento. Por exemplo, temos um conjunto de funções muito úteis para limpar a memória local (o que ajuda no processamento) e obter o diretório (pasta) principal onde estamos trabalhando.</p>
@@ -219,33 +474,134 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>getwd( ) : de “Get Working Directory”, para obter diretório base no qual está trabalhando.</p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gc</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gc</span>()  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>          used (Mb) gc trigger (Mb) max used (Mb)
-Ncells  598273 32.0    1357231 72.5  1357231 72.5
-Vcells 1095955  8.4    8388608 64.0  1876245 14.4</code></pre>
+Ncells  599451 32.1    1360225 72.7  1360225 72.7
+Vcells 1108058  8.5    8388608 64.0  1876245 14.4</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "C:/Users/13477365/Documents/book-dadoscomr"</code></pre>
 </div>
 </div>
-<p>Com o tempo, vamos escrevendo códigos (<em>scripts</em>) que compilam um conjunto sequencial de comandos. Um recurso muito importante nos nossos códigos são os comentários. Para que o R não interprete uma linha de um documento como um comando, devemos marcá-la com “#”. Toda informação que vem depois de um “#”, na linha, é descosiderada pelo R. Este recurso é muito importante para que nossos códigos sejam interpretáveis. Até mesmo o seu “eu” do futuro pode esquecer o que você programou, e se beneficiar de bons comentários.</p>
+<p>Há um conjunto extenso de funções de base do R, que já vem com o software a instalação. Há especialmente funções para gestão de memória e armazenamento, gestão de dados e estatística. Para além do R base, há também um universo de funções programadas pela comunidade de usuários, em diversos domínios, como ciências ambientais, psicologia, economia e até funções programadas por sociólogos! Diferente das do R base, porém, essas funções são associadas a pacotes externos que devem ser instalados e carregados. Isso veremos na próxima aula, quando formos tratar de manuseio de dados.</p>
+</section>
+<section id="construindo-um-dado-estruturado" class="level3">
+<h3 class="anchored" data-anchor-id="construindo-um-dado-estruturado">Construindo um dado estruturado</h3>
+<p>Com os comandos básicos que vimos anteriomente, vamos iniciar a construção de uma base de dados.</p>
+<p>Vimos que um conjunto de valores de mesmo tipo/classe pode ser guardado em um vetor, armazenado na memória local como um objeto. Por definição, os vetores são represetados como colunas.</p>
+<p>Quando temos vetores de igual tamanho (com a mesma quantidade de valores), podemos uni-los em uma nova estrutura de dados, chamada data.frame. O data.frame é a famosa estrutura retangular de dados que conhecemos, com os casos nas linhas e variáveis nas colunas, como no <em>survey</em> tradicional. Portanto, para criar uma base de dados no R, basta ter os vetores e uni-los em um data.frame.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Este comentário não é executado. Simples assim.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>nome <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Carlos"</span>,<span class="st">"Maria"</span>,<span class="st">"Renata"</span>,<span class="st">"Cleber"</span>,<span class="st">"Joana"</span>)</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>idade <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">18</span>,<span class="dv">23</span>,<span class="dv">45</span>,<span class="dv">21</span>,<span class="dv">45</span>)</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>sexo  <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"M"</span>,<span class="st">"F"</span>,<span class="st">"F"</span>,<span class="st">"M"</span>,<span class="st">"F"</span>)</span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>esquerda <span class="ot">&lt;-</span> <span class="fu">c</span>(T,F,T,F,T)</span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>meus_dados <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(nome,idade,sexo,esquerda)</span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>meus_dados</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    nome idade sexo esquerda
+1 Carlos    18    M     TRUE
+2  Maria    23    F    FALSE
+3 Renata    45    F     TRUE
+4 Cleber    21    M    FALSE
+5  Joana    45    F     TRUE</code></pre>
 </div>
-<p>Seguindo a sintaxe da linguagem e as funções disponíveis, escrevemos nossos códigos com o R. Em nosso curso, veremos comandos e funções importantes para importação, tratamento, manuseio e análise de dados. Mas para um bom domínio da ferramenta, é importante entendermos como ela opera.</p>
+</div>
 </section>
-<section id="mas-por-que-o-r-e-não-outro" class="level2">
-<h2 class="anchored" data-anchor-id="mas-por-que-o-r-e-não-outro">Mas… por que o R e não outro?</h2>
-<p>O que torna o R especial para a pesquisa é ter sido desenvolvido para fins estatísticos, que ao longo do tempo tomou a forma de análise de dados. Os autores do software são os estatísticos Ross Ihaka (neozelandês) e Robert Gentleman (canadense). Eles iniciaram o projeto em meados dos anos 1990, tendo circulado a primeira cópia do arquivo binário, então embrião do R, em uma lista de e-mails de pesquisadores que trabalhavam com a linguagem S, chamada <em>s-news</em>. Com a circulação, Ross e Robert receberam uma indicação de Martin Mächler, professor no Departamento de Matemática da Universidade de Zurique (Suiça), para associarem o software ao projeto GNU, de desenvolvimento de softwares livres. Os autores acataram a ideia e em junho de 1995 estava disponível o código fonte do R sob licença da <em>GNU Free Software Foundation.</em> Essa história foi contada no artigo <a href="https://www.tandfonline.com/doi/abs/10.1080/10618600.1996.10474713"><em>R: A Language for Data Analysis and Graphics</em></a> (1996), onde os autores apresentaram o projeto publicamente para a comunidade acadêmica. Depois disso o projeto ganhou força. No ano seguinte, em 1997, foi fundado o <em>R Core Group</em>, composto por pessoas responsáveis pelo controle da versão do código fonte. Em 2002 foi disponibilizada a versão 1.0 do R, que passou por diversas atualizações até chegar a atual 4.4.1.</p>
-<p>Até 2009, o R era usado por estatísticos, cientistas da computação e pesquisadores engajados com este tipo de expertise. O cenário mudou com o desenvolvimento de um ambiente integrado de trabalho, o RStudio, que facilitou o fluxo. Além disso, em 2016, o então cientista chefe da empresa RStudio, Hadley Wickham, em colaboração com Garrett Grolemund, publicaram um conjunto de funções e pacotes facilitando a análise de dados, todos integrados no <em>Tidyverse</em>.</p>
-<p>Perceba que toda a história do R foi construída na contramão dos softwares de mercado, como o SPSS da IBM e o pacote office da Microsoft. Trabalhar com o R implica em um outro paradigma. Ao invés de ter o software como um produto administrado por uma empresa, onde as funções já estão programadas e disponíveis por botões e comandos, temos uma linguagem a partir da qual podemos programar funções e executar comandos diversos. Há diversas implicações nessa mudança que transformaram completamente o trabalho com dados nas Ciências Sociais, permitindo maior abertura para a criatividade e replicabilidade. Todo o nosso fluxo de trabalho é escrito em um documento, que pode ser compartilhado com outras pessoas, que podem verificar o passo-a-passo e replicar. Além disso, a forma como utilizamos o software possibilita eficiência nos processamentos, com baixo custo de tempo e recursos de hardware.</p>
+<section id="comandos-lógicos" class="level3">
+<h3 class="anchored" data-anchor-id="comandos-lógicos">Comandos lógicos</h3>
+<p>Além dos cálculos, podemos também fazer operações lógicas, que comparam valores e retornam <code>TRUE</code> ou <code>FALSE</code>. Os operadores principais são:</p>
+<ul>
+<li><p><strong>Igual a (<code>==</code>)</strong>: Verifica se dois valores são iguais.</p></li>
+<li><p><strong>Diferente de (<code>!=</code>)</strong>: Verifica se dois valores são diferentes.</p></li>
+<li><p><strong>Maior que (<code>&gt;</code>)</strong>: Verifica se um valor é maior que o outro.</p></li>
+<li><p><strong>Menor que (<code>&lt;</code>)</strong>: Verifica se um valor é menor que o outro.</p></li>
+<li><p><strong>Maior ou igual a (<code>&gt;=</code>)</strong>: Verifica se um valor é maior ou igual ao outro.</p></li>
+<li><p><strong>Menor ou igual a (<code>&lt;=</code>)</strong>: Verifica se um valor é menor ou igual ao outro.</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">&gt;</span>  <span class="dv">2</span>  <span class="co"># MAIOR QUE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">&lt;</span> <span class="dv">2</span>   <span class="co"># MENOR QUE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">==</span> <span class="dv">3</span>  <span class="co"># IGUALDADE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">&gt;=</span> <span class="dv">2</span> <span class="co"># MAIOR OU IGUAL</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Por quê igualdade são dois sinais?</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="co"># R: Porque apenas um significa atribuição de valor. Igual a setinha, como vimos.</span></span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a><span class="st">"eu"</span> <span class="sc">==</span> <span class="st">"todo mundo"</span> <span class="co"># Igualdade</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="st">"eu"</span> <span class="sc">==</span> <span class="st">"eu"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="st">"eu"</span> <span class="sc">!=</span> <span class="st">"vc"</span>         <span class="co"># Diferença</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Teste em grupo</span></span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a><span class="st">"eu"</span> <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"vc"</span>,<span class="st">"todo mundo"</span>) <span class="co"># Generalização - se contém</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Nota importante: "!" opera como um sinal de negação/diferença</span></span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span>(<span class="st">"eu"</span> <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"vc"</span>,<span class="st">"todo mundo"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+</div>
 </section>
-<section id="ok.-entendi.-então-como-eu-uso" class="level2">
-<h2 class="anchored" data-anchor-id="ok.-entendi.-então-como-eu-uso">Ok. Entendi. Então como eu uso?</h2>
+<section id="comandos-relacionais" class="level3">
+<h3 class="anchored" data-anchor-id="comandos-relacionais">Comandos relacionais</h3>
+<p>As operações relacionais são usadas para combinar ou inverter condições. No R, você tem três operadores principais:</p>
+<ul>
+<li><p><strong>AND (<code>&amp;</code>)</strong>: Retorna <code>TRUE</code> se ambas as condições forem verdadeiras.</p></li>
+<li><p><strong>OR (<code>|</code>)</strong>: Retorna <code>TRUE</code> se pelo menos uma condição for verdadeira.</p></li>
+<li><p><strong>NOT (<code>!</code>)</strong>: Inverte o valor lógico, transformando <code>TRUE</code> em <code>FALSE</code> e vice-versa.</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="co"># "|" para "OU"</span></span>
+<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">&gt;</span> <span class="dv">2</span> <span class="sc">|</span> <span class="dv">2</span> <span class="sc">==</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">&gt;</span> <span class="dv">2</span> <span class="sc">|</span> <span class="dv">2</span> <span class="sc">&lt;</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="co"># "&amp;" para "E"</span></span>
+<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">&gt;</span> <span class="dv">2</span> <span class="sc">&amp;</span> <span class="dv">2</span> <span class="sc">==</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">&gt;</span> <span class="dv">1</span> <span class="sc">&amp;</span> <span class="dv">2</span> <span class="sc">==</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+</div>
+<p>As operações <strong>lógicas</strong> e <strong>relacionais</strong> são ferramentas fundamentais no R. Elas ajudam a fazer muitos manuseios básicos e dados, como filtro de casos, seleção e recodificação de variáveis.</p>
+<p>Aqui vou acelerar o passo-a-passo para colocarmos tudo em prática com exercícios. Vamos fechar o primeiro capítulo com um último fudamento central para todas as linguagens de programação: as funções.</p>
+</section>
+<section id="section" class="level3">
+<h3 class="anchored" data-anchor-id="section"></h3>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -676,8 +1032,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./references.html" class="pagination-link" aria-label="References">
-        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./class02.html" class="pagination-link" aria-label="Capítulo 2">
+        <span class="nav-page-text">Capítulo 2</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

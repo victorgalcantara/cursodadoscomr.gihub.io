@@ -1,3 +1,22 @@
 p {
   text-align: justify;
 }
+
+/* Define o fundo dos chunks de código */
+.quarto-code {
+    background-color: #f5f5f5; /* Cinza claro */
+    padding: 10px;
+    border-radius: 5px;
+    font-family: monospace;
+}
+
+/* Estiliza o texto do código para R */
+.language-r .quarto-code {
+    color: #2d2d2d; /* Cinza escuro */
+}
+
+/* Opcional: Remove bordas de código inline */
+.quarto-code-inline {
+    background-color: transparent;
+    padding: 0;
+}

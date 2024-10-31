@@ -2,16 +2,263 @@
 
 ## É de comer?
 
-O R é uma linguagem de programação, o que significa que podemos utilizá-la para comandar o computador a executar operações. Para isso, usamos comandos estruturados seguindo a sintaxe desta linguagem. Por exemplo, podemos simplesmente fazer cálculos com R.
+O R é uma linguagem de programação, o que significa que podemos utilizá-la para nos comunicar com o computador. Isto é, seguimos a sintaxe da linguagem para usar comandos que orientam o computador a executar operações. Uma definição mais específica do R é a de linguagem voltada a objetos. Isso porque o R fuciona muito direcionado às informações guardadas como objetos na memória.
+
+Como uma linguagem, o R tem uma sintaxe e para dominá-la precisamos praticar. Por isso este livro é mesclado entre explicações e exemplos práticos. Não é pavê, nem pacumê. É pa praticar!
+
+### Mas... por que o R e não outro?
+
+O que torna o R especial para a pesquisa é ter sido desenvolvido para fins estatísticos, que ao longo do tempo tomou a forma de análise de dados. Os autores da linguagem são os estatísticos Ross Ihaka (neozelandês) e Robert Gentleman (canadense). Eles iniciaram o projeto em meados dos anos 1990, tendo circulado a primeira cópia do arquivo binário, embrião do R, em uma lista de e-mails de pesquisadores que trabalhavam com a linguagem S, chamada *s-news*.
+
+Com a circulação do projeto, Ross e Robert receberam uma indicação de Martin Mächler, professor no Departamento de Matemática da Universidade de Zurique (Suiça), para associarem o software ao projeto GNU, de desenvolvimento de softwares livres. Os autores acataram a ideia e em junho de 1995 estava disponível o código fonte do R sob licença da *GNU Free Software Foundation.* Essa história foi contada no artigo [*R: A Language for Data Analysis and Graphics*](https://www.tandfonline.com/doi/abs/10.1080/10618600.1996.10474713) (1996), onde os autores apresentaram o projeto publicamente para a comunidade acadêmica. Depois disso o projeto ganhou adesão e força. No ano seguinte, em 1997, foi fundado o *R Core Group*, composto por pessoas responsáveis pelo controle da versão do código fonte, que atualmente gere o *Comprehensive R Archive Network* ([CRAN](https://cran.r-project.org/)), onde são registradas e distribuídas as atualizações do R. A versão 1.0 do R foi divulgada em 2002 e passou por diversas atualizações até chegar a atual 4.4.1.
+
+Até 2009, o R era usado por estatísticos, cientistas da computação e pesquisadores engajados com este tipo de expertise. O cenário mudou com o desenvolvimento de um ambiente integrado de trabalho, o RStudio, que facilitou o fluxo. Além disso, em 2016, o então cientista chefe da empresa RStudio, Hadley Wickham, em colaboração com Garrett Grolemund, concretizou o projeto [Tidy Data](https://www.jstatsoft.org/article/view/v059i10/#:~:text=This%20framework%20makes%20it%20easy%20to%20tidy%20messy,tools%20that%20both%20input%20and%20output%20tidy%20datasets.), visando aprimorar o manuseio de dados, publicando um conjunto de funções em pacotes voltados para a análise de dados, todos integrados ao *Tidyverse*. O projeto foi costruído por quatro princípios: 1. reutilização de estrutura de dados existentes; 2. composição de funções simples com o *pipe*; 3. incetivar programação que seja funcional e; 4. códigos que seja interpretáveis para humanos. Por enquanto estamos conhecendo a história, mas a transformação que isso causou será percebida quando começarmos a utilizar o pacote *tidyverse*.
+
+Perceba que toda a história do R foi construída na contramão dos softwares de mercado, como o SPSS da IBM e o pacote office da Microsoft. Trata-se de um projeto conduzido por pesquisas acadêmicas de ponta, visando facilitar o trabalho com a análise de dados. Trabalhar com o R, portanto, implica em um outro paradigma. Ao invés de ter o software como um produto administrado por uma empresa, onde as funções já estão programadas e disponíveis por botões e comandos, temos uma linguagem a partir da qual podemos programar funções e executar comandos diversos. Há diversas implicações nessa mudança que transformaram completamente o trabalho com dados nas Ciências Sociais, permitindo maior abertura para a criatividade e replicabilidade. Todo o nosso fluxo de trabalho é escrito em um documento, que pode ser compartilhado com outras pessoas, que podem verificar o passo-a-passo e replicar. Além disso, a forma como utilizamos o software possibilita eficiência nos processamentos, com baixo custo de tempo e recursos de hardware. Veremos isso ao longo o curso.
+
+### O uso de linguagem de programação nas Ciências Sociais
+
+Dados e metodologias são os principais elementos para o trabalho com pesquisa e operacionalização de teorias. Em geral, formulamos hipóteses sobre o mundo informadas por literaturas específicas, e testamos essas hipóteses coletando dados e utilizando metodologias. As linguagens de programação nos ajudam na parte operacional de tratamento e análise dos dados.
+
+Nos últimos anos, estamos experimentando uma mudança no paradigma de análise de dados nas Ciências Sociais. Ao invés do consumo de softwares com funções estatísticas programadas, disponíveis no mercado, como o *Statistical Package for Social Sciences* (SPSS), produto da IBM, e o Pacote Office, produto da Microsoft, estamos migrando para linguagens de programação de acesso livre e gratuito.
+
+Ser parte do Projeto GNU de softwares livres é o primeiro ponto forte do R. Com as demais linguagens de programação, porém, há também pontos impotantes, como:
+
+-   **Eficiência:** o fluxo de trabalho com funções reduz o custo de memória e processamento.
+
+<!-- -->
+
+-   **Potência:** não estamos mais limitados às funções programadas no software, como é vendido. Podemos programar funções novas e fazer (quase) tudo com R. Excel e SPSS estão anos atrás!
+
+-   **Replicabilidade e transparência:** os procedimentos são registrados em código, portando mais transparentes e possíveis de serem replicados. Práticas fundamentais e cada vez mais impulsionadas por revistas e instituições acadêmicas.
+
+-   **Popularidade:** movido por uma comunidade internacional extensa, que desenvolve e acompanha o software. Cada vez mais adotado em instituições (principalmente públicas) e pela comunidade acadêmica.
+
+O manuseio e a análise de dados é um desafio de longa data. Do ponto de vista do armazenamento e processamento, a principal pesquisa nacional, o Censo Demográfico, já era um desafio desde, pelo menos, 1960 ([para saber mais sobre a história dos censos](https://www.scielo.br/j/nec/a/nJnk3y84WffXCjwp76FNjJr/)).
+
+Uma área que emergiu diante desses desafios é a de Ciências Sociais Computacionais, que aborda desde o desenvolvimento de algoritmos para a extração e análise de dados até a discussão teórica sobre ambientes digitais.
+
+Ainda que a programação esteja relacionada com lógica e cálculo, não se trata apenas de informações quantitativas. Podemos tratar, além dos famosos *surveys*, também dados não estruturados, textos, imagens, sons e tudo o mais que puder ser registrado. Tudo isso torna mais atraente a análise de dados com uso de programação.
+
+Se você é uma pessoa curiosa e que quer explorar a criatividade, a sofisticação e a elegância em seu trabalho, está no lugar certo.
+
+## Entendi o que é. Então como eu uso?
+
+Como vimos, o R é pa praticar! Então, ferramentas em mãos.
+
+É fudamental saber que o R é a linguagem, e o RStudio é o ambiente de desenvolvimento. Não adianta tentar usar o RStudio sem o R. Portato, faça a instalação do R e RStudio de acordo com as especificações do seu computador.
+
+Como uma experiência antropológica ~~e de choque~~ , abra o R (não o RStudio!). Caso tenha dificuldade em econtrar o software, digite na busca do seu computador apenas a letra "R" e procure em aplicativos.
+
+Você deve abrir algo parecido com essa janela.
+
+![Console R](images/cosole-r.png)
+
+A janela onde escrevemos as linhas de comandos executáveis chamamos de "console". Abrindo o R diretamente, temos apenas a janela do console para inserir os comandos. Triste, né? Mas tudo fica mais *sexy* com o RStudio. Para fins didáticos, vamos continuar com o R base. Precisamos olhar um pouco para o console como faziam os egípcios e os hebreus.
+
+Neste livro, por ser escrito no R, temos as linhas de comando destacadas, que podem ser copiadas e coladas no console para executar.
+
+### Primeiro contato: R como calculadora
+
+Executar cálculos simples com o R é uma forma mais amigável de começar entender como a linguagem funciona. Podemos pensar no computador como uma grande calculadora que computa operações e, no R, como um meio para comandar o computador.
+
+Por exemplo, no comando abaixo, eu computo um cálculo simples no R e, em seguida, recebo um resultado. Faça o mesmo no console do R base. Digite 1+2 e dê um enter para computar
 
 ```{r}
 1+2
 ```
 
-Podemos também usar funções, que são comandos programados para executar determinados procedimentos. Por exemplo, a função "sum" faz a soma de um conjunto de valores, como o "SOMA( )" no Excel.
+Legal, não é? Talvez não ainda. Mas vai ficar!
+
+Além de números e cálculos, podemos executar outros tipos de informações como caracteres (texto) e valores lógicos (Verdadeiro e Falso). Para caracteres, devemos sempre utilizar aspas simples ou duplas, conforme a linha abaixo.
+
+```{r}
+"Utilize sempre aspas para informações textuais"
+```
+
+Para valores lógicos, usamos o inglês TRUE e FALSE, que podem ser abreviados pelas iniciais T e F, conforme a linha abaixo.
+
+```{r}
+TRUE
+FALSE
+
+T
+F
+```
+
+Com o tempo, vamos escrevendo códigos (*scripts*) que compilam um conjunto sequencial de comandos. Os códigos vão ficando cada vez mais complexos na medida em que vamos trabalhando. Um recurso muito importante para torná-los interpretáveis para humanos são os comentários. Para que o R não interprete uma linha de um documento como um comando, devemos marcá-la com "\#". Toda informação que vem depois de um "\#", na linha, é descosiderada pelo R.
+
+```{r}
+# Este comentário não é executado. Simples assim.
+```
+
+Como exercício, escreva um comentário e execute no console do R base. Depois escreva o mesmo sem a marcação de comentário.
+
+Você vai perceber que, sem indicar que e um comentário (#), o R tenta computar os valores e retorna erro, porque não consegue identificar nada associado.
+
+Em geral, números, caracteres, valores lógicos e comentários compõem a base fundamental da linguagem R.
+
+Vamos fazer um exercício didático para introduzir o uso de códigos. Copie as linhas de comando abaixo e cole na janela console, no R base. Você pode ir colando linha a linha e executado os comandos para observar o que acontece.
+
+```{r, eval=F}
+# Primeiro código com o R
+# Autor: Victor G Alcantara
+
+# R como calculadora
+
+## Fazedo cálculos simples
+1+2
+
+3+5*4
+
+10/2
+
+## Computando texto
+"Trabalhar com programação é desafiador"
+
+## Computado valores lógicos
+TRUE
+
+FALSE
+```
+
+Uma vez compreedendo as bases, podemos operá-las utilizando a memória do computador.
+
+Para guardar valores na memória, como objetos, utilizamos os sinais se atribuição "\<-" e "=".
+
+-   Sinais de atribuição de valores à memória:
+
+    -   Seta: objeto \<- valor
+
+    -   Um igual: objeto = valor
+
+```{r}
+resultado <- 1+2
+
+resultado
+```
+
+No exemplo acima, guardamos o cálculo 1+2 no objeto "resultado", armazenado na memória. Perceba que estamos interpretando a linha de código. O que o R interpreta é o mesmo. Podemos ler como: atribua ao objeto "resultado" o valor da conta 1+2.
+
+Uma vez guardado na memória, podemos nos referir ao objeto para acessar o valor, conforme ilustra o exemplo abaixo.
+
+```{r}
+resultado + 1
+```
+
+Para guardar mais de um valor em um objeto, devemos utilizar uma função para concatenar os valores, expressa por um "c" seguido de parêteses e os valores contidos, separados por vírgula.
+
+```{r}
+valores_num <- c(1,2,3,4,5)
+
+valores_num
+```
+
+Podemos fazer operações com todos os valores guardados em um objeto. Por definição, chamamos um objeto que contenha apenas um tipo ou classe de valores como um **vetor**. Podemos dizer, assim, que criamos um vetor guardado no objeto "valores_num" que recebe os valores de 1 a 5.
+
+Podemos fazer operações com nosso vetor, como no exemplo abaixo.
+
+```{r}
+1 + valores_num
+```
+
+Toda vez que nos referirmos ao nome do objeto guardado, sem o uso de aspas, o R vai entender que estamos nos referindo a todos os valores guardados no vetor. Por isso a soma 1 + vetor tem como resultado todos os valores + 1.
+
+Para acessar um valor específico em um vetor, podemos indicar a localização do valor utilizando colchetes \[ \].
+
+vetor\[ posição do valor \]
+
+```{r}
+valores_num[3] # Obtendo o valor guardado na posição 3
+```
+
+Um vetor guarda sempre um tipo ou classe de valores. Podemos fazer operações que sejam adequadas a cada tipo de valor contido. Por exemplo, para vetores que guardam textos, não podemos fazer cálculos (o R retornará como erro).
+
+```{r}
+valores_chr <- c("A","B","C","D","E")
+valores_chr
+
+valores_chr[1] # Obtendo o valor guardado na posição 1
+valores_chr[3] # Obtendo o valor guardado na posição 3
+```
+
+```{r, error = TRUE}
+valores_chr + 1
+```
+
+Não se assuste com a mensagem de erro. Ela sempre aparecerá com alguma explicação que te ajudará a entender. Neste caso, ele está dizendo que o argumento não é um valor numérico para fazer cálculo. O R se esforça para ser nosso amigo e muitas vezes, quando notar que pode ter algo errado, vai nos avisar com *Warning*.
+
+Embora tente ser nosso amigo, nunca se esqueça de que o R é burro e o inteligente é você. No caminho, vão surgir muitos erros que vão te fazer pensar o contrário. Mas todos têm solução.
+
+Até aqui vimos o suficiente do R base. Agora, precisamos do RStudio para avança de uma forma mais atrativa.
+
+### Explorado comandos com RStudio
+
+Abra o RStudio no seu computador.
+
+Você deve abrir algo parecido com a imagem abaixo. Uma das inovações deste ambiente de trabalho é dividir o fluxo em quatro janelas. A primeira, geralmente localizada no quadrante 1) script; 2) console; 3) gestão de aquivos e *outputs* e; 4) ambiente global (gestão de memória).
+
+![RStudio Layout](images/layout-rstudio.png)
+
+-   <div>
+
+    1.  **Editor de Scripts**: Essa janela é sua amiga da organização! É onde você escreve e salva seu código em arquivos. Em vez de rodar cada comando diretamente, você pode escrever vários comandos e depois executá-los da forma que quiser, selecionando partes ou tudo, quando estiver pronto.
+
+    </div>
+
+-   <div>
+
+    2.  **Console**: É onde a mágica acontece! É a mesma janela que abrimos no R base. Aqui você executa comandos e vê os resultados imediatamente. Pense nele como uma "calculadora" poderosa: basta digitar o código, apertar Enter, e o R responde!
+
+    </div>
+
+-   <div>
+
+    3.  **Files/Plots/Packages/Help**: Essa janela multifuncional é super versátil. No **Files**, você navega nos arquivos do projeto; em **Plots**, visualiza gráficos; em **Packages**, gerencia as bibliotecas instaladas; e em **Help**, encontra ajuda para funções e pacotes. É um verdadeiro canivete suíço para explorar recursos e referências do R!
+
+    </div>
+
+-   <div>
+
+    4.  **Ambiente/Histórico**: Aqui fica o “quadro de controle” dos seus dados e variáveis. No **Ambiente**, você vê todas as variáveis e dados carregados na sessão, enquanto o **Histórico** mostra os comandos que você já executou. Se você quiser repetir ou ajustar um comando anterior, é só buscá-lo aqui.
+
+    </div>
+
+Agora, com o RStudio, registraremos nossos códigos no editor de script. Perceba que podemos criar diversos tipos de arquivos para edição. O RStudio comporta, inclusive, arquivos para serem executados em outras linguagens, como Python, C++ e SQL.
+
+Seguindo a sintaxe da linguagem e as funções disponíveis, escrevemos nossos códigos no editor de script. Em nosso curso, veremos comandos e funções importantes para importação, tratamento, manuseio e análise de dados. Mas para um bom domínio da ferramenta, é importante entendermos como ela opera.
+
+Por convenção, seguimos padrões de escrita do código, que chamamos de **identação**. A identação auxilia a deixar o código organizado e interpretável para humanos. Mesmo os softwares de desenvolvimento, como o RStudio, são capazes de interpretar padrões de identação. Por exemplo, quando iserimos um comentário com "\#" e finalizamos com traços "----", o RStudio entende que se trata de um título para um segmento do código. Veremos como fazer isso mais pra frente.
+
+Em geral, orgaizamos os códigos seguindo a lógica do fluxo de trabalho. Que pode ser descrito por:
+
+-   **Setup e configurações básicas**
+-   **Armazenamento**
+-   **Manuseio**
+-   **Análise**
+-   **Exportação dos resultados**
+
+Agora, vamos retomar os fundamentos da linguagem R em um script organizado usando o RStudio.
+
+### Funções
+
+Além dos comandos básicos, podemos também usar funções, que são comandos já programados para executar determinados procedimentos. Elas são algoritmos que fazem um determinado procedimento. São caixas pretas onde colocamos um input e recebemos um output.
+
+Por exemplo, a função "sum" faz a soma de um conjunto de valores, como o "=SOMA( )" no Excel.
 
 ```{r}
 sum(1,2)
+```
+
+Escrevemos o nome da função seguido de parênteses. Dentro dos parênteses inserimos os argumentos necessários, veja:
+
+*função*(atributo1 = isso, atributo2 = aquilo)
+
+Vamos ver um exemplo.
+
+```{r}
+# 1 é maior do que 3? Se sim, retorne "Verdade", se não, "Mentira" 
+ifelse( test = 1>3, yes = "Verdade", no ="Mentira" ) 
 ```
 
 Você já está, intuitivamente, percebendo que a estrutura das funções no R é dada pelo nome da função (ex. "sum"), seguido de atributos inseridos dentro de parênteses "( atributos aqui )". Nem todas as funções exigem atributos, mas todas as funções executam algum procedimento. Por exemplo, temos um conjunto de funções muito úteis para limpar a memória local (o que ajuda no processamento) e obter o diretório (pasta) principal onde estamos trabalhando.
@@ -21,25 +268,91 @@ Você já está, intuitivamente, percebendo que a estrutura das funções no R �
 -   getwd( ) : de "Get Working Directory", para obter diretório base no qual está trabalhando.
 
 ```{r}
-gc()
+gc()  
 
 getwd()
 ```
 
-Com o tempo, vamos escrevendo códigos (*scripts*) que compilam um conjunto sequencial de comandos. Um recurso muito importante nos nossos códigos são os comentários. Para que o R não interprete uma linha de um documento como um comando, devemos marcá-la com "\#". Toda informação que vem depois de um "\#", na linha, é descosiderada pelo R. Este recurso é muito importante para que nossos códigos sejam interpretáveis. Até mesmo o seu "eu" do futuro pode esquecer o que você programou, e se beneficiar de bons comentários.
+Há um conjunto extenso de funções de base do R, que já vem com o software a instalação. Há especialmente funções para gestão de memória e armazenamento, gestão de dados e estatística. Para além do R base, há também um universo de funções programadas pela comunidade de usuários, em diversos domínios, como ciências ambientais, psicologia, economia e até funções programadas por sociólogos! Diferente das do R base, porém, essas funções são associadas a pacotes externos que devem ser instalados e carregados. Isso veremos na próxima aula, quando formos tratar de manuseio de dados.
+
+### Construindo um dado estruturado
+
+Com os comandos básicos que vimos anteriomente, vamos iniciar a construção de uma base de dados.
+
+Vimos que um conjunto de valores de mesmo tipo/classe pode ser guardado em um vetor, armazenado na memória local como um objeto. Por definição, os vetores são represetados como colunas.
+
+Quando temos vetores de igual tamanho (com a mesma quantidade de valores), podemos uni-los em uma nova estrutura de dados, chamada data.frame. O data.frame é a famosa estrutura retangular de dados que conhecemos, com os casos nas linhas e variáveis nas colunas, como no *survey* tradicional. Portanto, para criar uma base de dados no R, basta ter os vetores e uni-los em um data.frame.
 
 ```{r}
-# Este comentário não é executado. Simples assim.
+nome <- c("Carlos","Maria","Renata","Cleber","Joana")
+idade <- c(18,23,45,21,45)
+sexo  <- c("M","F","F","M","F")
+esquerda <- c(T,F,T,F,T)
+
+meus_dados <- data.frame(nome,idade,sexo,esquerda)
+meus_dados
 ```
 
-Seguindo a sintaxe da linguagem e as funções disponíveis, escrevemos nossos códigos com o R. Em nosso curso, veremos comandos e funções importantes para importação, tratamento, manuseio e análise de dados. Mas para um bom domínio da ferramenta, é importante entendermos como ela opera.
+### Comandos lógicos
 
-## Mas... por que o R e não outro?
+Além dos cálculos, podemos também fazer operações lógicas, que comparam valores e retornam `TRUE` ou `FALSE`. Os operadores principais são:
 
-O que torna o R especial para a pesquisa é ter sido desenvolvido para fins estatísticos, que ao longo do tempo tomou a forma de análise de dados. Os autores do software são os estatísticos Ross Ihaka (neozelandês) e Robert Gentleman (canadense). Eles iniciaram o projeto em meados dos anos 1990, tendo circulado a primeira cópia do arquivo binário, então embrião do R, em uma lista de e-mails de pesquisadores que trabalhavam com a linguagem S, chamada *s-news*. Com a circulação, Ross e Robert receberam uma indicação de Martin Mächler, professor no Departamento de Matemática da Universidade de Zurique (Suiça), para associarem o software ao projeto GNU, de desenvolvimento de softwares livres. Os autores acataram a ideia e em junho de 1995 estava disponível o código fonte do R sob licença da *GNU Free Software Foundation.* Essa história foi contada no artigo [*R: A Language for Data Analysis and Graphics*](https://www.tandfonline.com/doi/abs/10.1080/10618600.1996.10474713) (1996), onde os autores apresentaram o projeto publicamente para a comunidade acadêmica. Depois disso o projeto ganhou força. No ano seguinte, em 1997, foi fundado o *R Core Group*, composto por pessoas responsáveis pelo controle da versão do código fonte. Em 2002 foi disponibilizada a versão 1.0 do R, que passou por diversas atualizações até chegar a atual 4.4.1.
+-   **Igual a (`==`)**: Verifica se dois valores são iguais.
 
-Até 2009, o R era usado por estatísticos, cientistas da computação e pesquisadores engajados com este tipo de expertise. O cenário mudou com o desenvolvimento de um ambiente integrado de trabalho, o RStudio, que facilitou o fluxo. Além disso, em 2016, o então cientista chefe da empresa RStudio, Hadley Wickham, em colaboração com Garrett Grolemund, publicaram um conjunto de funções e pacotes facilitando a análise de dados, todos integrados no *Tidyverse*.
+-   **Diferente de (`!=`)**: Verifica se dois valores são diferentes.
 
-Perceba que toda a história do R foi construída na contramão dos softwares de mercado, como o SPSS da IBM e o pacote office da Microsoft. Trabalhar com o R implica em um outro paradigma. Ao invés de ter o software como um produto administrado por uma empresa, onde as funções já estão programadas e disponíveis por botões e comandos, temos uma linguagem a partir da qual podemos programar funções e executar comandos diversos. Há diversas implicações nessa mudança que transformaram completamente o trabalho com dados nas Ciências Sociais, permitindo maior abertura para a criatividade e replicabilidade. Todo o nosso fluxo de trabalho é escrito em um documento, que pode ser compartilhado com outras pessoas, que podem verificar o passo-a-passo e replicar. Além disso, a forma como utilizamos o software possibilita eficiência nos processamentos, com baixo custo de tempo e recursos de hardware.
+-   **Maior que (`>`)**: Verifica se um valor é maior que o outro.
 
-## Ok. Entendi. Então como eu uso?
+-   **Menor que (`<`)**: Verifica se um valor é menor que o outro.
+
+-   **Maior ou igual a (`>=`)**: Verifica se um valor é maior ou igual ao outro.
+
+-   **Menor ou igual a (`<=`)**: Verifica se um valor é menor ou igual ao outro.
+
+```{r}
+2 >  2  # MAIOR QUE
+2 < 2   # MENOR QUE
+2 == 3  # IGUALDADE
+
+2 >= 2 # MAIOR OU IGUAL
+
+# Por quê igualdade são dois sinais?
+# R: Porque apenas um significa atribuição de valor. Igual a setinha, como vimos.
+
+"eu" == "todo mundo" # Igualdade
+"eu" == "eu"
+"eu" != "vc"         # Diferença
+
+# Teste em grupo
+"eu" %in% c("vc","todo mundo") # Generalização - se contém
+
+# Nota importante: "!" opera como um sinal de negação/diferença
+
+!("eu" %in% c("vc","todo mundo"))
+```
+
+### Comandos relacionais
+
+As operações relacionais são usadas para combinar ou inverter condições. No R, você tem três operadores principais:
+
+-   **AND (`&`)**: Retorna `TRUE` se ambas as condições forem verdadeiras.
+
+-   **OR (`|`)**: Retorna `TRUE` se pelo menos uma condição for verdadeira.
+
+-   **NOT (`!`)**: Inverte o valor lógico, transformando `TRUE` em `FALSE` e vice-versa.
+
+```{r}
+# "|" para "OU"
+2 > 2 | 2 == 2
+2 > 2 | 2 < 2
+
+# "&" para "E"
+2 > 2 & 2 == 2
+2 > 1 & 2 == 2
+```
+
+As operações **lógicas** e **relacionais** são ferramentas fundamentais no R. Elas ajudam a fazer muitos manuseios básicos e dados, como filtro de casos, seleção e recodificação de variáveis.
+
+Aqui vou acelerar o passo-a-passo para colocarmos tudo em prática com exercícios. Vamos fechar o primeiro capítulo com um último fudamento central para todas as linguagens de programação: as funções.
+
+### 
