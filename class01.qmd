@@ -12,17 +12,15 @@ O que torna o R especial para a pesquisa é ter sido desenvolvido para fins esta
 
 Com a circulação do projeto, Ross e Robert receberam uma indicação de Martin Mächler, professor no Departamento de Matemática da Universidade de Zurique (Suiça), para associarem o software ao projeto GNU, de desenvolvimento de softwares livres. Os autores acataram a ideia e em junho de 1995 estava disponível o código fonte do R sob licença da *GNU Free Software Foundation.* Essa história foi contada no artigo [*R: A Language for Data Analysis and Graphics*](https://www.tandfonline.com/doi/abs/10.1080/10618600.1996.10474713) (1996), onde os autores apresentaram o projeto publicamente para a comunidade acadêmica. Depois disso o projeto ganhou adesão e força. No ano seguinte, em 1997, foi fundado o *R Core Group*, composto por pessoas responsáveis pelo controle da versão do código fonte, que atualmente gere o *Comprehensive R Archive Network* ([CRAN](https://cran.r-project.org/)), onde são registradas e distribuídas as atualizações do R. A versão 1.0 do R foi divulgada em 2002 e passou por diversas atualizações até chegar a atual 4.4.1.
 
-Até 2009, o R era usado por estatísticos, cientistas da computação e pesquisadores engajados com este tipo de expertise. O cenário mudou com o desenvolvimento de um ambiente integrado de trabalho, o RStudio, que facilitou o fluxo. Além disso, em 2016, o então cientista chefe da empresa RStudio, Hadley Wickham, em colaboração com Garrett Grolemund, concretizou o projeto [Tidy Data](https://www.jstatsoft.org/article/view/v059i10/#:~:text=This%20framework%20makes%20it%20easy%20to%20tidy%20messy,tools%20that%20both%20input%20and%20output%20tidy%20datasets.), visando aprimorar o manuseio de dados, publicando um conjunto de funções em pacotes voltados para a análise de dados, todos integrados ao *Tidyverse*. O projeto foi costruído por quatro princípios: 1. reutilização de estrutura de dados existentes; 2. composição de funções simples com o *pipe*; 3. incetivar programação que seja funcional e; 4. códigos que seja interpretáveis para humanos. Por enquanto estamos conhecendo a história, mas a transformação que isso causou será percebida quando começarmos a utilizar o pacote *tidyverse*.
+Até 2009, o R era usado por estatísticos, cientistas da computação e pesquisadores engajados com este tipo de expertise. O cenário mudou com o desenvolvimento de um ambiente integrado de trabalho, o RStudio, que facilitou o fluxo. Além disso, em 2016, o então cientista chefe da empresa RStudio, Hadley Wickham, em colaboração com Garrett Grolemund, concretizou o projeto [*Tidy Data*](https://www.jstatsoft.org/article/view/v059i10/#:~:text=This%20framework%20makes%20it%20easy%20to%20tidy%20messy,tools%20that%20both%20input%20and%20output%20tidy%20datasets.), visando aprimorar o manuseio de dados, publicando um conjunto de funções em pacotes voltados para a análise de dados, todos integrados ao *Tidyverse*. O projeto foi costruído por quatro princípios: 1. reutilização de estrutura de dados existentes; 2. composição de funções simples com o *pipe*; 3. incetivar programação que seja funcional e; 4. códigos que seja interpretáveis para humanos. Por enquanto estamos conhecendo a história, mas a transformação que isso causou será percebida quando começarmos a utilizar o pacote *tidyverse*.
 
-Perceba que toda a história do R foi construída na contramão dos softwares de mercado, como o SPSS da IBM e o pacote office da Microsoft. Trata-se de um projeto conduzido por pesquisas acadêmicas de ponta, visando facilitar o trabalho com a análise de dados. Trabalhar com o R, portanto, implica em um outro paradigma. Ao invés de ter o software como um produto administrado por uma empresa, onde as funções já estão programadas e disponíveis por botões e comandos, temos uma linguagem a partir da qual podemos programar funções e executar comandos diversos. Há diversas implicações nessa mudança que transformaram completamente o trabalho com dados nas Ciências Sociais, permitindo maior abertura para a criatividade e replicabilidade. Todo o nosso fluxo de trabalho é escrito em um documento, que pode ser compartilhado com outras pessoas, que podem verificar o passo-a-passo e replicar. Além disso, a forma como utilizamos o software possibilita eficiência nos processamentos, com baixo custo de tempo e recursos de hardware. Veremos isso ao longo o curso.
+Perceba que toda a história do R foi construída na contramão dos softwares de mercado, como o *Statistical Package for Social Sciences* (SPSS), produto da IBM, e o Pacote Office, produto da Microsoft. Trata-se de um projeto conduzido por pesquisas acadêmicas de ponta, visando facilitar o trabalho com a análise de dados. Trabalhar com o R, portanto, implica em um outro paradigma. Ao invés de ter o software como um produto administrado por uma empresa, onde as funções já estão programadas e disponíveis por botões e comandos, temos uma linguagem a partir da qual podemos programar funções e executar comandos diversos. Há diversas implicações nessa mudança que transformaram completamente o trabalho com dados nas Ciências Sociais, permitindo maior abertura para a criatividade e replicabilidade. Todo o nosso fluxo de trabalho é escrito em um documento, que pode ser compartilhado com outras pessoas, que podem verificar o passo-a-passo e replicar. Além disso, a forma como utilizamos o software possibilita eficiência nos processamentos, com baixo custo de tempo e recursos de hardware. Veremos isso ao longo o curso.
 
 ### O uso de linguagem de programação nas Ciências Sociais
 
 Dados e metodologias são os principais elementos para o trabalho com pesquisa e operacionalização de teorias. Em geral, formulamos hipóteses sobre o mundo informadas por literaturas específicas, e testamos essas hipóteses coletando dados e utilizando metodologias. As linguagens de programação nos ajudam na parte operacional de tratamento e análise dos dados.
 
-Nos últimos anos, estamos experimentando uma mudança no paradigma de análise de dados nas Ciências Sociais. Ao invés do consumo de softwares com funções estatísticas programadas, disponíveis no mercado, como o *Statistical Package for Social Sciences* (SPSS), produto da IBM, e o Pacote Office, produto da Microsoft, estamos migrando para linguagens de programação de acesso livre e gratuito.
-
-Ser parte do Projeto GNU de softwares livres é o primeiro ponto forte do R. Com as demais linguagens de programação, porém, há também pontos impotantes, como:
+Ser parte do Projeto GNU de softwares livres é o primeiro ponto forte do R. Além disso, podemos destacar outros pontos importantes do R, como:
 
 -   **Eficiência:** o fluxo de trabalho com funções reduz o custo de memória e processamento.
 
@@ -34,17 +32,15 @@ Ser parte do Projeto GNU de softwares livres é o primeiro ponto forte do R. Com
 
 -   **Popularidade:** movido por uma comunidade internacional extensa, que desenvolve e acompanha o software. Cada vez mais adotado em instituições (principalmente públicas) e pela comunidade acadêmica.
 
-O manuseio e a análise de dados é um desafio de longa data. Do ponto de vista do armazenamento e processamento, a principal pesquisa nacional, o Censo Demográfico, já era um desafio desde, pelo menos, 1960 ([para saber mais sobre a história dos censos](https://www.scielo.br/j/nec/a/nJnk3y84WffXCjwp76FNjJr/)).
-
-Uma área que emergiu diante desses desafios é a de Ciências Sociais Computacionais, que aborda desde o desenvolvimento de algoritmos para a extração e análise de dados até a discussão teórica sobre ambientes digitais.
+O manuseio e a análise de dados é um desafio de longa data. Do ponto de vista do armazenamento e processamento, a principal pesquisa nacional, o Censo Demográfico, já era um desafio desde, pelo menos, 1960 ([para saber mais sobre a história dos censos](https://www.scielo.br/j/nec/a/nJnk3y84WffXCjwp76FNjJr/)). Uma área que emergiu diante desses desafios é a de Ciências Sociais Computacionais, que aborda desde o desenvolvimento de algoritmos para a extração e análise de dados até a discussão teórica sobre ambientes digitais.
 
 Ainda que a programação esteja relacionada com lógica e cálculo, não se trata apenas de informações quantitativas. Podemos tratar, além dos famosos *surveys*, também dados não estruturados, textos, imagens, sons e tudo o mais que puder ser registrado. Tudo isso torna mais atraente a análise de dados com uso de programação.
 
 Se você é uma pessoa curiosa e que quer explorar a criatividade, a sofisticação e a elegância em seu trabalho, está no lugar certo.
 
-## Entendi o que é. Então como eu uso?
+## Entendi. Então como eu uso?
 
-Como vimos, o R é pa praticar! Então, ferramentas em mãos.
+Como vimos, o R é pa praticar! Então vamos colocar nossas ferramentas em mãos.
 
 É fudamental saber que o R é a linguagem, e o RStudio é o ambiente de desenvolvimento. Não adianta tentar usar o RStudio sem o R. Portato, faça a instalação do R e RStudio de acordo com as especificações do seu computador.
 
@@ -188,9 +184,9 @@ valores_chr + 1
 
 Não se assuste com a mensagem de erro. Ela sempre aparecerá com alguma explicação que te ajudará a entender. Neste caso, ele está dizendo que o argumento não é um valor numérico para fazer cálculo. O R se esforça para ser nosso amigo e muitas vezes, quando notar que pode ter algo errado, vai nos avisar com *Warning*.
 
-Embora tente ser nosso amigo, nunca se esqueça de que o R é burro e o inteligente é você. No caminho, vão surgir muitos erros que vão te fazer pensar o contrário. Mas todos têm solução.
+Embora tente ser nosso amigo, ele pode te frustrar com a quantidade de problemas e erros que aparecerão no seu caminho. Mas nunca se esqueça de que o R é burro e o inteligente é você.
 
-Até aqui vimos o suficiente do R base. Agora, precisamos do RStudio para avança de uma forma mais atrativa.
+Até aqui vimos o suficiente do R base. Agora, precisamos do RStudio para avançar de uma forma mais atrativa.
 
 ### Explorado comandos com RStudio
 
@@ -300,3 +296,13 @@ Observe que cada vetor contido na base de dados é de um tipo. Todo o tratamento
 Neste capítulo, vimos que o R não é de comer, mas de praticar. Passamos pela sintaxe e pelos comandos fundamentais desta linguagem, que são a base para todas as operações. Depois vimos sobre as funções, como são estuturadas e como usá-las. Por fim, vimos como construir um data.frame a partir de vetores de igual tamanho.
 
 Com exceção da contextualização histórica e sintaxe da linguagem, toda a parte operacional aplica-se às demais linguagens de programação. As informações de entrada funcionam da mesma forma. Na próxima aula, iniciaremos com outras operações fundamentais, que são as de lógica, relacional e condicional.
+
+### Extra: Google Colab
+
+Uma alternativa para trabalhar com o R é usar o ambiente virtual da Google: o *Google Colaboratory* ou simplesmente Colab. Para isso, basta fazer login com uma conta google e criar um *notebook.* Para trabalhar com o R, é necessário editar as configurações. Para isso, vá em editar \> configurações do notebook \> altere de Python 3 para R.
+
+![Passo 01 - Google Colab](images/step00 - colab.png)
+
+![Passo 2 - Google Colab](images/step01 - colab.png)
+
+Diferente do RStudio, o Google Colab possui apenas uma janela principal que intercala texto e blocos de códigos. O uso é bastante intuitivo, embora os recursos sejam limitados. Para obter maior capacidade de processamento e memória, é necessário pagar.
