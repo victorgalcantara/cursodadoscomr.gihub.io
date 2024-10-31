@@ -2,12 +2,11 @@
 
 ## É de comer?
 
-O R é uma linguagem de programação, o que significa que podemos utilizá-la para comandar o computador a executar operações. Para isso, usamos comandos estruturados seguindo a sintaxe desta linguagem. Por exemplo, podemos simplesmente fazer cálculos algébricos com R.
+O R é uma linguagem de programação, o que significa que podemos utilizá-la para comandar o computador a executar operações. Para isso, usamos comandos estruturados seguindo a sintaxe desta linguagem. Por exemplo, podemos simplesmente fazer cálculos com R.
 
 ```{r}
 1+2
 ```
-
 
 Podemos também usar funções, que são comandos programados para executar determinados procedimentos. Por exemplo, a função "sum" faz a soma de um conjunto de valores, como o "SOMA( )" no Excel.
 
@@ -15,8 +14,7 @@ Podemos também usar funções, que são comandos programados para executar dete
 sum(1,2)
 ```
 
-
-Você já está, intuitivamente, percebendo que a estrutura das funções no R é dada pelo nome da função (e.x. "sum"), seguido de atributos inseridos dentro de parênteses "( atributos aqui )". Nem todas as funções exigem atributos, mas todas as funções executam algum procedimento. Por exemplo, temos um conjunto de funções muito úteis para limpar a memória local (o que ajuda no processamento) e obter o diretório (pasta) principal onde estamos trabalhando.
+Você já está, intuitivamente, percebendo que a estrutura das funções no R é dada pelo nome da função (ex. "sum"), seguido de atributos inseridos dentro de parênteses "( atributos aqui )". Nem todas as funções exigem atributos, mas todas as funções executam algum procedimento. Por exemplo, temos um conjunto de funções muito úteis para limpar a memória local (o que ajuda no processamento) e obter o diretório (pasta) principal onde estamos trabalhando.
 
 -   gc( ) : de "Garbage Clean", para limpeza da lixeira e liberação de memória.
 
@@ -28,7 +26,20 @@ gc()
 getwd()
 ```
 
+Com o tempo, vamos escrevendo códigos (*scripts*) que compilam um conjunto sequencial de comandos. Um recurso muito importante nos nossos códigos são os comentários. Para que o R não interprete uma linha de um documento como um comando, devemos marcá-la com "\#". Toda informação que vem depois de um "\#", na linha, é descosiderada pelo R. Este recurso é muito importante para que nossos códigos sejam interpretáveis. Até mesmo o seu "eu" do futuro pode esquecer o que você programou, e se beneficiar de bons comentários.
 
-O que o torna especial para a pesquisa é ter sido desenvolvido para fins estatísticos, que ao longo do tempo tomou a forma de análise de dados. Os autores são os estatísticos Ross Ihaka (neozelandês) e Robert Gentleman (canadense). Eles iniciaram o projeto em meados dos anos 1990, tendo circulado a primeira cópia do arquivo binário, então embrião do R, em uma lista de e-mails de pesquisadores que trabalhavam com a linguagem S, chamada *s-news*. Com a circulação, Ross e Robert receberam uma indicação de Martin Mächler, professor no Departamento de Matemática da Universidade de Zurique (Suiça), para associarem o software ao projeto GNU, de desenvolvimento de softwares livres. Os autores acataram a ideia e em junho de 1995 estava disponível o código fonte do R sob licença da *GNU Free Software Foundation.* Essa história foi contada no artigo [*R: A Language for Data Analysis and Graphics*](https://www.tandfonline.com/doi/abs/10.1080/10618600.1996.10474713) (1996), onde os autores apresentaram o projeto publicamente para a comunidade acadêmica. Depois disso o projeto ganhou força. No ano seguinte, em 1997, foi fundado o *R Core Group*, composto por pessoas responsáveis pelo controle da versão do código fonte. Em 2002 foi disponibilizada a versão 1.0 do R, que passou por diversas atualizações até chegar a atual 4.4.1.
+```{r}
+# Este comentário não é executado. Simples assim.
+```
+
+Seguindo a sintaxe da linguagem e as funções disponíveis, escrevemos nossos códigos com o R. Em nosso curso, veremos comandos e funções importantes para importação, tratamento, manuseio e análise de dados. Mas para um bom domínio da ferramenta, é importante entendermos como ela opera.
+
+## Mas... por que o R e não outro?
+
+O que torna o R especial para a pesquisa é ter sido desenvolvido para fins estatísticos, que ao longo do tempo tomou a forma de análise de dados. Os autores do software são os estatísticos Ross Ihaka (neozelandês) e Robert Gentleman (canadense). Eles iniciaram o projeto em meados dos anos 1990, tendo circulado a primeira cópia do arquivo binário, então embrião do R, em uma lista de e-mails de pesquisadores que trabalhavam com a linguagem S, chamada *s-news*. Com a circulação, Ross e Robert receberam uma indicação de Martin Mächler, professor no Departamento de Matemática da Universidade de Zurique (Suiça), para associarem o software ao projeto GNU, de desenvolvimento de softwares livres. Os autores acataram a ideia e em junho de 1995 estava disponível o código fonte do R sob licença da *GNU Free Software Foundation.* Essa história foi contada no artigo [*R: A Language for Data Analysis and Graphics*](https://www.tandfonline.com/doi/abs/10.1080/10618600.1996.10474713) (1996), onde os autores apresentaram o projeto publicamente para a comunidade acadêmica. Depois disso o projeto ganhou força. No ano seguinte, em 1997, foi fundado o *R Core Group*, composto por pessoas responsáveis pelo controle da versão do código fonte. Em 2002 foi disponibilizada a versão 1.0 do R, que passou por diversas atualizações até chegar a atual 4.4.1.
 
 Até 2009, o R era usado por estatísticos, cientistas da computação e pesquisadores engajados com este tipo de expertise. O cenário mudou com o desenvolvimento de um ambiente integrado de trabalho, o RStudio, que facilitou o fluxo. Além disso, em 2016, o então cientista chefe da empresa RStudio, Hadley Wickham, em colaboração com Garrett Grolemund, publicaram um conjunto de funções e pacotes facilitando a análise de dados, todos integrados no *Tidyverse*.
+
+Perceba que toda a história do R foi construída na contramão dos softwares de mercado, como o SPSS da IBM e o pacote office da Microsoft. Trabalhar com o R implica em um outro paradigma. Ao invés de ter o software como um produto administrado por uma empresa, onde as funções já estão programadas e disponíveis por botões e comandos, temos uma linguagem a partir da qual podemos programar funções e executar comandos diversos. Há diversas implicações nessa mudança que transformaram completamente o trabalho com dados nas Ciências Sociais, permitindo maior abertura para a criatividade e replicabilidade. Todo o nosso fluxo de trabalho é escrito em um documento, que pode ser compartilhado com outras pessoas, que podem verificar o passo-a-passo e replicar. Além disso, a forma como utilizamos o software possibilita eficiência nos processamentos, com baixo custo de tempo e recursos de hardware.
+
+## Ok. Entendi. Então como eu uso?

@@ -104,6 +104,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
 
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body class="nav-sidebar floating">
@@ -169,6 +170,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#é-de-comer" id="toc-é-de-comer" class="nav-link active" data-scroll-target="#é-de-comer">É de comer?</a></li>
+  <li><a href="#mas-por-que-o-r-e-não-outro" id="toc-mas-por-que-o-r-e-não-outro" class="nav-link" data-scroll-target="#mas-por-que-o-r-e-não-outro">Mas… por que o R e não outro?</a></li>
+  <li><a href="#ok.-entendi.-então-como-eu-uso" id="toc-ok.-entendi.-então-como-eu-uso" class="nav-link" data-scroll-target="#ok.-entendi.-então-como-eu-uso">Ok. Entendi. Então como eu uso?</a></li>
   </ul>
 </nav>
     </div>
@@ -196,7 +199,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="é-de-comer" class="level2">
 <h2 class="anchored" data-anchor-id="é-de-comer">É de comer?</h2>
-<p>O R é uma linguagem de programação, o que significa que podemos utilizá-la para comandar o computador a executar operações. Para isso, usamos comandos estruturados seguindo a sintaxe desta linguagem. Por exemplo, podemos simplesmente fazer cálculos algébricos com R.</p>
+<p>O R é uma linguagem de programação, o que significa que podemos utilizá-la para comandar o computador a executar operações. Para isso, usamos comandos estruturados seguindo a sintaxe desta linguagem. Por exemplo, podemos simplesmente fazer cálculos com R.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">+</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -210,7 +213,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>[1] 3</code></pre>
 </div>
 </div>
-<p>Você já está, intuitivamente, percebendo que a estrutura das funções no R é dada pelo nome da função (e.x. “sum”), seguido de atributos inseridos dentro de parênteses “( atributos aqui )”. Nem todas as funções exigem atributos, mas todas as funções executam algum procedimento. Por exemplo, temos um conjunto de funções muito úteis para limpar a memória local (o que ajuda no processamento) e obter o diretório (pasta) principal onde estamos trabalhando.</p>
+<p>Você já está, intuitivamente, percebendo que a estrutura das funções no R é dada pelo nome da função (ex. “sum”), seguido de atributos inseridos dentro de parênteses “( atributos aqui )”. Nem todas as funções exigem atributos, mas todas as funções executam algum procedimento. Por exemplo, temos um conjunto de funções muito úteis para limpar a memória local (o que ajuda no processamento) e obter o diretório (pasta) principal onde estamos trabalhando.</p>
 <ul>
 <li><p>gc( ) : de “Garbage Clean”, para limpeza da lixeira e liberação de memória.</p></li>
 <li><p>getwd( ) : de “Get Working Directory”, para obter diretório base no qual está trabalhando.</p></li>
@@ -219,16 +222,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gc</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>          used (Mb) gc trigger (Mb) max used (Mb)
-Ncells  598232 32.0    1357162 72.5  1357162 72.5
-Vcells 1094831  8.4    8388608 64.0  1876245 14.4</code></pre>
+Ncells  598273 32.0    1357257 72.5  1357257 72.5
+Vcells 1095916  8.4    8388608 64.0  1876245 14.4</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "C:/Users/13477365/Documents/book-dadoscomr"</code></pre>
 </div>
 </div>
-<p>O que o torna especial para a pesquisa é ter sido desenvolvido para fins estatísticos, que ao longo do tempo tomou a forma de análise de dados. Os autores são os estatísticos Ross Ihaka (neozelandês) e Robert Gentleman (canadense). Eles iniciaram o projeto em meados dos anos 1990, tendo circulado a primeira cópia do arquivo binário, então embrião do R, em uma lista de e-mails de pesquisadores que trabalhavam com a linguagem S, chamada <em>s-news</em>. Com a circulação, Ross e Robert receberam uma indicação de Martin Mächler, professor no Departamento de Matemática da Universidade de Zurique (Suiça), para associarem o software ao projeto GNU, de desenvolvimento de softwares livres. Os autores acataram a ideia e em junho de 1995 estava disponível o código fonte do R sob licença da <em>GNU Free Software Foundation.</em> Essa história foi contada no artigo <a href="https://www.tandfonline.com/doi/abs/10.1080/10618600.1996.10474713"><em>R: A Language for Data Analysis and Graphics</em></a> (1996), onde os autores apresentaram o projeto publicamente para a comunidade acadêmica. Depois disso o projeto ganhou força. No ano seguinte, em 1997, foi fundado o <em>R Core Group</em>, composto por pessoas responsáveis pelo controle da versão do código fonte. Em 2002 foi disponibilizada a versão 1.0 do R, que passou por diversas atualizações até chegar a atual 4.4.1.</p>
+<p>Com o tempo, vamos escrevendo códigos (<em>scripts</em>) que compilam um conjunto sequencial de comandos. Um recurso muito importante nos nossos códigos são os comentários. Para que o R não interprete uma linha de um documento como um comando, devemos marcá-la com “#”. Toda informação que vem depois de um “#”, na linha, é descosiderada pelo R. Este recurso é muito importante para que nossos códigos sejam interpretáveis. Até mesmo o seu “eu” do futuro pode esquecer o que você programou, e se beneficiar de bons comentários.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Este comentário não é executado. Simples assim.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Seguindo a sintaxe da linguagem e as funções disponíveis, escrevemos nossos códigos com o R. Em nosso curso, veremos comandos e funções importantes para importação, tratamento, manuseio e análise de dados. Mas para um bom domínio da ferramenta, é importante entendermos como ela opera.</p>
+</section>
+<section id="mas-por-que-o-r-e-não-outro" class="level2">
+<h2 class="anchored" data-anchor-id="mas-por-que-o-r-e-não-outro">Mas… por que o R e não outro?</h2>
+<p>O que torna o R especial para a pesquisa é ter sido desenvolvido para fins estatísticos, que ao longo do tempo tomou a forma de análise de dados. Os autores do software são os estatísticos Ross Ihaka (neozelandês) e Robert Gentleman (canadense). Eles iniciaram o projeto em meados dos anos 1990, tendo circulado a primeira cópia do arquivo binário, então embrião do R, em uma lista de e-mails de pesquisadores que trabalhavam com a linguagem S, chamada <em>s-news</em>. Com a circulação, Ross e Robert receberam uma indicação de Martin Mächler, professor no Departamento de Matemática da Universidade de Zurique (Suiça), para associarem o software ao projeto GNU, de desenvolvimento de softwares livres. Os autores acataram a ideia e em junho de 1995 estava disponível o código fonte do R sob licença da <em>GNU Free Software Foundation.</em> Essa história foi contada no artigo <a href="https://www.tandfonline.com/doi/abs/10.1080/10618600.1996.10474713"><em>R: A Language for Data Analysis and Graphics</em></a> (1996), onde os autores apresentaram o projeto publicamente para a comunidade acadêmica. Depois disso o projeto ganhou força. No ano seguinte, em 1997, foi fundado o <em>R Core Group</em>, composto por pessoas responsáveis pelo controle da versão do código fonte. Em 2002 foi disponibilizada a versão 1.0 do R, que passou por diversas atualizações até chegar a atual 4.4.1.</p>
 <p>Até 2009, o R era usado por estatísticos, cientistas da computação e pesquisadores engajados com este tipo de expertise. O cenário mudou com o desenvolvimento de um ambiente integrado de trabalho, o RStudio, que facilitou o fluxo. Além disso, em 2016, o então cientista chefe da empresa RStudio, Hadley Wickham, em colaboração com Garrett Grolemund, publicaram um conjunto de funções e pacotes facilitando a análise de dados, todos integrados no <em>Tidyverse</em>.</p>
+<p>Perceba que toda a história do R foi construída na contramão dos softwares de mercado, como o SPSS da IBM e o pacote office da Microsoft. Trabalhar com o R implica em um outro paradigma. Ao invés de ter o software como um produto administrado por uma empresa, onde as funções já estão programadas e disponíveis por botões e comandos, temos uma linguagem a partir da qual podemos programar funções e executar comandos diversos. Há diversas implicações nessa mudança que transformaram completamente o trabalho com dados nas Ciências Sociais, permitindo maior abertura para a criatividade e replicabilidade. Todo o nosso fluxo de trabalho é escrito em um documento, que pode ser compartilhado com outras pessoas, que podem verificar o passo-a-passo e replicar. Além disso, a forma como utilizamos o software possibilita eficiência nos processamentos, com baixo custo de tempo e recursos de hardware.</p>
+</section>
+<section id="ok.-entendi.-então-como-eu-uso" class="level2">
+<h2 class="anchored" data-anchor-id="ok.-entendi.-então-como-eu-uso">Ok. Entendi. Então como eu uso?</h2>
 
 
 </section>
