@@ -186,10 +186,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#explorado-comandos-com-rstudio" id="toc-explorado-comandos-com-rstudio" class="nav-link" data-scroll-target="#explorado-comandos-com-rstudio">Explorado comandos com RStudio</a></li>
   <li><a href="#funções" id="toc-funções" class="nav-link" data-scroll-target="#funções">Funções</a></li>
   <li><a href="#construindo-um-dado-estruturado" id="toc-construindo-um-dado-estruturado" class="nav-link" data-scroll-target="#construindo-um-dado-estruturado">Construindo um dado estruturado</a></li>
-  <li><a href="#comandos-lógicos" id="toc-comandos-lógicos" class="nav-link" data-scroll-target="#comandos-lógicos">Comandos lógicos</a></li>
-  <li><a href="#comandos-relacionais" id="toc-comandos-relacionais" class="nav-link" data-scroll-target="#comandos-relacionais">Comandos relacionais</a></li>
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
   </ul></li>
+  <li><a href="#recaptulando" id="toc-recaptulando" class="nav-link" data-scroll-target="#recaptulando">Recaptulando</a></li>
   </ul>
 </nav>
     </div>
@@ -477,15 +475,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gc</span>()  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>          used (Mb) gc trigger (Mb) max used (Mb)
-Ncells  599451 32.1    1360225 72.7  1360225 72.7
-Vcells 1108058  8.5    8388608 64.0  1876245 14.4</code></pre>
+Ncells  599358 32.1    1359931 72.7  1359931 72.7
+Vcells 1107076  8.5    8388608 64.0  1876245 14.4</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "C:/Users/13477365/Documents/book-dadoscomr"</code></pre>
 </div>
 </div>
-<p>Há um conjunto extenso de funções de base do R, que já vem com o software a instalação. Há especialmente funções para gestão de memória e armazenamento, gestão de dados e estatística. Para além do R base, há também um universo de funções programadas pela comunidade de usuários, em diversos domínios, como ciências ambientais, psicologia, economia e até funções programadas por sociólogos! Diferente das do R base, porém, essas funções são associadas a pacotes externos que devem ser instalados e carregados. Isso veremos na próxima aula, quando formos tratar de manuseio de dados.</p>
+<p>Há um conjunto extenso de funções de base do R, que já vem com o software na instalação. Existem especialmente funções para gestão de memória, armazenamento, dados e estatística. Além do R base, há também um universo de funções programadas pela comunidade de usuários em diversos domínios, como ciências ambientais, psicologia, economia e até funções criadas por sociólogos! Diferente das funções do R base, essas estão associadas a pacotes externos que devem ser instalados e carregados. Isso veremos na próxima aula, quando abordaremos o manuseio de dados.</p>
 </section>
 <section id="construindo-um-dado-estruturado" class="level3">
 <h3 class="anchored" data-anchor-id="construindo-um-dado-estruturado">Construindo um dado estruturado</h3>
@@ -509,99 +507,15 @@ Vcells 1108058  8.5    8388608 64.0  1876245 14.4</code></pre>
 5  Joana    45    F     TRUE</code></pre>
 </div>
 </div>
+<p>Observe que cada vetor contido na base de dados é de um tipo. Todo o tratamento e análise das variáveis depende disso, como veremos adiante.</p>
 </section>
-<section id="comandos-lógicos" class="level3">
-<h3 class="anchored" data-anchor-id="comandos-lógicos">Comandos lógicos</h3>
-<p>Além dos cálculos, podemos também fazer operações lógicas, que comparam valores e retornam <code>TRUE</code> ou <code>FALSE</code>. Os operadores principais são:</p>
-<ul>
-<li><p><strong>Igual a (<code>==</code>)</strong>: Verifica se dois valores são iguais.</p></li>
-<li><p><strong>Diferente de (<code>!=</code>)</strong>: Verifica se dois valores são diferentes.</p></li>
-<li><p><strong>Maior que (<code>&gt;</code>)</strong>: Verifica se um valor é maior que o outro.</p></li>
-<li><p><strong>Menor que (<code>&lt;</code>)</strong>: Verifica se um valor é menor que o outro.</p></li>
-<li><p><strong>Maior ou igual a (<code>&gt;=</code>)</strong>: Verifica se um valor é maior ou igual ao outro.</p></li>
-<li><p><strong>Menor ou igual a (<code>&lt;=</code>)</strong>: Verifica se um valor é menor ou igual ao outro.</p></li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">&gt;</span>  <span class="dv">2</span>  <span class="co"># MAIOR QUE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] FALSE</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">&lt;</span> <span class="dv">2</span>   <span class="co"># MENOR QUE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] FALSE</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">==</span> <span class="dv">3</span>  <span class="co"># IGUALDADE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] FALSE</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">&gt;=</span> <span class="dv">2</span> <span class="co"># MAIOR OU IGUAL</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] TRUE</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Por quê igualdade são dois sinais?</span></span>
-<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="co"># R: Porque apenas um significa atribuição de valor. Igual a setinha, como vimos.</span></span>
-<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a><span class="st">"eu"</span> <span class="sc">==</span> <span class="st">"todo mundo"</span> <span class="co"># Igualdade</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] FALSE</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="st">"eu"</span> <span class="sc">==</span> <span class="st">"eu"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] TRUE</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="st">"eu"</span> <span class="sc">!=</span> <span class="st">"vc"</span>         <span class="co"># Diferença</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] TRUE</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Teste em grupo</span></span>
-<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a><span class="st">"eu"</span> <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"vc"</span>,<span class="st">"todo mundo"</span>) <span class="co"># Generalização - se contém</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] FALSE</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Nota importante: "!" opera como um sinal de negação/diferença</span></span>
-<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span>(<span class="st">"eu"</span> <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"vc"</span>,<span class="st">"todo mundo"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] TRUE</code></pre>
-</div>
-</div>
 </section>
-<section id="comandos-relacionais" class="level3">
-<h3 class="anchored" data-anchor-id="comandos-relacionais">Comandos relacionais</h3>
-<p>As operações relacionais são usadas para combinar ou inverter condições. No R, você tem três operadores principais:</p>
-<ul>
-<li><p><strong>AND (<code>&amp;</code>)</strong>: Retorna <code>TRUE</code> se ambas as condições forem verdadeiras.</p></li>
-<li><p><strong>OR (<code>|</code>)</strong>: Retorna <code>TRUE</code> se pelo menos uma condição for verdadeira.</p></li>
-<li><p><strong>NOT (<code>!</code>)</strong>: Inverte o valor lógico, transformando <code>TRUE</code> em <code>FALSE</code> e vice-versa.</p></li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="co"># "|" para "OU"</span></span>
-<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">&gt;</span> <span class="dv">2</span> <span class="sc">|</span> <span class="dv">2</span> <span class="sc">==</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] TRUE</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">&gt;</span> <span class="dv">2</span> <span class="sc">|</span> <span class="dv">2</span> <span class="sc">&lt;</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] FALSE</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="co"># "&amp;" para "E"</span></span>
-<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">&gt;</span> <span class="dv">2</span> <span class="sc">&amp;</span> <span class="dv">2</span> <span class="sc">==</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] FALSE</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">&gt;</span> <span class="dv">1</span> <span class="sc">&amp;</span> <span class="dv">2</span> <span class="sc">==</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] TRUE</code></pre>
-</div>
-</div>
-<p>As operações <strong>lógicas</strong> e <strong>relacionais</strong> são ferramentas fundamentais no R. Elas ajudam a fazer muitos manuseios básicos e dados, como filtro de casos, seleção e recodificação de variáveis.</p>
-<p>Aqui vou acelerar o passo-a-passo para colocarmos tudo em prática com exercícios. Vamos fechar o primeiro capítulo com um último fudamento central para todas as linguagens de programação: as funções.</p>
-</section>
-<section id="section" class="level3">
-<h3 class="anchored" data-anchor-id="section"></h3>
+<section id="recaptulando" class="level2">
+<h2 class="anchored" data-anchor-id="recaptulando">Recaptulando</h2>
+<p>Neste capítulo, vimos que o R não é de comer, mas de praticar. Passamos pela sintaxe e pelos comandos fundamentais desta linguagem, que são a base para todas as operações. Depois vimos sobre as funções, como são estuturadas e como usá-las. Por fim, vimos como construir um data.frame a partir de vetores de igual tamanho.</p>
+<p>Com exceção da contextualização histórica e sintaxe da linguagem, toda a parte operacional aplica-se às demais linguagens de programação. As informações de entrada funcionam da mesma forma. Na próxima aula, iniciaremos com outras operações fundamentais, que são as de lógica, relacional e condicional.</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
