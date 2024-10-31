@@ -295,66 +295,8 @@ meus_dados
 
 Observe que cada vetor contido na base de dados é de um tipo. Todo o tratamento e análise das variáveis depende disso, como veremos adiante.
 
-### Comandos lógicos
+## Recaptulando
 
-Além dos cálculos, podemos também fazer operações lógicas, que comparam valores e retornam `TRUE` ou `FALSE`. Os operadores principais são:
+Neste capítulo, vimos que o R não é de comer, mas de praticar. Passamos pela sintaxe e pelos comandos fundamentais desta linguagem, que são a base para todas as operações. Depois vimos sobre as funções, como são estuturadas e como usá-las. Por fim, vimos como construir um data.frame a partir de vetores de igual tamanho.
 
--   **Igual a (`==`)**: Verifica se dois valores são iguais.
-
--   **Diferente de (`!=`)**: Verifica se dois valores são diferentes.
-
--   **Maior que (`>`)**: Verifica se um valor é maior que o outro.
-
--   **Menor que (`<`)**: Verifica se um valor é menor que o outro.
-
--   **Maior ou igual a (`>=`)**: Verifica se um valor é maior ou igual ao outro.
-
--   **Menor ou igual a (`<=`)**: Verifica se um valor é menor ou igual ao outro.
-
-```{r}
-2 >  2  # MAIOR QUE
-2 < 2   # MENOR QUE
-2 == 3  # IGUALDADE
-
-2 >= 2 # MAIOR OU IGUAL
-
-# Por quê igualdade são dois sinais?
-# R: Porque apenas um significa atribuição de valor. Igual a setinha, como vimos.
-
-"eu" == "todo mundo" # Igualdade
-"eu" == "eu"
-"eu" != "vc"         # Diferença
-
-# Teste em grupo
-"eu" %in% c("vc","todo mundo") # Generalização - se contém
-
-# Nota importante: "!" opera como um sinal de negação/diferença
-
-!("eu" %in% c("vc","todo mundo"))
-```
-
-### Comandos relacionais
-
-As operações relacionais são usadas para combinar ou inverter condições. No R, você tem três operadores principais:
-
--   **AND (`&`)**: Retorna `TRUE` se ambas as condições forem verdadeiras.
-
--   **OR (`|`)**: Retorna `TRUE` se pelo menos uma condição for verdadeira.
-
--   **NOT (`!`)**: Inverte o valor lógico, transformando `TRUE` em `FALSE` e vice-versa.
-
-```{r}
-# "|" para "OU"
-2 > 2 | 2 == 2
-2 > 2 | 2 < 2
-
-# "&" para "E"
-2 > 2 & 2 == 2
-2 > 1 & 2 == 2
-```
-
-As operações **lógicas** e **relacionais** são ferramentas fundamentais no R. Elas ajudam a fazer muitos manuseios básicos e dados, como filtro de casos, seleção e recodificação de variáveis.
-
-Aqui vou acelerar o passo-a-passo para colocarmos tudo em prática com exercícios. Vamos fechar o primeiro capítulo com um último fudamento central para todas as linguagens de programação: as funções.
-
-### 
+Com exceção da contextualização histórica e sintaxe da linguagem, toda a parte operacional aplica-se às demais linguagens de programação. As informações de entrada funcionam da mesma forma. Na próxima aula, iniciaremos com outras operações fundamentais, que são as de lógica, relacional e condicional.
