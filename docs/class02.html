@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>class02</title>
+<title>Capítulo 2 – Análise de dados com R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -57,31 +57,163 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="class02_files/libs/clipboard/clipboard.min.js"></script>
-<script src="class02_files/libs/quarto-html/quarto.js"></script>
-<script src="class02_files/libs/quarto-html/popper.min.js"></script>
-<script src="class02_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="class02_files/libs/quarto-html/anchor.min.js"></script>
-<link href="class02_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="class02_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="class02_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="class02_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="class02_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./references.html" rel="next">
+<link href="./class01.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
 
 
+<link rel="stylesheet" href="style.css">
 </head>
 
-<body class="fullcontent">
+<body class="nav-sidebar floating">
 
-<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
-
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./class02.html">Capítulo 2</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Análise de dados com R</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introdução</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./class01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Capítulo 1</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./class02.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Capítulo 2</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Referências</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#funções-uma-ideia-mais-detalhada" id="toc-funções-uma-ideia-mais-detalhada" class="nav-link active" data-scroll-target="#funções-uma-ideia-mais-detalhada">Funções: uma ideia mais detalhada</a></li>
+  <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup">Setup</a>
+  <ul class="collapse">
+  <li><a href="#comandos-relacionais" id="toc-comandos-relacionais" class="nav-link" data-scroll-target="#comandos-relacionais">Comandos relacionais</a></li>
+  </ul></li>
+  <li><a href="#import" id="toc-import" class="nav-link" data-scroll-target="#import">Import</a>
+  <ul class="collapse">
+  <li><a href="#select-e-filter" id="toc-select-e-filter" class="nav-link" data-scroll-target="#select-e-filter">Select e Filter</a></li>
+  <li><a href="#rename" id="toc-rename" class="nav-link" data-scroll-target="#rename">Rename</a></li>
+  <li><a href="#export" id="toc-export" class="nav-link" data-scroll-target="#export">Export</a></li>
+  </ul></li>
+  <li><a href="#recaptulando" id="toc-recaptulando" class="nav-link" data-scroll-target="#recaptulando">Recaptulando</a></li>
+  <li><a href="#extra-unir-bases-de-dados-com-chave-de-identificação-comum" id="toc-extra-unir-bases-de-dados-com-chave-de-identificação-comum" class="nav-link" data-scroll-target="#extra-unir-bases-de-dados-com-chave-de-identificação-comum">Extra: unir bases de dados com chave de identificação comum</a></li>
+  <li><a href="#desafio" id="toc-desafio" class="nav-link" data-scroll-target="#desafio">Desafio</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Capítulo 2</h1>
+</div>
 
 
 
-<section id="capítulo-2" class="level1 unnumbered">
-<h1 class="unnumbered">Capítulo 2</h1>
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
 <p>No capítulo anterior, vimos sobre a história e o funcionamento do R e RStudio, introduzindo o fluxo de trabalho e as operações fundamentais. Vimos três tipos de valores que podemos utilizar na programação: números, caracteres/texto e lógica (TRUE/FALSE). Depois, como armazenar e manusear os valores em objetos na memória, em duas estrutura de dados: vetores e data.frame. Vimos como são estruturadas e como usar as funções e, por fim, manuseamos dados usando testes lógicos. Todas as operações foram feitas com a base do R, usando comandos e funções elementares.</p>
 <p>Até aqui, espero que você saiba os comandos básicos para inserir comentários e atribuir valores a objetos, manusear objetos que guardam vetores e data.frames, usar funções e fazer testes lógicos.</p>
 <p>Neste capítulo, continuaremos a explorar as operações e funções fundamentais de uma forma mais aprofundada.</p>
@@ -153,7 +285,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>A instalação e carregameto de pacotes sempre deve ser feita no início do <em>script</em>, compondo a parte de setup. Como os comandos são executados conforme a ordem em que aparecem no <em>script</em>, devemos começar com o setup do nosso ambiente de trabalho. Embora seja possível executar muitas operações com os botões disponibilizados pelo RStudio, é mais eficiente executá-las com comandos. No próximo tópico, veremos operações de rotina para a organização do ambiente de trabalho.</p>
 </section>
-</section>
 <section id="setup" class="level1">
 <h1>Setup</h1>
 <p>Há três configurações de setup que devemos incorporar no nosso <em>script</em>:</p>
@@ -187,8 +318,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">gc</span>() <span class="co"># Faz a limpeza da lixeira da memória</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>          used (Mb) gc trigger  (Mb) max used (Mb)
-Ncells  964661 51.6    1904495 101.8  1360134 72.7
-Vcells 1663699 12.7    8388608  64.0  2282309 17.5</code></pre>
+Ncells  965539 51.6    1905761 101.8  1362620 72.8
+Vcells 1666466 12.8    8388608  64.0  2287340 17.5</code></pre>
 </div>
 </div>
 </section>
@@ -210,8 +341,8 @@ Vcells 1663699 12.7    8388608  64.0  2282309 17.5</code></pre>
 <span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="fu">gc</span>() <span class="co"># Faz a limpeza da lixeira da memória</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>          used (Mb) gc trigger  (Mb) max used (Mb)
-Ncells  964658 51.6    1904495 101.8  1360134 72.7
-Vcells 1663872 12.7    8388608  64.0  2282309 17.5</code></pre>
+Ncells  965536 51.6    1905761 101.8  1362620 72.8
+Vcells 1666639 12.8    8388608  64.0  2287340 17.5</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Gestão de funções e pacotes</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>) <span class="co"># Instala o pacote tidyverse como exemplo</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -240,8 +371,8 @@ Vcells 1663872 12.7    8388608  64.0  2282309 17.5</code></pre>
 <span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="fu">gc</span>() <span class="co"># Faz a limpeza da lixeira da memória</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>          used (Mb) gc trigger  (Mb) max used (Mb)
-Ncells  973840 52.1    1904495 101.8  1360134 72.7
-Vcells 1686540 12.9    8388608  64.0  2282309 17.5</code></pre>
+Ncells  974718 52.1    1905761 101.8  1362620 72.8
+Vcells 1689299 12.9    8388608  64.0  2287340 17.5</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Gestão de funções e pacotes</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>) <span class="co"># Instala o pacote tidyverse como exemplo</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -328,8 +459,8 @@ Vcells 1686540 12.9    8388608  64.0  2282309 17.5</code></pre>
 <span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a><span class="fu">gc</span>() <span class="co"># Faz a limpeza da lixeira da memória</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>          used (Mb) gc trigger  (Mb) max used (Mb)
-Ncells  973884 52.1    1904495 101.8  1360134 72.7
-Vcells 1686912 12.9    8388608  64.0  2282309 17.5</code></pre>
+Ncells  974762 52.1    1905761 101.8  1362620 72.8
+Vcells 1689679 12.9    8388608  64.0  2287340 17.5</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Gestão de funções e pacotes</span></span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("tidyverse") # Instala o pacote tidyverse como exemplo</span></span>
@@ -973,10 +1104,11 @@ Vcells 1686912 12.9    8388608  64.0  2282309 17.5</code></pre>
 </section>
 <section id="desafio" class="level1">
 <h1>Desafio</h1>
+
+
 </section>
 
-</main>
-<!-- /main column -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -1397,6 +1529,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./class01.html" class="pagination-link" aria-label="Capítulo 1">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Capítulo 1</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./references.html" class="pagination-link" aria-label="Referências">
+        <span class="nav-page-text">Referências</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 
 
