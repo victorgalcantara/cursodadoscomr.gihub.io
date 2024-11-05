@@ -8,11 +8,13 @@ Como uma linguagem, o R tem uma sintaxe e para dominá-la precisamos praticar. P
 
 ### Mas... por que o R e não outro?
 
-O que torna o R especial para a pesquisa é ter sido desenvolvido para fins estatísticos, que ao longo do tempo tomou a forma de análise de dados. Os autores da linguagem são os estatísticos Ross Ihaka (neozelandês) e Robert Gentleman (canadense). Eles iniciaram o projeto em meados dos anos 1990, tendo circulado a primeira cópia do arquivo binário, embrião do R, em uma lista de e-mails de pesquisadores que trabalhavam com a linguagem S, chamada *s-news*.
+O que torna o R especial para a pesquisa é ter sido desenvolvido para fins estatísticos, que ao longo do tempo tomou a forma de Ciência de Dados. Os autores da linguagem são os estatísticos Ross Ihaka (neozelandês) e Robert Gentleman (canadense). Eles iniciaram o projeto em meados dos anos 1990, tendo circulado a primeira cópia do arquivo binário, embrião do R, em uma lista de e-mails de pesquisadores que trabalhavam com a linguagem S, chamada *s-news*.
 
-Com a circulação do projeto, Ross e Robert receberam uma indicação de Martin Mächler, professor no Departamento de Matemática da Universidade de Zurique (Suiça), para associarem o software ao projeto GNU, de desenvolvimento de softwares livres. Os autores acataram a ideia e em junho de 1995 estava disponível o código fonte do R sob licença da *GNU Free Software Foundation.* Essa história foi contada no artigo [*R: A Language for Data Analysis and Graphics*](https://www.tandfonline.com/doi/abs/10.1080/10618600.1996.10474713) (1996), onde os autores apresentaram o projeto publicamente para a comunidade acadêmica. Depois disso o projeto ganhou adesão e força. No ano seguinte, em 1997, foi fundado o *R Core Group*, composto por pessoas responsáveis pelo controle da versão do código fonte, que atualmente gere o *Comprehensive R Archive Network* ([CRAN](https://cran.r-project.org/)), onde são registradas e distribuídas as atualizações do R. A versão 1.0 do R foi divulgada em 2002 e passou por diversas atualizações até chegar a atual 4.4.1.
+Com a circulação do projeto, Ross e Robert receberam uma indicação de Martin Mächler, professor no Departamento de Matemática da Universidade de Zurique (Suiça), para associarem o software ao projeto GNU, de desenvolvimento de softwares livres. Os autores acataram a ideia e em junho de 1995 estava disponível o código fonte do R sob licença da *GNU Free Software Foundation.* Essa história foi contada no artigo *R: A Language for Data Analysis and Graphics* [@ihaka_r_1996], onde os autores apresentaram o projeto publicamente para a comunidade acadêmica. Depois disso o projeto ganhou adesão e força. No ano seguinte, em 1997, foi fundado o *R Core Group*, composto por pessoas responsáveis pelo controle da versão do código fonte, que atualmente gere o *Comprehensive R Archive Network* ([CRAN](https://cran.r-project.org/)), onde são registradas e distribuídas as atualizações do R. A versão 1.0 do R foi divulgada em 2002 e passou por diversas atualizações até chegar a atual 4.4.1.
 
-Até 2009, o R era usado por estatísticos, cientistas da computação e pesquisadores engajados com este tipo de expertise. O cenário mudou com o desenvolvimento de um ambiente integrado de trabalho, o RStudio, que facilitou o fluxo. Além disso, em 2016, o então cientista chefe da empresa RStudio, Hadley Wickham, em colaboração com Garrett Grolemund, concretizou o projeto [*Tidy Data*](https://www.jstatsoft.org/article/view/v059i10/#:~:text=This%20framework%20makes%20it%20easy%20to%20tidy%20messy,tools%20that%20both%20input%20and%20output%20tidy%20datasets.), visando aprimorar o manuseio de dados, publicando um conjunto de funções em pacotes voltados para a análise de dados, todos integrados ao *Tidyverse*. O projeto foi costruído por quatro princípios: 1. reutilização de estrutura de dados existentes; 2. composição de funções simples com o *pipe*; 3. incetivar programação que seja funcional e; 4. códigos que seja interpretáveis para humanos. Por enquanto estamos conhecendo a história, mas a transformação que isso causou será percebida quando começarmos a utilizar o pacote *tidyverse*.
+Até 2009, o R era usado por estatísticos, cientistas da computação e pesquisadores engajados com este tipo de expertise. O cenário mudou com o desenvolvimento de um ambiente integrado de trabalho, o RStudio, que facilitou o fluxo. Além disso, em 2016, o então cientista chefe da empresa RStudio, Hadley Wickham, em colaboração com Garrett Grolemund, concretizou o projeto *Tidy Data* [@wickham2014], visando aprimorar o manuseio de dados, publicando um conjunto de funções em pacotes voltados para a análise de dados, todos integrados ao *Tidyverse*. O projeto foi costruído por quatro princípios: 1. reutilização de estrutura de dados existentes; 2. composição de funções simples com o *pipe*; 3. incetivar programação que seja funcional e; 4. códigos que seja interpretáveis para humanos. Por enquanto estamos conhecendo a história, mas a transformação que isso causou será percebida quando começarmos a utilizar o pacote *tidyverse*.
+
+> > > > *It is often said that 80% of data analysis is spent on the process of cleaning and preparing the data (Dasu and Johnson 2003). Data preparation is not just a first step, but must be repeated many times over the course of analysis as new problems come to light or new data is collected. Despite the amount of time it takes, there has been surprisingly little research on how to clean data well. Part of the challenge is the breadth of activities it encompasses: from outlier checking, to date parsing, to missing value imputation. To get a handle on the problem, this paper focuses on a small, but important, aspect of data cleaning that I call data tidying: structuring datasets to facilitate analysis.* [@wickham2014, p. 1]
 
 Perceba que toda a história do R foi construída na contramão dos softwares de mercado, como o *Statistical Package for Social Sciences* (SPSS), produto da IBM, e o Pacote Office, produto da Microsoft. Trata-se de um projeto conduzido por pesquisas acadêmicas de ponta, visando facilitar o trabalho com a análise de dados. Trabalhar com o R, portanto, implica em um outro paradigma. Ao invés de ter o software como um produto administrado por uma empresa, onde as funções já estão programadas e disponíveis por botões e comandos, temos uma linguagem a partir da qual podemos programar funções e executar comandos diversos. Há diversas implicações nessa mudança que transformaram completamente o trabalho com dados nas Ciências Sociais, permitindo maior abertura para a criatividade e replicabilidade. Todo o nosso fluxo de trabalho é escrito em um documento, que pode ser compartilhado com outras pessoas, que podem verificar o passo-a-passo e replicar. Além disso, a forma como utilizamos o software possibilita eficiência nos processamentos, com baixo custo de tempo e recursos de hardware. Veremos isso ao longo o curso.
 
@@ -48,9 +50,9 @@ Para começar a usar o R, é preciso entender o que são e como funcionam as ope
 
 Como uma experiência antropológica ~~e de choque~~ , abra o R (não o RStudio!). Caso tenha dificuldade em encontrar o software, digite na busca do seu computador apenas a letra "R" e procure em aplicativos.
 
-Você deve abrir algo parecido com essa janela.
+Você deve abrir algo parecido com a janela da [Figura @fig-rconsole].
 
-![Console R](images/cosole-r.png)
+![Console R](images/cosole-r.png){#fig-rconsole}
 
 A janela onde escrevemos as linhas de comandos executáveis chamamos de "console". Abrindo o R diretamente, temos apenas a janela do console para inserir os comandos. Triste, né? Mas tudo fica mais *sexy* com o RStudio. Para fins didáticos, vamos continuar com o R base. Precisamos olhar um pouco para o console como faziam os egípcios e os hebreus.
 
@@ -194,9 +196,9 @@ Até aqui vimos o suficiente do R base. Agora, precisamos do RStudio para avanç
 
 Abra o RStudio no seu computador.
 
-Você deve abrir algo parecido com a imagem abaixo. Uma das inovações deste ambiente de trabalho é dividir o fluxo em quatro janelas: 1) script; 2) console; 3) gestão de aquivos e *outputs* e; 4) ambiente global (gestão de memória).
+Você deve abrir algo parecido com a [Figura @fig-rstudio]. Uma das inovações deste ambiente de trabalho é dividir o fluxo em quatro janelas: 1) script; 2) console; 3) gestão de aquivos e *outputs* e; 4) ambiente global (gestão de memória).
 
-![RStudio Layout](images/layout-rstudio.png)
+![RStudio Layout](images/layout-rstudio.png){#fig-rstudio}
 
 -   <div>
 
@@ -280,7 +282,11 @@ Com os comandos básicos que vimos anteriomente, vamos iniciar a construção de
 
 Vimos que um conjunto de valores de mesmo tipo/classe pode ser guardado em um vetor, armazenado na memória local como um objeto. Por definição, os vetores são represetados como colunas.
 
-Quando temos vetores de igual tamanho (com a mesma quantidade de valores), podemos uni-los em uma nova estrutura de dados, chamada data.frame. O data.frame é a famosa estrutura retangular de dados que conhecemos, com os casos nas linhas e variáveis nas colunas, como no *survey* tradicional. Portanto, para criar uma base de dados no R, basta ter os vetores de igual tamanho e uni-los em um data.frame.
+Temos um conjunto de funções úteis no manuseio de objetos, para saber o tamanho e o tipo/classe.
+
+-   class( ) ou typeof( ) : funções para verificar o tipo de objeto
+
+-   lenght( ) : função para verificar o tamanho do objeto
 
 ```{r}
 # Vetor de nomes, do tipo caracteres (chr)
@@ -292,13 +298,27 @@ idade <- c(18,14,45,16,33)
 # Vetor de posicionamento político à esquerda, do tipo lógico
 esquerda <- c(T,F,T,F,T)
 
+# verificando o tipo/classe dos vetores
+class(nome)
+class(idade)
+class(esquerda)
+
 # verificando tamanho dos vetores
 length(nome)
 length(idade)
 length(esquerda)
+```
 
+Conforme veremos a seguir, essas funções valem também para outros tipos de objeto, como o data.frame.
+
+Quando temos vetores de igual tamanho (com a mesma quantidade de valores), podemos uni-los em uma nova estrutura de dados, chamada data.frame. O data.frame é a famosa estrutura retangular de dados que conhecemos, com os casos nas linhas e variáveis nas colunas, como no *survey* tradicional. Portanto, para criar uma base de dados no R, basta ter os vetores de igual tamanho e uni-los em um data.frame.
+
+```{r}
 # Construindo base de dados com vetores de igual tamanho
 meus_dados <- data.frame(nome,idade,esquerda)
+
+class(meus_dados)
+
 meus_dados
 ```
 
@@ -432,9 +452,9 @@ Na próxima aula, iniciaremos retomando as relações lógicas e veremos as rela
 
 Uma alternativa para trabalhar com o R é usar o ambiente virtual da Google: o *Google Colaboratory* ou simplesmente Colab. Para isso, basta fazer login com uma conta google e criar um *notebook.* Para trabalhar com o R, é necessário editar as configurações. Para isso, vá em editar \> configurações do notebook \> altere de Python 3 para R.
 
-![Passo 01 - Google Colab](images/step00%20-%20colab.png)
+![Passo 01 - Google Colab](images/step00%20-%20colab.png){#fig-gcolab1}
 
-![Passo 2 - Google Colab](images/step01%20-%20colab.png)
+![Passo 2 - Google Colab](images/step01%20-%20colab.png){#fig-gcolab2}
 
 Diferente do RStudio, o Google Colab possui apenas uma janela principal que intercala texto e blocos de códigos. O uso é bastante intuitivo, embora os recursos sejam limitados. Para obter maior capacidade de processamento e memória, é necessário pagar.
 
