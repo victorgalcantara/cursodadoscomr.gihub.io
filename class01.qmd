@@ -442,12 +442,6 @@ meus_dados[ maior_ou_igual_18 , ]
 
 Não se assuste com o uso da lógica para manusear os dados. Mais a frente, veremos caminhos para executar esses comandos de uma forma mais amigável e intuitiva, seguindo os passos do projeto *tidy data* do Hadley Wickham, especialmente o princípio de escrita de códigos interpretáveis para humanos.
 
-## Recaptulando
-
-Neste capítulo, vimos que o R não é de comer, mas de praticar. Passamos pela sintaxe e pelos primeiros comandos fundamentais, que são a base para todas as operações nesta e em outras linguagens de programação. Vimos sobre as funções, como são estuturadas no R e como usá-las. Por fim, vimos como construir um data.frame a partir de vetores de igual tamanho e as relações lógicas entre valores.
-
-Na próxima aula, iniciaremos retomando as relações lógicas e veremos as relações condicionais. Faremos alguns exercícios usando elas para manusear dados e, depois, partiremos para o uso de pacotes para importar e manusear dados estruturados.
-
 ### Extra: Google Colab
 
 Uma alternativa para trabalhar com o R é usar o ambiente virtual da Google: o *Google Colaboratory* ou simplesmente Colab. Para isso, basta fazer login com uma conta google e criar um *notebook.* Para trabalhar com o R, é necessário editar as configurações. Para isso, vá em editar \> configurações do notebook \> altere de Python 3 para R.

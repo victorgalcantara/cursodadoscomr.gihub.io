@@ -126,7 +126,7 @@ rm( list = ls() ) # Remove todos os objetos listados na memória
 gc() # Faz a limpeza da lixeira da memória
 
 # Gestão de funções e pacotes
-install.packages("tidyverse") # Instala o pacote tidyverse como exemplo
+# install.packages("tidyverse") # Instala o pacote tidyverse como exemplo
 library(tidyverse) # Carrega o pacote tidyverse como exemplo
 ```
 
@@ -151,7 +151,7 @@ rm( list = ls() ) # Remove todos os objetos listados na memória
 gc() # Faz a limpeza da lixeira da memória
 
 # Gestão de funções e pacotes
-install.packages("tidyverse") # Instala o pacote tidyverse como exemplo
+# install.packages("tidyverse") # Instala o pacote tidyverse como exemplo
 library(tidyverse) # Carrega o pacote tidyverse como exemplo
 
 # Gestão do diretório
@@ -242,8 +242,7 @@ Agora, vamos importar nosso primeiro dado de trabalho.
 ```{r}
 # Import ---------------------------------------------------
 
-saeb21 <- import( "D:/01 - data/EDUC/SAEB/2021/DADOS/TS_ESCOLA.csv", 
-                  encoding = "Latin-1" )
+br_uf_data <- import( "G:/Meu Drive/02 - GitHub/R-Intro/000 - P&R/00 data/br_uf.csv" )
 ```
 
 Observe que defini o encoding do arquivo como "Latin-1", para identificar os acentos usados em línguas latinas como o português.
@@ -263,23 +262,23 @@ Em primeiro lugar, temos um conjunto de funções muito úteis para olhar para a
 -   str( ): retorna a estrutura da base de dados, indicando as dimensões e o tipo de cada variável
 
 ```{r}
-dim(saeb21)
+dim( br_uf_data )
 
 # O Saeb 2021 tem 70.897 linhas e 137 colunas
 
-names(saeb21)
+names( br_uf_data )
 ```
 
 ```{r}
-head(saeb21,n = 3)
+head( br_uf_data , n = 3)
 
-str(saeb21)
+str( br_uf_data )
 ```
 
 Embora não seja recomendado olhar para a planilha de dados quando o volume é muito grande, podemos utilizar recursos para observar apenas uma parte dos dados.
 
 ```{r}
-View( head(saeb21) )
+View( head( br_uf_data ) )
 ```
 
 Após observar a estrutura dos dados, temos uma ideia de quais variáveis e casos a base de dados guarda.
@@ -292,12 +291,12 @@ Como vimos anteriormente, podemos filtrar e selecionar nossa base usando apenas 
 
 ```{r}
 # Selecionar variáveis
-minha_selecao_dados <- saeb21[,c(6,12)]
+minha_selecao_dados <- br_uf_data[,c(1,9)]
 head(minha_selecao_dados)
 
 # Filtrar casos 
-meu_filtro_casos <- saeb21[ , 12 ] == "Nível I"
-meu_filtro_casos <- saeb21[ meu_filtro_casos, c(6,12) ]
+meu_filtro_casos <- br_uf_data[ , 9 ] > 0.60
+meu_filtro_casos <- br_uf_data[ meu_filtro_casos, 1 ]
 
 head(meu_filtro_casos)
 ```
@@ -311,13 +310,13 @@ Para tornar nosso código mais interpretável e organizado, vamos utilizar as fu
 ```{r}
 # Selecionar variáveis
 minha_selecao_dados <- select(
-  .data = saeb21,
-  ID_ESCOLA,NIVEL_SOCIO_ECONOMICO)
+  .data = br_uf_data,
+  sigla_uf,renda_pc)
 head(minha_selecao_dados)
 
 meu_filtro_casos <- filter(
-  .data = saeb21,
-  NIVEL_SOCIO_ECONOMICO == "Nível I")
+  .data = br_uf_data,
+  indice_gini > 0.60)
 head(meu_filtro_casos)
 ```
 
@@ -326,13 +325,14 @@ Agora, para continuar trabalhando com esses dados, vamos fazer uma seleção de 
 Para isso, vamos introduzir o uso do *pipe*, uma estrutura de código muito útil na programação. O *pipe* é composto pelo símbolo %\>%, e representa a ideia de que um objeto é tomado como referêcia para a próxima função a ser utilizada.
 
 ```{r}
-meu_saeb21 <- saeb21 %>% select(ID_ESCOLA,IN_PUBLICA,
-                                TAXA_PARTICIPACAO_9EF,
-                                MEDIA_9EF_MT,MEDIA_9EF_LP,
-                                NIVEL_SOCIO_ECONOMICO)
+br_uf_data <- br_uf_data %>% select(sigla_uf,
+                                    populacao,populacao_urbana,renda_pc,
+                                    pea,pia,expectativa_vida,taxa_superior_25_mais,
+                                    indice_gini,prop_renda_10_ricos,
+                                    prop_renda_40_pobres)
 
 # Filtro para escolas que tiveram mais de 80% (0.8) dos estudantes matriculados participando da prova
-meu_saeb21 <- meu_saeb21 %>% filter(TAXA_PARTICIPACAO_9EF >= 0.8)
+br_uf_data <- br_uf_data %>% filter(indice_gini >= 0)
 ```
 
 ## Rename
@@ -342,15 +342,16 @@ Depois de filtrada e selecionada a nossa base de dados, podemos renomear nossas 
 -   rename( ): para renomear colunas/variáveis
 
 ```{r}
-meu_saeb21 <- meu_saeb21 %>% rename(
-  pub = IN_PUBLICA,
-  tx_participacao = TAXA_PARTICIPACAO_9EF,
-  mt = MEDIA_9EF_MT,
-  lp = MEDIA_9EF_LP,
-  nse = NIVEL_SOCIO_ECONOMICO
-)
+br_uf_data <- br_uf_data %>% rename(
+                          uf=sigla_uf,
+                          pop=populacao,
+                          pop_urb=populacao_urbana,
+                          rpct=renda_pc,
+                          exp_vida=expectativa_vida,
+                          tx_sup=taxa_superior_25_mais,
+                          gini=indice_gini)
 
-head(meu_saeb21)
+head(br_uf_data)
 ```
 
 ## Export
@@ -362,12 +363,33 @@ Tendo selecionado e filtrado os dados, podemos salvar o recorte da base original
 Assim como a função *import*, basta inserir o endereço do diretório e, no final, o nome do arquivo com a extensão desejada para salvar. O pacote rio comporta as extensões mais utilizadas (excel - xlsx, spss - sav, comma separated values - csv, etc.).
 
 ```{r}
-export(x = meu_saeb21,
-       file = "D:/01 - data/EDUC/SAEB/2021/DADOS/meu_saeb21.csv")
+export(x = br_uf_data,
+       file = "G:/Meu Drive/02 - GitHub/R-Intro/A02 - Explore II/0 - data/mydata.RDS")
 ```
 
-# Recaptulando
-
 # Extra: unir bases de dados com chave de identificação comum
+
+É comum querermos unir diferentes dados sobre determinados indivíduos. Por exemplo, em pesquisas sobre educação, geralmente procura-se agregar dados de escolas que são estruturados em diferetes bases de dados. Para unir bases de dados, é preciso que os indivíduos tenham uma chave de identificação comum. Com a chave, é possível unir as bases usando a função *merge*.
+
+-   merge( ) : une diferentes bases de dados que têm os mesmos indivíduos como referência
+
+Como demonstração, farei a união dos dados dos estados (UFs), disponibilizados pelo IBGE via pacote *geobr*, com os dados das UFs que vimos anteriormente.
+
+```{r}
+# install.packages(geobr)
+library(geobr) # Carrega pacote necessário
+
+# Faz download e carregamento dos dados dos estados (UFs)
+geo_uf <- read_state(year = 2010)
+
+# renomeia variável que será utilizada como chave comum
+geo_uf <- geo_uf %>% rename(uf=abbrev_state)
+
+mydta <- merge(geo_uf,br_uf_data)
+
+# Export
+export(x = mydta,
+       file = "G:/Meu Drive/02 - GitHub/R-Intro/A02 - Explore II/0 - data/mydata.RDS")
+```
 
 # Desafio
