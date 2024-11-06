@@ -70,7 +70,7 @@ Agora, podemos instalar e carregar na memória o pacote mais famoso do R: o tidy
 library(tidyverse)
 ```
 
-A instalação e carregameto de pacotes sempre deve ser feita no início do *script*, compondo a parte de setup. Como os comandos são executados conforme a ordem em que aparecem no *script*, devemos começar com o setup do nosso ambiente de trabalho. Embora seja possível executar muitas operações com os botões disponibilizados pelo RStudio, é mais eficiente executá-las com comandos. No próximo tópico, veremos operações de rotina para a organização do ambiente de trabalho.
+A instalação e carregamento de pacotes sempre deve ser feita no início do *script*, compondo a parte de setup. Como os comandos são executados conforme a ordem em que aparecem no *script*, devemos começar com o setup do nosso ambiente de trabalho. Embora seja possível executar muitas operações com os botões disponibilizados pelo RStudio, é mais eficiente executá-las com comandos. No próximo tópico, veremos operações de rotina para a organização do ambiente de trabalho.
 
 # Setup
 
@@ -84,7 +84,7 @@ Há três configurações de setup que devemos incorporar no nosso *script*:
 
 #### Gestão da memória
 
-Temos um conjunto de funções muito úteis para limpar a memória local (o que ajuda no processamento) e obter o diretório (pasta) principal onde estamos trabalhando.
+Temos um conjunto de funções muito úteis para limpar a memória local (o que ajuda no processamento).
 
 -   rm( ) : de "Remove", para remover objetos da memória
 
@@ -164,7 +164,7 @@ Agora, com o ambiente pronto para o trabalho, podemos iniciar a importação e d
 
 Antes de entrarmos no fluxo de análise de dados, vamos retomar as operações fundamentais para entender como funcionam comandos relacionais e condicionais.
 
-### Comandos relacionais
+# Comandos relacionais
 
 As operações relacionais são usadas para combinar ou inverter testes e condições. Temos três operadores relacionais principais:
 
@@ -208,9 +208,11 @@ dados\$sexo == "Feminino" & dados\$raca == "Negra"
 
 Vamos colocar esses comandos em prática com dados reais.
 
-# Import
+# Import e manuseio
 
 Como você já deve ter percebido, é possível construir comandos complexos com as operações básicas. Contudo, a partir de agora, vamos começar a usar os pacotes para facilitar a nossa vida.
+
+## Import
 
 Os primeiros pacotes que vamos utilizar é o *Rio (R Input Output)* e o *Tidyverse*.
 
@@ -367,7 +369,7 @@ export(x = br_uf_data,
        file = "G:/Meu Drive/02 - GitHub/R-Intro/A02 - Explore II/0 - data/mydata.RDS")
 ```
 
-# Extra: unir bases de dados com chave de identificação comum
+# Extra I: unir bases de dados com chave de identificação comum
 
 É comum querermos unir diferentes dados sobre determinados indivíduos. Por exemplo, em pesquisas sobre educação, geralmente procura-se agregar dados de escolas que são estruturados em diferetes bases de dados. Para unir bases de dados, é preciso que os indivíduos tenham uma chave de identificação comum. Com a chave, é possível unir as bases usando a função *merge*.
 
@@ -375,12 +377,12 @@ export(x = br_uf_data,
 
 Como demonstração, farei a união dos dados dos estados (UFs), disponibilizados pelo IBGE via pacote *geobr*, com os dados das UFs que vimos anteriormente.
 
-```{r}
+```{r, message=F,warning=F}
 # install.packages(geobr)
 library(geobr) # Carrega pacote necessário
 
 # Faz download e carregamento dos dados dos estados (UFs)
-geo_uf <- read_state(year = 2010)
+geo_uf <- read_state(year = 2010,showProgress = F)
 
 # renomeia variável que será utilizada como chave comum
 geo_uf <- geo_uf %>% rename(uf=abbrev_state)
@@ -393,3 +395,57 @@ export(x = mydta,
 ```
 
 # Desafio
+
+```{r}
+# 1. Inicie seu código com cabeçalho e setup
+
+# 2. Utilizando o pacote "rio", 
+# importe os dados com os quais você irá trabalhar
+
+# 3. Utilizando as funções de base
+# Observe a estrutura da sua base de dados
+
+# 4. Utilizando o pacote "tidyverse"
+# Faça a seleção e filtro da sua base de dados
+
+# 5. Utilizando o pacote "tidyverse"
+# Renomeie suas variáveis para nomes mais intuitivos para manusear
+
+# 6. Utilizando o pacote "rio"
+# Exporte sua base de dados manuseada
+```
+
+
+# Extra II: começando a pensar na análise
+
+```{r, message=F,warning=F}
+# Preparar os dados para o gráfico
+mydta <- mydta %>%
+  mutate(prop_pop_urb = (pop_urb / pop) * 100 ) # Calcula a proporção da população urbana
+
+# Criar o gráfico de dispersão
+plt1 <- ggplot(mydta, aes(y = prop_renda_40_pobres, x = rpct, label = uf)) +
+  geom_smooth(method = "lm",formula = y~x,alpha=.2,col="grey")+
+  geom_point(aes(size = gini, color = -gini), alpha = 0.7) +
+  geom_text(vjust = -1.5,hjust=.5, size = 2,fontface="bold") + # Adiciona as siglas das UFs
+  scale_y_continuous(limits = c(5,15),breaks = seq(5,20,2.5))+
+  labs(
+    title = "Desigualdade de renda por UF",
+    subtitle = "Censo Demográfico, Brasil, 2010",
+    y = "Proporção da renda acumulada pelos 40% Mais Pobres",
+    x = "Média da Renda Per Capta (R$)",
+    size = "Índice Gini",
+    color = "Índice Gini",
+    caption = "     Fonte: basedosdados.org"
+  ) +
+  theme_minimal()
+plt1
+
+# Plotly para gráficos interativos
+
+#install.packages("plotly")
+library(plotly)
+
+plt2 <- ggplotly(plt1)
+plt2
+```
