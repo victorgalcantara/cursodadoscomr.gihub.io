@@ -34,7 +34,7 @@ Ser parte do Projeto GNU de softwares livres é o primeiro ponto forte do R. Al�
 
 -   **Popularidade:** movido por uma comunidade internacional extensa, que desenvolve e acompanha o software. Cada vez mais adotado em instituições (principalmente públicas) e pela comunidade acadêmica.
 
-O manuseio e a análise de dados é um desafio de longa data. Do ponto de vista do armazenamento e processamento, a principal pesquisa nacional, o Censo Demográfico, já era um desafio desde, pelo menos, 1960 ([para saber mais sobre a história dos censos](https://www.scielo.br/j/nec/a/nJnk3y84WffXCjwp76FNjJr/)). Uma área que emergiu diante desses desafios é a de Ciências Sociais Computacionais, que aborda desde o desenvolvimento de algoritmos para a extração e análise de dados até a discussão teórica sobre ambientes digitais.
+O manuseio e a análise de dados é um desafio de longa data. Do ponto de vista do armazenamento e processamento, a principal pesquisa nacional, o Censo Demográfico, já era um desafio desde, pelo menos, 1960 [ver @barbosa2013]. Uma área que emergiu diante desses desafios é a de Ciências Sociais Computacionais, que aborda desde o desenvolvimento de algoritmos para a extração e análise de dados até a discussão teórica sobre ambientes digitais.
 
 Ainda que a programação esteja relacionada com lógica e cálculo, não se trata apenas de informações quantitativas. Podemos tratar, além dos famosos *surveys*, também dados não estruturados, textos, imagens, sons e tudo o mais que puder ser registrado. Tudo isso torna mais atraente a análise de dados com uso de programação.
 

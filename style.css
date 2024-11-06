@@ -1,3 +1,22 @@
 p {
   text-align: justify;
 }
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline; /* Opcional: para sublinhar ao passar o mouse */
+}
+
+.sourceCode {
+    background-color: #grey; /* Escolha a cor que preferir */
+    padding: 10px;
+    border-radius: 5px; /* Bordas arredondadas, se desejado */
+    border: 1px solid #ddd; /* Borda sutil para destacar */
+    overflow-x: auto; /* Permite rolagem horizontal para códigos longos */
+}
+
+.sourceCode .kw { color: #0073e6; } /* Exemplos de cores de destaque */
+.sourceCode .st { color: #green; }
+.sourceCode .co { color: #998; font-style: italic; }

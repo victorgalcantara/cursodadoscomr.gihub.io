@@ -207,9 +207,6 @@ div.csl-indent {
   <li><a href="#funções" id="toc-funções" class="nav-link" data-scroll-target="#funções">Funções</a></li>
   <li><a href="#data.frame-dado-estruturado" id="toc-data.frame-dado-estruturado" class="nav-link" data-scroll-target="#data.frame-dado-estruturado">Data.frame: dado estruturado</a></li>
   <li><a href="#relações-lógicas" id="toc-relações-lógicas" class="nav-link" data-scroll-target="#relações-lógicas">Relações lógicas</a></li>
-  </ul></li>
-  <li><a href="#recaptulando" id="toc-recaptulando" class="nav-link" data-scroll-target="#recaptulando">Recaptulando</a>
-  <ul class="collapse">
   <li><a href="#extra-google-colab" id="toc-extra-google-colab" class="nav-link" data-scroll-target="#extra-google-colab">Extra: Google Colab</a></li>
   </ul></li>
   <li><a href="#desafio" id="toc-desafio" class="nav-link" data-scroll-target="#desafio">Desafio</a></li>
@@ -271,7 +268,7 @@ div.csl-indent {
 <li><p><strong>Replicabilidade e transparência:</strong> os procedimentos são registrados em código, portando mais transparentes e possíveis de serem replicados. Práticas fundamentais e cada vez mais impulsionadas por revistas e instituições acadêmicas.</p></li>
 <li><p><strong>Popularidade:</strong> movido por uma comunidade internacional extensa, que desenvolve e acompanha o software. Cada vez mais adotado em instituições (principalmente públicas) e pela comunidade acadêmica.</p></li>
 </ul>
-<p>O manuseio e a análise de dados é um desafio de longa data. Do ponto de vista do armazenamento e processamento, a principal pesquisa nacional, o Censo Demográfico, já era um desafio desde, pelo menos, 1960 (<a href="https://www.scielo.br/j/nec/a/nJnk3y84WffXCjwp76FNjJr/">para saber mais sobre a história dos censos</a>). Uma área que emergiu diante desses desafios é a de Ciências Sociais Computacionais, que aborda desde o desenvolvimento de algoritmos para a extração e análise de dados até a discussão teórica sobre ambientes digitais.</p>
+<p>O manuseio e a análise de dados é um desafio de longa data. Do ponto de vista do armazenamento e processamento, a principal pesquisa nacional, o Censo Demográfico, já era um desafio desde, pelo menos, 1960 <span class="citation" data-cites="barbosa2013">(ver <a href="references.html#ref-barbosa2013" role="doc-biblioref">3</a>)</span>. Uma área que emergiu diante desses desafios é a de Ciências Sociais Computacionais, que aborda desde o desenvolvimento de algoritmos para a extração e análise de dados até a discussão teórica sobre ambientes digitais.</p>
 <p>Ainda que a programação esteja relacionada com lógica e cálculo, não se trata apenas de informações quantitativas. Podemos tratar, além dos famosos <em>surveys</em>, também dados não estruturados, textos, imagens, sons e tudo o mais que puder ser registrado. Tudo isso torna mais atraente a análise de dados com uso de programação.</p>
 <p>Se você é uma pessoa curiosa e que quer explorar a criatividade, a sofisticação e a elegância em seu trabalho, está no lugar certo.</p>
 </section>
@@ -519,8 +516,8 @@ Figure&nbsp;2: RStudio Layout
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gc</span>()  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>          used (Mb) gc trigger (Mb) max used (Mb)
-Ncells  599835 32.1    1360500 72.7  1360500 72.7
-Vcells 1112184  8.5    8388608 64.0  1876245 14.4</code></pre>
+Ncells  599832 32.1    1360454 72.7  1360454 72.7
+Vcells 1112024  8.5    8388608 64.0  1876245 14.4</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -759,11 +756,6 @@ Vcells 1112184  8.5    8388608 64.0  1876245 14.4</code></pre>
 </div>
 <p>Não se assuste com o uso da lógica para manusear os dados. Mais a frente, veremos caminhos para executar esses comandos de uma forma mais amigável e intuitiva, seguindo os passos do projeto <em>tidy data</em> do Hadley Wickham, especialmente o princípio de escrita de códigos interpretáveis para humanos.</p>
 </section>
-</section>
-<section id="recaptulando" class="level2">
-<h2 class="anchored" data-anchor-id="recaptulando">Recaptulando</h2>
-<p>Neste capítulo, vimos que o R não é de comer, mas de praticar. Passamos pela sintaxe e pelos primeiros comandos fundamentais, que são a base para todas as operações nesta e em outras linguagens de programação. Vimos sobre as funções, como são estuturadas no R e como usá-las. Por fim, vimos como construir um data.frame a partir de vetores de igual tamanho e as relações lógicas entre valores.</p>
-<p>Na próxima aula, iniciaremos retomando as relações lógicas e veremos as relações condicionais. Faremos alguns exercícios usando elas para manusear dados e, depois, partiremos para o uso de pacotes para importar e manusear dados estruturados.</p>
 <section id="extra-google-colab" class="level3">
 <h3 class="anchored" data-anchor-id="extra-google-colab">Extra: Google Colab</h3>
 <p>Uma alternativa para trabalhar com o R é usar o ambiente virtual da Google: o <em>Google Colaboratory</em> ou simplesmente Colab. Para isso, basta fazer login com uma conta google e criar um <em>notebook.</em> Para trabalhar com o R, é necessário editar as configurações. Para isso, vá em editar &gt; configurações do notebook &gt; altere de Python 3 para R.</p>
@@ -819,6 +811,9 @@ Figure&nbsp;4: Passo 2 - Google Colab
 </div>
 <div id="ref-wickham2014" class="csl-entry" role="listitem">
 <div class="csl-left-margin">[2] </div><div class="csl-right-inline">WICKHAM, H. <a href="https://doi.org/10.18637/jss.v059.i10">Tidy data</a>. <strong>Journal of Statistical Software</strong>, v. 59, n. 10, p. 1–23, 2014. </div>
+</div>
+<div id="ref-barbosa2013" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[3] </div><div class="csl-right-inline">BARBOSA, R. J. et al. <a href="https://doi.org/10.1590/S0101-33002013000100008">Ciências sociais, censo e informação quantitativa no Brasil: entrevista com Elza Berquó e Nelson do Valle Silva</a>. <strong>Novos Estudos - CEBRAP</strong>, n. 95, p. 143–155, Mar. 2013. </div>
 </div>
 </div>
 </section>
