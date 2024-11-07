@@ -190,7 +190,28 @@ Não se assuste com a mensagem de erro. Ela sempre aparecerá com alguma explica
 
 Embora tente ser nosso amigo, ele pode te frustrar com a quantidade de problemas e erros que aparecerão no seu caminho. Mas nunca se esqueça de que o R é burro e o inteligente é você.
 
-Até aqui vimos o suficiente do R base. Agora, precisamos do RStudio para avançar de uma forma mais atrativa.
+Há uma outra função para concatenar objetos e valores que é muito útil e pode ser incorporada entre os comandos básicos: a função *paste*.
+
+```{r}
+paste("O primeiro valor guardado no vetor de caracteres é",valores_chr[1])
+```
+
+O que a função *paste* faz, simplesmente, é colar textos com valores guardados em objetos. Há também uma versão semelhante, que cola os valores sem adicionar espaçamento: *paste0.*
+
+```{r}
+paste0("O primeiro valor guardado no vetor de caracteres é",valores_chr[1])
+```
+
+A diferença é sutil, mas pode muito importante. Quando queremos construir o endereço do arquivo no nosso computador, por exemplo, não é usual adicionar espaços; pode ocasionar em erro.
+
+```{r}
+nome_arquivo <- "meusdados.csv"
+endereco_pasta <- "G://meucomputador/pasta/"
+
+paste0(endereco_pasta,nome_arquivo)
+```
+
+Os comandos para comentar, atribuir valores a objetos e concatenar valores são a essência do R e serão a sua base daqui para frente. Agora, precisamos do RStudio para avançar de uma forma mais intuitiva e atrativa.
 
 ### Explorado comandos com RStudio
 

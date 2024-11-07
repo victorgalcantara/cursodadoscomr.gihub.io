@@ -1,0 +1,108 @@
+---
+title: "Aula 02"
+author: "Victor G Alcantara"
+execute:
+     echo: true     # Exibir o código
+     eval: true     # Executar o código
+     output: true   # Mostrar a saída
+
+format:
+  revealjs:
+    theme: white
+    transition: slide
+    scale: true  # Ajusta o conteúdo para caber no slide
+---
+
+# Aula 02
+
+-   Comandos, operações básicas e lógica
+
+-   Tipo de valores e objetos
+
+-   Funções e pacotes
+
+------------------------------------------------------------------------
+
+# Recaptulando
+
+## **Comandos básicos**
+
+-   Comentários (#)
+
+-   Tipos de valores (num, chr, logi)
+
+-   Atribuição de valores (\<- ou =)
+
+------------------------------------------------------------------------
+
+## Tipos de objetos
+
+**vetores**: objetos que guardam valores de mesmo tipo em uma dimensão​
+
+Acesso aos valores usando colchetes \[ posição \]
+
+```{r}
+nome <- c("Carlos","Maria","Renata")
+idade <- c(18,14,45)
+esquerda <- c(T,F,T)
+
+# verificando o tipo/classe dos vetores
+class(nome)
+class(idade)
+class(esquerda)
+```
+
+---
+
+```{r}
+# verificando tamanho dos vetores
+length(nome)
+length(idade)
+length(esquerda)
+```
+
+---
+
+## Tipos de objetos
+
+data.frame: objetos que guardam base de dados estruturadas​
+
+Acesso aos valores usando colchetes \[ linha, coluna\]
+
+------------------------------------------------------------------------
+
+```{r, message=F,warning=F, echo=FALSE}
+library(tidyverse)
+library(rio)
+
+mydta <- import(file = "G:/Meu Drive/02 - GitHub/R-Intro/A02 - Explore II/0 - data/mydata.RDS")
+
+# Preparar os dados para o gráfico
+mydta <- mydta %>%
+  mutate(prop_pop_urb = (pop_urb / pop) * 100 ) # Calcula a proporção da população urbana
+
+# Criar o gráfico de dispersão
+plt1 <- ggplot(mydta, aes(y = prop_renda_40_pobres, x = rpct, label = uf)) +
+  geom_smooth(method = "lm",formula = y~x,alpha=.2,col="grey")+
+  geom_point(aes(size = gini, color = -gini), alpha = 0.7) +
+  geom_text(vjust = -1.5,hjust=.5, size = 2,fontface="bold") + # Adiciona as siglas das UFs
+  scale_y_continuous(limits = c(5,15),breaks = seq(5,20,2.5))+
+  labs(
+    title = "Desigualdade de renda por UF",
+    subtitle = "Censo Demográfico, Brasil, 2010",
+    y = "Proporção da renda acumulada pelos 40% Mais Pobres",
+    x = "Média da Renda Per Capta (R$)",
+    size = "Índice Gini",
+    color = "Índice Gini",
+    caption = "     Fonte: basedosdados.org"
+  ) +
+  theme_minimal()
+
+# Plotly para gráficos interativos
+
+#install.packages("plotly")
+library(plotly)
+
+plt2 <- ggplotly(plt1)
+plt2
+```

@@ -1,0 +1,34 @@
+# Capítulo 3 {.unnumbered}
+
+```{r, message=F,warning=F, echo=FALSE}
+# Preparar os dados para o gráfico
+mydta <- mydta %>%
+  mutate(prop_pop_urb = (pop_urb / pop) * 100 ) # Calcula a proporção da população urbana
+
+# Criar o gráfico de dispersão
+plt1 <- ggplot(mydta, aes(y = prop_renda_40_pobres, x = rpct, label = uf)) +
+  geom_smooth(method = "lm",formula = y~x,alpha=.2,col="grey")+
+  geom_point(aes(size = gini, color = -gini), alpha = 0.7) +
+  geom_text(vjust = -1.5,hjust=.5, size = 2,fontface="bold") + # Adiciona as siglas das UFs
+  scale_y_continuous(limits = c(5,15),breaks = seq(5,20,2.5))+
+  labs(
+    title = "Desigualdade de renda por UF",
+    subtitle = "Censo Demográfico, Brasil, 2010",
+    y = "Proporção da renda acumulada pelos 40% Mais Pobres",
+    x = "Média da Renda Per Capta (R$)",
+    size = "Índice Gini",
+    color = "Índice Gini",
+    caption = "     Fonte: basedosdados.org"
+  ) +
+  theme_minimal()
+plt1
+
+# Plotly para gráficos interativos
+
+#install.packages("plotly")
+library(plotly)
+
+plt2 <- ggplotly(plt1)
+plt2
+```
+

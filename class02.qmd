@@ -1,10 +1,6 @@
----
-output: html_document
-editor_options: 
-  chunk_output_type: console
----
-
 # Capítulo 2 {.unnumbered}
+
+## Mãos na massa
 
 No capítulo anterior, vimos sobre a história e o funcionamento do R e RStudio, introduzindo o fluxo de trabalho e as operações fundamentais. Vimos três tipos de valores que podemos utilizar na programação: números, caracteres/texto e lógica (TRUE/FALSE). Depois, como armazenar e manusear os valores em objetos na memória, em duas estrutura de dados: vetores e data.frame. Vimos como são estruturadas e como usar as funções e, por fim, manuseamos dados usando testes lógicos. Todas as operações foram feitas com a base do R, usando comandos e funções elementares.
 
@@ -42,6 +38,12 @@ Observe que a função criada aparece na memória como um objeto do tipo "functi
 x_mais_1(x = 2)
 ```
 
+Para verificar como a função está programada, basta executar apenas o nome da função e o R retornará a estrutura.
+
+```{r}
+x_mais_1
+```
+
 Este é um exemplo didático. Em geral, as funções executam operações complexas e servem para facilitar o nosso código. Veja o exemplo abaixo:
 
 ```{r}
@@ -69,6 +71,22 @@ Agora, podemos instalar e carregar na memória o pacote mais famoso do R: o tidy
 # install.packages("tidyverse")
 library(tidyverse)
 ```
+
+Os pacotes distribuídos pelo CRAN possuem documentações. Quando houver dúvidas sobre quais funções o pacote possui ou quais são os argumentos de *input* que as funções comportam, podemos acessar a documentação recorrendo à janela "Help", usando os seguintes recursos:
+
+-   help(package = "pacote"): para saber sobre o pacote
+
+-   ??pacote::função : para saber sobre a função
+
+```{r}
+# Verificar as funções do pacote "dplyr", que compõe o tidyverse
+help(package = "dplyr")
+
+# Verificar os argumentos da função "filter" do pacote dplyr
+??dplyr::filter
+```
+
+Fora esses recursos, também podemos simplesmente pesquisar sobre o pacote na internet. Há imensa informação disponível.
 
 A instalação e carregamento de pacotes sempre deve ser feita no início do *script*, compondo a parte de setup. Como os comandos são executados conforme a ordem em que aparecem no *script*, devemos começar com o setup do nosso ambiente de trabalho. Embora seja possível executar muitas operações com os botões disponibilizados pelo RStudio, é mais eficiente executá-las com comandos. No próximo tópico, veremos operações de rotina para a organização do ambiente de trabalho.
 
@@ -247,7 +265,15 @@ Agora, vamos importar nosso primeiro dado de trabalho.
 br_uf_data <- import( "G:/Meu Drive/02 - GitHub/R-Intro/000 - P&R/00 data/br_uf.csv" )
 ```
 
-Observe que defini o encoding do arquivo como "Latin-1", para identificar os acentos usados em línguas latinas como o português.
+Há diversas funções que se adequam ao tipo de dado a ser lido com o R. Com o pacote *rio*, este comando fica mais simples e intuitivo. Basta utilizar a função *import*, indicando o local do arquivo e sua extensão (no exemplo acima é .csv).
+
+Há outros argumentos que podem entrar na função import. Você pode definir:
+
+> sep = o separador utilizado no arquivo
+>
+> sheets = a folha da planilha no arquivo, quando Excel
+>
+> encoding = a codificação do arquivo
 
 Com os dados importados para a memória, podemos explorar as funções fundamentais no tratamento de dados.
 
@@ -324,6 +350,8 @@ head(meu_filtro_casos)
 
 Agora, para continuar trabalhando com esses dados, vamos fazer uma seleção de variáveis e um filtro de casos conforme nossos interesses.
 
+### Pipe
+
 Para isso, vamos introduzir o uso do *pipe*, uma estrutura de código muito útil na programação. O *pipe* é composto pelo símbolo %\>%, e representa a ideia de que um objeto é tomado como referêcia para a próxima função a ser utilizada.
 
 ```{r}
@@ -369,7 +397,7 @@ export(x = br_uf_data,
        file = "G:/Meu Drive/02 - GitHub/R-Intro/A02 - Explore II/0 - data/mydata.RDS")
 ```
 
-# Extra I: unir bases de dados com chave de identificação comum
+# Extra: unir bases de dados com chave de identificação comum
 
 É comum querermos unir diferentes dados sobre determinados indivíduos. Por exemplo, em pesquisas sobre educação, geralmente procura-se agregar dados de escolas que são estruturados em diferetes bases de dados. Para unir bases de dados, é preciso que os indivíduos tenham uma chave de identificação comum. Com a chave, é possível unir as bases usando a função *merge*.
 
@@ -387,7 +415,8 @@ geo_uf <- read_state(year = 2010,showProgress = F)
 # renomeia variável que será utilizada como chave comum
 geo_uf <- geo_uf %>% rename(uf=abbrev_state)
 
-mydta <- merge(geo_uf,br_uf_data)
+mydta <- merge(x = geo_uf,y = br_uf_data,
+               by="uf" )
 
 # Export
 export(x = mydta,
@@ -397,55 +426,32 @@ export(x = mydta,
 # Desafio
 
 ```{r}
-# 1. Inicie seu código com cabeçalho e setup
+# 1. Iniciando um script 
+# Inicie seu código com cabeçalho e setup
 
-# 2. Utilizando o pacote "rio", 
-# importe os dados com os quais você irá trabalhar
+# 2. Inspecionando um pacote e suas funções
+# Inicie uma seção no seu script para inspecionar o pacote rio
 
-# 3. Utilizando as funções de base
-# Observe a estrutura da sua base de dados
+# inspecione as funções disponíveis no pacote rio
 
-# 4. Utilizando o pacote "tidyverse"
-# Faça a seleção e filtro da sua base de dados
+# inspecione os argumentos da função "import"
 
-# 5. Utilizando o pacote "tidyverse"
+# 3. Importando dados com o pacote rio
+# Utilizando o pacote "rio", importe os dados com os quais você irá trabalhar
+
+# 4. Observando os dados e sua estrutura
+# Utilizando as funções de base, observe a estrutura da sua base de dados
+
+# 5. Seleção e filtro
+
+# Utilizando R base para manusear os dados
+# em um novo objeto, guarde a seleção de duas variáveis, com um filtro que reduza o tamanho da sua base de dados
+
+# Agora, utilizando o pacote "tidyverse", faça a seleção e filtro da sua base de dados de acordo com o que você pretende trabalhar com ela
+
+# Utilizando o pacote "tidyverse"
 # Renomeie suas variáveis para nomes mais intuitivos para manusear
 
 # 6. Utilizando o pacote "rio"
 # Exporte sua base de dados manuseada
-```
-
-
-# Extra II: começando a pensar na análise
-
-```{r, message=F,warning=F}
-# Preparar os dados para o gráfico
-mydta <- mydta %>%
-  mutate(prop_pop_urb = (pop_urb / pop) * 100 ) # Calcula a proporção da população urbana
-
-# Criar o gráfico de dispersão
-plt1 <- ggplot(mydta, aes(y = prop_renda_40_pobres, x = rpct, label = uf)) +
-  geom_smooth(method = "lm",formula = y~x,alpha=.2,col="grey")+
-  geom_point(aes(size = gini, color = -gini), alpha = 0.7) +
-  geom_text(vjust = -1.5,hjust=.5, size = 2,fontface="bold") + # Adiciona as siglas das UFs
-  scale_y_continuous(limits = c(5,15),breaks = seq(5,20,2.5))+
-  labs(
-    title = "Desigualdade de renda por UF",
-    subtitle = "Censo Demográfico, Brasil, 2010",
-    y = "Proporção da renda acumulada pelos 40% Mais Pobres",
-    x = "Média da Renda Per Capta (R$)",
-    size = "Índice Gini",
-    color = "Índice Gini",
-    caption = "     Fonte: basedosdados.org"
-  ) +
-  theme_minimal()
-plt1
-
-# Plotly para gráficos interativos
-
-#install.packages("plotly")
-library(plotly)
-
-plt2 <- ggplotly(plt1)
-plt2
 ```
