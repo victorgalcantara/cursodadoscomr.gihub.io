@@ -1,5 +1,21 @@
 # Capítulo 3 {.unnumbered}
 
+```{r}
+uf <- read_state(year = 2010)
+uf <- uf %>% rename(sigla_uf=abbrev_state)
+
+mydta <- merge(uf,mydta)
+
+mydta <- mydta %>% mutate(.,
+                          renda = cut(renda_pc,
+                                      breaks = c(0,600,900,max(renda_pc)),
+                                      labels = c("RPCT baixa","RPCT média","RPCT alta")
+                                      )
+                          )
+
+mydta <- mydta %>% relocate(renda,.after = renda_pc)
+```
+
 ```{r, message=F,warning=F, echo=FALSE}
 # Preparar os dados para o gráfico
 mydta <- mydta %>%
@@ -31,4 +47,3 @@ library(plotly)
 plt2 <- ggplotly(plt1)
 plt2
 ```
-
