@@ -1,6 +1,6 @@
 # Capítulo 3 {.unnumbered}
 
-# Mão na massa - Parte II
+## Mão na massa - Parte II
 
 No capítulo anterior, começamos a colocar a mão na massa trabalhando com dados estruturados. Revisamos as funções, vimos sobre comandos relacionais e como iniciar um código, com identificação no cabeçalho e setup que inclui gestão da memória, de pacotes e diretórios. Por fim, vimos as funções fundamentais de dois pacotes muito importantes para importar (pacote *rio*) e manusear (*tidyverse*) dados (import/export, select, filter e rename).
 
