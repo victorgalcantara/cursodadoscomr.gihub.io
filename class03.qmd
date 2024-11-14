@@ -1,49 +1,183 @@
 # Capítulo 3 {.unnumbered}
 
-```{r}
-uf <- read_state(year = 2010)
-uf <- uf %>% rename(sigla_uf=abbrev_state)
+# Mão na massa - Parte II
 
-mydta <- merge(uf,mydta)
+No capítulo anterior, começamos a colocar a mão na massa trabalhando com dados estruturados. Revisamos as funções, vimos sobre comandos relacionais e como iniciar um código, com identificação no cabeçalho e setup que inclui gestão da memória, de pacotes e diretórios. Por fim, vimos as funções fundamentais de dois pacotes muito importantes para importar (pacote *rio*) e manusear (*tidyverse*) dados (import/export, select, filter e rename).
 
-mydta <- mydta %>% mutate(.,
-                          renda = cut(renda_pc,
-                                      breaks = c(0,600,900,max(renda_pc)),
-                                      labels = c("RPCT baixa","RPCT média","RPCT alta")
-                                      )
-                          )
+Neste capítulo, aprofundaremos sobre o manuseio de dados para tratar das modificações nas variáveis, usando a função *mutate* do *tidyverse*. Essa é uma das mais importantes e complicadas, porque é com ela que fazemos as recodificações necessárias para as nossas variáveis.
 
-mydta <- mydta %>% relocate(renda,.after = renda_pc)
+# Mutate
+
+A função `mutate` é uma das principais ferramentas do `tidyverse` para manipulação de dados no R, usada para criar ou modificar colunas em uma base de dados. Com `mutate`, é possível adicionar novas variáveis, transformar variáveis existentes, e aplicar funções a colunas específicas de forma direta e intuitiva. Isso permite preparar e ajustar os dados de acordo com as necessidades de análise, tudo enquanto preserva a estrutura do conjunto de dados original. A importância do `mutate` está em sua capacidade de simplificar o processo de transformação de dados, tornando o código mais legível e eficiente ao combinar funções de forma flexível. Essa função segue a mesma estrutura das demais do *tidyverse*, como `select`, `filter` e `rename`.
+
+> > dados %\>% mutate( nova_variavel = variavel + modificacoes )
+
+Vamos ver um exemplo com os dados das Unidades da Federação do Brasil.
+
+```{r, echo = F, message=F}
+# Setup ----
+
+# Gestão da memória
+rm( list = ls() ) # Remove todos os objetos listados na memória
+
+# Gestão de funções e pacotes
+#install.packages("tidyverse") # Instala o pacote tidyverse como exemplo
+#install.packages("rio") # R Input Output,  para impotar e exportar dados
+
+library(rio)
+library(dplyr)
+
+# Import ----
+
+br_uf_data <- import( "G:/Meu Drive/02 - GitHub/R-Intro/000 - P&R/00 data/br_uf.csv" )
 ```
 
-```{r, message=F,warning=F, echo=FALSE}
-# Preparar os dados para o gráfico
-mydta <- mydta %>%
-  mutate(prop_pop_urb = (pop_urb / pop) * 100 ) # Calcula a proporção da população urbana
+Como na última aula, faremos algumas operações de seleção e de renomear variáveis para limpar a base de dados. Para avançar, faremos um conjunto de manuseios aninhados com pipe.
 
-# Criar o gráfico de dispersão
-plt1 <- ggplot(mydta, aes(y = prop_renda_40_pobres, x = rpct, label = uf)) +
-  geom_smooth(method = "lm",formula = y~x,alpha=.2,col="grey")+
-  geom_point(aes(size = gini, color = -gini), alpha = 0.7) +
-  geom_text(vjust = -1.5,hjust=.5, size = 2,fontface="bold") + # Adiciona as siglas das UFs
-  scale_y_continuous(limits = c(5,15),breaks = seq(5,20,2.5))+
-  labs(
-    title = "Desigualdade de renda por UF",
-    subtitle = "Censo Demográfico, Brasil, 2010",
-    y = "Proporção da renda acumulada pelos 40% Mais Pobres",
-    x = "Média da Renda Per Capta (R$)",
-    size = "Índice Gini",
-    color = "Índice Gini",
-    caption = "     Fonte: basedosdados.org"
-  ) +
-  theme_minimal()
-plt1
+```{r}
 
-# Plotly para gráficos interativos
+meus.dados <- br_uf_data %>% # Pega base de ref
+  
+  select( # Seleciona variáveis
+    sigla_uf,populacao,populacao_urbana,renda_pc,expectativa_vida,indice_gini,prop_renda_40_pobres) %>%
+  
+  rename( # Renomeia variáveis
+    uf = sigla_uf,
+    pop = populacao,
+    pop_urb = populacao_urbana,
+    rpct = renda_pc,
+    exp_vida = expectativa_vida,
+    gini = indice_gini,
+    renda_p40 = prop_renda_40_pobres)
 
-#install.packages("plotly")
-library(plotly)
+str(meus.dados)
+```
 
-plt2 <- ggplotly(plt1)
-plt2
+Agora, vamos fazer uma modificação simples para praticar o uso do mutate. Abaixo, vamos construir uma nova variável (urb) que guarda a proporção da população urbana na UF, calculada pela razão entre as variáveis população urbana (pop_urb) e população total (pop).
+
+```{r}
+meus.dados <- meus.dados %>% mutate(
+  urb = pop_urb / pop # proporção de pop urbana
+)
+
+meus.dados %>% select(uf,pop,pop_urb,urb) %>% head()
+```
+
+Simples, não? Acontece que temos outras funções que podem ser utilizadas dentro do *mutate* para recodificar variáveis.
+
+## Case when
+
+`case_when` é uma função muito usual para criar novos valores quando dada condição é verificada. Ela permite criar novos valores para uma coluna com base em condições lógicas, semelhantes a uma estrutura "se-então", ou "quando o caso estiver nessa condição, aplique isso". Ela é útil para categorizar dados ou aplicar diferentes transformações em uma coluna de acordo com regras específicas.
+
+> > dados %\>% mutate(
+> >
+> > nova_variavel =
+> >
+> > case_when(
+> >
+> > variavel == valor1 \~ "novo valor 1",
+> >
+> > variavel == valor2 \~ "novo valor 2" )
+> >
+> > )
+
+Vamos explorar com os dados.
+
+```{r}
+meus.dados <- meus.dados %>% mutate(
+  nivel_urb = case_when(
+    urb < 0.70 ~ "Baixo",
+    urb >= 0.70 & urb < 0.85 ~ "Médio",
+    urb >= 0.85 ~ "Alto"
+  )
+)
+
+class(meus.dados$nivel_urb)
+table(meus.dados$nivel_urb)
+
+meus.dados %>% 
+  select(uf,urb,nivel_urb) %>% head()
+```
+
+## Recode
+
+A função `recode` no R é usada para substituir valores específicos em uma coluna de dados. Ela permite mapear valores antigos para novos valores de forma direta, sem condições lógicas. É útil, por exemplo, para renomear categorias ou ajustar valores em uma variável.
+
+> > dados %\>% mutate(
+> >
+> > nova_variavel =
+> >
+> > recode( variavel,
+> >
+> > valor1 = novo valor1,
+> >
+> > valor2 = valor valor 2 )
+> >
+> > )
+
+```{r}
+meus.dados <- meus.dados %>% 
+  mutate(      
+    nivel_urb_2 = recode(nivel_urb,                             "Baixo" = "B",
+         "Médio" = "M",
+         "Alto" = "A"   )    )    
+
+meus.dados %>%       
+  select(uf,nivel_urb,nivel_urb_2) %>% head()
+```
+
+`{r}`
+
+`}`
+
+## Factor
+
+*factor* é uma função para criar uma variável específica no R, ideal para variáveis que possuem uma ordem implícita, pois guarda dois valores na variável: nomes (*labels*) e níveis (*levels*).
+
+```{r}
+meus.dados <- meus.dados %>% mutate(
+  nivel_urb_factor = factor(nivel_urb,
+                            levels=c("Baixo","Médio","Alto"),
+                            ordered = TRUE
+                            )
+)
+
+class(meus.dados$nivel_urb_factor)
+levels(meus.dados$nivel_urb_factor)
+table(meus.dados$nivel_urb_factor)
+
+meus.dados %>% 
+  select(uf,nivel_urb,nivel_urb_factor) %>% head()
+```
+
+## Cut
+
+A função `cut` no R é usada para **dividir uma variável numérica em faixas ou categorias**, criando intervalos que transformam uma variável contínua em uma variável categórica. Ela é especialmente útil para agrupar dados em intervalos específicos, permitindo a análise de dados em categorias em vez de valores individuais.
+
+```{r}
+meus.dados <- meus.dados %>% mutate(
+  faixas_gini = cut(gini,
+                    breaks = c(0,0.55,0.60,1),
+                    labels = c("G1","G2","G3")
+                    )
+)
+
+table(meus.dados$faixas_gini)
+```
+
+Além das funções como `case_when`, `recode`, `factor` e `cut`, o R oferece muitas outras que podem ser combinadas com `mutate` para transformar variáveis em uma base de dados de forma flexível e poderosa. Funções matemáticas como `log`, `sqrt` e `round` são úteis para transformações numéricas; funções de manipulação de texto, como `paste` , `tolower` e `tolower`, ajudam na padronização e substituição de textos.
+
+Abaixo, veremos mais exemplos com os nossos dados para uma noção de possibilidades.
+
+```{r}
+meus.dados <- meus.dados %>% mutate(
+  sentenca = paste("gini =",gini),
+  
+  uf2 = tolower(uf),
+  
+  sentenca2 = toupper(sentenca)
+)
+
+meus.dados %>% 
+  select(uf2,gini,sentenca,sentenca2) %>% head(3)
 ```
