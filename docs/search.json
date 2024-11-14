@@ -208,5 +208,55 @@
     "crumbs": [
       "Capítulo 2"
     ]
+  },
+  {
+    "objectID": "class03.html",
+    "href": "class03.html",
+    "title": "Capítulo 3",
+    "section": "",
+    "text": "Mão na massa - Parte II\nNo capítulo anterior, começamos a colocar a mão na massa trabalhando com dados estruturados. Revisamos as funções, vimos sobre comandos relacionais e como iniciar um código, com identificação no cabeçalho e setup que inclui gestão da memória, de pacotes e diretórios. Por fim, vimos as funções fundamentais de dois pacotes muito importantes para importar (pacote rio) e manusear (tidyverse) dados (import/export, select, filter e rename).\nNeste capítulo, aprofundaremos sobre o manuseio de dados para tratar das modificações nas variáveis, usando a função mutate do tidyverse. Essa é uma das mais importantes e complicadas, porque é com ela que fazemos as recodificações necessárias para as nossas variáveis.",
+    "crumbs": [
+      "Capítulo 3"
+    ]
+  },
+  {
+    "objectID": "class03.html#case-when",
+    "href": "class03.html#case-when",
+    "title": "Capítulo 3",
+    "section": "Case when",
+    "text": "Case when\ncase_when é uma função muito usual para criar novos valores quando dada condição é verificada. Ela permite criar novos valores para uma coluna com base em condições lógicas, semelhantes a uma estrutura “se-então”, ou “quando o caso estiver nessa condição, aplique isso”. Ela é útil para categorizar dados ou aplicar diferentes transformações em uma coluna de acordo com regras específicas.\n\n\ndados %&gt;% mutate(\nnova_variavel =\ncase_when(\nvariavel == valor1 ~ “novo valor 1”,\nvariavel == valor2 ~ “novo valor 2” )\n)\n\n\nVamos explorar com os dados.\n\nmeus.dados &lt;- meus.dados %&gt;% mutate(\n  nivel_urb = case_when(\n    urb &lt; 0.70 ~ \"Baixo\",\n    urb &gt;= 0.70 & urb &lt; 0.85 ~ \"Médio\",\n    urb &gt;= 0.85 ~ \"Alto\"\n  )\n)\n\nclass(meus.dados$nivel_urb)\n\n[1] \"character\"\n\ntable(meus.dados$nivel_urb)\n\n\n Alto Baixo Médio \n    9     3    15 \n\nmeus.dados %&gt;% \n  select(uf,urb,nivel_urb) %&gt;% head()\n\n  uf       urb nivel_urb\n1 AC 0.7256117     Médio\n2 AL 0.7363770     Médio\n3 AM 0.7909018     Médio\n4 AP 0.8977037      Alto\n5 BA 0.7207351     Médio\n6 CE 0.7508603     Médio",
+    "crumbs": [
+      "Capítulo 3"
+    ]
+  },
+  {
+    "objectID": "class03.html#recode",
+    "href": "class03.html#recode",
+    "title": "Capítulo 3",
+    "section": "Recode",
+    "text": "Recode\nA função recode no R é usada para substituir valores específicos em uma coluna de dados. Ela permite mapear valores antigos para novos valores de forma direta, sem condições lógicas. É útil, por exemplo, para renomear categorias ou ajustar valores em uma variável.\n\n\ndados %&gt;% mutate(\nnova_variavel =\nrecode( variavel,\nvalor1 = novo valor1,\nvalor2 = valor valor 2 )\n)\n\n\n\nmeus.dados &lt;- meus.dados %&gt;% \n  mutate(      \n    nivel_urb_2 = recode(nivel_urb,                             \"Baixo\" = \"B\",\n         \"Médio\" = \"M\",\n         \"Alto\" = \"A\"   )    )    \n\nmeus.dados %&gt;%       \n  select(uf,nivel_urb,nivel_urb_2) %&gt;% head()\n\n  uf nivel_urb nivel_urb_2\n1 AC     Médio           M\n2 AL     Médio           M\n3 AM     Médio           M\n4 AP      Alto           A\n5 BA     Médio           M\n6 CE     Médio           M\n\n\n{r}\n}",
+    "crumbs": [
+      "Capítulo 3"
+    ]
+  },
+  {
+    "objectID": "class03.html#factor",
+    "href": "class03.html#factor",
+    "title": "Capítulo 3",
+    "section": "Factor",
+    "text": "Factor\nfactor é uma função para criar uma variável específica no R, ideal para variáveis que possuem uma ordem implícita, pois guarda dois valores na variável: nomes (labels) e níveis (levels).\n\nmeus.dados &lt;- meus.dados %&gt;% mutate(\n  nivel_urb_factor = factor(nivel_urb,\n                            levels=c(\"Baixo\",\"Médio\",\"Alto\"),\n                            ordered = TRUE\n                            )\n)\n\nclass(meus.dados$nivel_urb_factor)\n\n[1] \"ordered\" \"factor\" \n\nlevels(meus.dados$nivel_urb_factor)\n\n[1] \"Baixo\" \"Médio\" \"Alto\" \n\ntable(meus.dados$nivel_urb_factor)\n\n\nBaixo Médio  Alto \n    3    15     9 \n\nmeus.dados %&gt;% \n  select(uf,nivel_urb,nivel_urb_factor) %&gt;% head()\n\n  uf nivel_urb nivel_urb_factor\n1 AC     Médio            Médio\n2 AL     Médio            Médio\n3 AM     Médio            Médio\n4 AP      Alto             Alto\n5 BA     Médio            Médio\n6 CE     Médio            Médio",
+    "crumbs": [
+      "Capítulo 3"
+    ]
+  },
+  {
+    "objectID": "class03.html#cut",
+    "href": "class03.html#cut",
+    "title": "Capítulo 3",
+    "section": "Cut",
+    "text": "Cut\nA função cut no R é usada para dividir uma variável numérica em faixas ou categorias, criando intervalos que transformam uma variável contínua em uma variável categórica. Ela é especialmente útil para agrupar dados em intervalos específicos, permitindo a análise de dados em categorias em vez de valores individuais.\n\nmeus.dados &lt;- meus.dados %&gt;% mutate(\n  faixas_gini = cut(gini,\n                    breaks = c(0,0.55,0.60,1),\n                    labels = c(\"G1\",\"G2\",\"G3\")\n                    )\n)\n\ntable(meus.dados$faixas_gini)\n\n\nG1 G2 G3 \n 5  9 13 \n\n\nAlém das funções como case_when, recode, factor e cut, o R oferece muitas outras que podem ser combinadas com mutate para transformar variáveis em uma base de dados de forma flexível e poderosa. Funções matemáticas como log, sqrt e round são úteis para transformações numéricas; funções de manipulação de texto, como paste , tolower e tolower, ajudam na padronização e substituição de textos.\nAbaixo, veremos mais exemplos com os nossos dados para uma noção de possibilidades.\n\nmeus.dados &lt;- meus.dados %&gt;% mutate(\n  sentenca = paste(\"gini =\",gini),\n  \n  uf2 = tolower(uf),\n  \n  sentenca2 = toupper(sentenca)\n)\n\nmeus.dados %&gt;% \n  select(uf2,gini,sentenca,sentenca2) %&gt;% head(3)\n\n  uf2 gini    sentenca   sentenca2\n1  ac 0.63 gini = 0.63 GINI = 0.63\n2  al 0.63 gini = 0.63 GINI = 0.63\n3  am 0.65 gini = 0.65 GINI = 0.65",
+    "crumbs": [
+      "Capítulo 3"
+    ]
   }
 ]
