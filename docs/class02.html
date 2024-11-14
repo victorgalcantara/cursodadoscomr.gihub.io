@@ -64,7 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./references.html" rel="next">
+<link href="./class03.html" rel="next">
 <link href="./class01.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -161,6 +161,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./class03.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Capítulo 3</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Referências</span></a>
   </div>
@@ -175,7 +181,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#mão-na-massa" id="toc-mão-na-massa" class="nav-link active" data-scroll-target="#mão-na-massa">Mão na massa</a></li>
+  <li><a href="#mãos-na-massa" id="toc-mãos-na-massa" class="nav-link active" data-scroll-target="#mãos-na-massa">Mãos na massa</a></li>
   <li><a href="#funções-uma-ideia-mais-detalhada" id="toc-funções-uma-ideia-mais-detalhada" class="nav-link" data-scroll-target="#funções-uma-ideia-mais-detalhada">Funções: uma ideia mais detalhada</a></li>
   <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup">Setup</a></li>
   <li><a href="#comandos-relacionais" id="toc-comandos-relacionais" class="nav-link" data-scroll-target="#comandos-relacionais">Comandos relacionais</a></li>
@@ -216,8 +222,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="mão-na-massa" class="level2">
-<h2 class="anchored" data-anchor-id="mão-na-massa">Mão na massa</h2>
+<section id="mãos-na-massa" class="level2">
+<h2 class="anchored" data-anchor-id="mãos-na-massa">Mãos na massa</h2>
 <p>No capítulo anterior, vimos sobre a história e o funcionamento do R e RStudio, introduzindo o fluxo de trabalho e as operações fundamentais. Vimos três tipos de valores que podemos utilizar na programação: números, caracteres/texto e lógica (TRUE/FALSE). Depois, como armazenar e manusear os valores em objetos na memória, em duas estrutura de dados: vetores e data.frame. Vimos como são estruturadas e como usar as funções e, por fim, manuseamos dados usando testes lógicos. Todas as operações foram feitas com a base do R, usando comandos e funções elementares.</p>
 <p>Até aqui, espero que você saiba os comandos básicos para inserir comentários e atribuir valores a objetos, manusear objetos que guardam vetores e data.frames, usar funções e fazer testes lógicos.</p>
 <p>Neste capítulo, continuaremos a explorar as operações e funções fundamentais de uma forma mais aprofundada.</p>
@@ -346,8 +352,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">gc</span>() <span class="co"># Faz a limpeza da lixeira da memória</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>          used (Mb) gc trigger  (Mb) max used (Mb)
-Ncells  981717 52.5    1952742 104.3  1361102 72.7
-Vcells 1707807 13.1    8388608  64.0  2368240 18.1</code></pre>
+Ncells  981720 52.5    1952611 104.3  1361382 72.8
+Vcells 1707698 13.1    8388608  64.0  2367936 18.1</code></pre>
 </div>
 </div>
 </section>
@@ -369,8 +375,8 @@ Vcells 1707807 13.1    8388608  64.0  2368240 18.1</code></pre>
 <span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="fu">gc</span>() <span class="co"># Faz a limpeza da lixeira da memória</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>          used (Mb) gc trigger  (Mb) max used (Mb)
-Ncells  991574 53.0    1952742 104.3  1361102 72.7
-Vcells 1728523 13.2    8388608  64.0  2368240 18.1</code></pre>
+Ncells  991580 53.0    1952611 104.3  1361382 72.8
+Vcells 1728419 13.2    8388608  64.0  2367936 18.1</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Gestão de funções e pacotes</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("tidyverse") # Instala o pacote tidyverse como exemplo</span></span>
@@ -396,8 +402,8 @@ Vcells 1728523 13.2    8388608  64.0  2368240 18.1</code></pre>
 <span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="fu">gc</span>() <span class="co"># Faz a limpeza da lixeira da memória</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>          used (Mb) gc trigger  (Mb) max used (Mb)
-Ncells  991608 53.0    1952742 104.3  1361102 72.7
-Vcells 1728806 13.2    8388608  64.0  2368240 18.1</code></pre>
+Ncells  991614 53.0    1952611 104.3  1361382 72.8
+Vcells 1728702 13.2    8388608  64.0  2367936 18.1</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Gestão de funções e pacotes</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("tidyverse") # Instala o pacote tidyverse como exemplo</span></span>
@@ -483,8 +489,8 @@ Vcells 1728806 13.2    8388608  64.0  2368240 18.1</code></pre>
 <span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a><span class="fu">gc</span>() <span class="co"># Faz a limpeza da lixeira da memória</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>          used (Mb) gc trigger  (Mb) max used (Mb)
-Ncells  991663 53.0    1952742 104.3  1361102 72.7
-Vcells 1729203 13.2    8388608  64.0  2368240 18.1</code></pre>
+Ncells  991669 53.0    1952611 104.3  1361382 72.8
+Vcells 1729099 13.2    8388608  64.0  2367936 18.1</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Gestão de funções e pacotes</span></span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("tidyverse") # Instala o pacote tidyverse como exemplo</span></span>
@@ -1199,8 +1205,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./references.html" class="pagination-link" aria-label="Referências">
-        <span class="nav-page-text">Referências</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./class03.html" class="pagination-link" aria-label="Capítulo 3">
+        <span class="nav-page-text">Capítulo 3</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
