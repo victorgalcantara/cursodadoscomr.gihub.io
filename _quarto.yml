@@ -10,6 +10,7 @@ book:
     - index.qmd
     - class01.qmd
     - class02.qmd
+    - class03.qmd
     - references.qmd
 
 bibliography: references.bib
