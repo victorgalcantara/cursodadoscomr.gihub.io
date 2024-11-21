@@ -1,30 +1,361 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
 # Capítulo 4 {.unnumbered}
 
+## Análise
+
+Nos capítulos II e III, vimos as funções mais importantes para o manuseio de bases de dados estruturadas. Agora, iniciaremos o estudo da análise dos dados. Partiremos do ponto mais básico e fundamental que é a descrição. Antes, porém, vamos avançar um pouco mais em comandos e estrutura de dados.
+
+## Relações condicionais
+
+as relações condicionais permitem o retorno de um resultado caso determinada condição seja verificada. A condição a ser verificada pode ser definida com testes lógicos e relacionais (e/ou), conforme veremos adiante. As funções mais usadas para isso são if e else.
+
+A lógica é simples: se uma condição for verdadeira (TRUE), um bloco de código é executado; caso contrário, outra ação pode ser realizada.
+
+No R, a estrutura do comando é a seguinte:
+
+> > > if ( condição ) { \# Código executado se a condição for verdadeira } else { \# Código executado se a condição for falsa }
+
+Também podemos usar a função `ifelse`
+
+> > > ifelse( test = condição, yes = se a condição for verdadeira, no = se a condição for falsa )
+
 ```{r}
-uf <- read_state(year = 2010)
-uf <- uf %>% rename(sigla_uf=abbrev_state)
+if( 2 > 0 ) { print("Dois é maior que zero") }
+```
 
-mydta <- merge(uf,mydta)
+No exemplo acima, como a condição foi verificada (TRUE), a função retornou o output inserido entre chaves. Caso a condição não tivesse sido verificada, como no exemplo abaixo, não retornaria nenhum valor de output.
 
-mydta <- mydta %>% mutate(.,
-                          renda = cut(renda_pc,
-                                      breaks = c(0,600,900,max(renda_pc)),
+```{r}
+if( 0 > 2 ) { print("Zero é maior do que dois") }
+```
+
+Para retornar um valor quando a condição não é verificada, temos que incluir a condição `else`.
+
+```{r}
+if( 0 > 2 ) { print("Zero é maior do que dois") } else{print("Zero NÃO É maior do que dois")}
+```
+
+Agora, vejamos como funciona o comando com a função `ifelse`
+
+```{r}
+ifelse(test = 0 > 2,yes = "Zero é maior", no = "Zero é menor")
+```
+
+As relações condicionais são fundamentais na análise de dados e programação porque permitem que o programa tome decisões com base em condições específicas. Isso é especialmente útil para manipular dados, personalizar processos e automatizar tarefas. Podemos, por exemplo, utilizar a função para criar variáveis dummies (0/1), caso determinada condição seja verificada.
+
+```{r, message=F,warning=FALSE}
+library(rio)
+meus.dados <- import("G:/Meu Drive/02 - GitHub/R-Intro/A02 - Explore II/0 - data/mydata.RDS")
+```
+
+```{r}
+meus.dados$exemplo_dummy <- ifelse(meus.dados$gini > 0.6,
+                                   yes = "Muito desigual",
+                                   no = "Desigual")
+
+View( meus.dados[,c("uf","gini","exemplo_dummy")] )
+```
+
+## Outras estruturas de dados
+
+Até aqui, vimos apenas vetores e data.frames, pois nosso interesse tem sido o manuseio de dados que já estão estruturados com observações nas linhas e variáveis nas colunas. Durante a análise e visualização dos dados, trabalharemos com outras estruturas de dados. Vejamos duas que serão mais frequentes: as matrizes e as listas.
+
+### Matrizes
+
+**Matriz** é uma estrutura de dados bidimensional que organiza elementos em linhas e colunas, todos do mesmo tipo (geralmente numéricos ou caracteres). É útil para manipular dados tabulares em cálculos matemáticos ou estatísticos.
+
+Para criar uma matriz, usamos a função `matrix()`, que recebe como argumentos os valores que serão guardados nela, as dimensões da matriz (quantidade de linhas e colunas) e a direção em que os valores serão guardados (se seguindo linhas ou colunas). Vejamos o exemplo abaixo.
+
+```{r}
+minha.matriz <- matrix(1:10,nrow=5,ncol = 2,byrow = T)
+minha.matriz
+```
+
+Note que os valores de 1 a 10 foram despejados na matriz seguindo as linhas. O principal uso de matrizes é para cálculos estatísticos, por isso é fundamental conhecer essa estrutura para a análise de dados. As tabelas de frequência, por exemplo, são geralmente costruídas em um formato semelhante ao da matriz.
+
+### Listas
+
+As listas são mais flexíveis e muito úteis na programação. Trata-se de uma estrutura de dados que pode armazenar diferentes tipos de objetos em um único lugar. Isso significa que você pode combinar vetores, matrizes, data frames, ou até mesmo outras listas em um só objeto. Com isso, podemos utilizar as listas para diversos fins, seja para guardar tabelas e gráficos, seja para organizar resultados complexos de análises, como saídas de modelos estatísticos.
+
+```{r}
+minha.lista <- list(
+  nomes = c("Victor","Joana","Mateus","Karina"),
+  casos = 4,
+  mydata = data.frame(letras=letters[1:4],numeros=1:4),
+  matriz = matrix(1:4, nrow = 4,ncol = 1)
+)
+minha.lista
+```
+
+O manuseio das informações guardadas na lista segue a sua complexidade. Para acessar os elementos da lista, é preciso usar dois colchetes \[\[ \]\].
+
+```{r}
+minha.lista[[1]]
+```
+
+Depois, podemos usar os comandos para localizar as informações guardadas nos elementos da lista. Se o elemento é um vetor, seguimos a localização de valores em um vetor, se é um data.frame, seguimos a do data.frame, conforme abaixo.
+
+```{r}
+minha.lista[[1]][2] # segundo valor do vetor guardado
+
+minha.lista[[3]][,1] # primeira coluna da base de dados guardada
+
+```
+
+# Análise descritiva de dados
+
+A análise de dados com R combina o domínio dos comandos básicos da linguagem, da estatística e das funções aplicadas no R. A estatística é dividida em, pelo menos, duas grandes áreas: i) análise exploratória/descritiva dos dados; ii) análise inferencial/preditiva.​
+
+Usamos a estatística para:
+
+**Dar sentido a um conjunto de dados**​
+
+-   Descrever​
+
+-   Relatar​
+
+**Fazer inferências para populações com base em amostras**​
+
+-   Estimar​
+
+-   Testar hipóteses​
+
+**Fazer predições**​
+
+-   Antecipar ou prever resultados futuros​
+
+-   Simular valores não observados na realidade (dados faltantes, contrafactuais etc.)​
+
+A **classificação** das variáveis orienta todos os procedimentos estatísticos possíveis, desde a análise descritiva exploratória até a parte inferencial. Há técnicas específicas para lidar com cada tipo de variável. Por exemplo, para variáveis que são métricas (numéricas), podemos utilizar medidas de tendência central e de dispersão para descrevê-las. Para variáveis categóricas, no entanto, não podemos calcular as mesmas medidas, o que nos direciona a outras medidas descritivas.
+
+![Classificação das variáveis](images/Escala%20variáveis%20-%20Bussab%20e%20Morettin.png)
+
+Uma imagem pode comunicar mais do que mil palavras, e este é o sentido da representação gráfica das nossas variáveis. Por mais que toda a análise estatística tenha um véu de tecnicismo, parte fundamental da narrativa sobre os dados é construída pela apresentação e comunicação. A visualização gráfica da distribuição das variáveis permite uma boa descrição, sendo uma técnica poderosa de explorar as informações. Os bons gráficos guardam a elegância na simplicidade; são capazes de apresentar muita informação de forma concisa, coerente e simples. Os ruins dificultam o entendimento, distorcem informações e enviesam a interpretação.
+
+No R, há uma gramática sofisticada para produção de gráficos com o pacote GGPlot (*A Grammar of Graphics*). Veremos como usá-la para cada tipo de representação gráfica adequada às variáveis.
+
+## Variáveis métricas ou quantitativas
+
+As variáveis métricas podem ou quantitativas podem assumir dois tipos principais: **discreta** (valores inteiros) e **contínua** (valores quebrados, com casas decimais). Há também um tipo específico chamado de **intervalar**, para classificar a variável quando ela não possui um zero absoluto - é o caso de temperatura, valores monetários, etc.
+
+Para todas as variáveis métricas, as medidas descritivas são as de tendência central (média, mediana e moda) e as de dispersão (amplitude, variância e desvio-padrão). Também estão inclusos entre as descritivas os quantis. Todas essas medidas podem ser obtidas com funções de base do R.
+
+```{r}
+var_metrica_continua <- c(77.2,60.1,55.4,22.6,10.2)
+var_metrica_continua
+
+var_metrica_discreta <- round(var_metrica_continua)
+var_metrica_discreta
+
+# Média
+mean(var_metrica_continua)
+
+# Mediana
+median(var_metrica_continua)
+
+# Quantis
+quantile(x = var_metrica_continua, probs = c(0.25,0.5,0.75))
+
+# Amplitude
+range(var_metrica_continua)
+
+# Variância
+var(var_metrica_continua)
+
+# Desvio-padrão
+sd(var_metrica_continua)
+```
+
+As principais medidas descritivas das variáveis podem ser obtidas também com a função `summary`, que retorna um sumário descritivo da variável.
+
+```{r}
+summary(var_metrica_continua)
+```
+
+Outra boa função para a descrição de variáveis métricas é a função `describe` do pacote **psych**.
+
+```{r}
+library(psych)
+
+describe(var_metrica_continua)
+```
+
+Conforme vimos, uma imagem pode falar mais que mil palavras e, neste sentido, os gráficos podem nos auxiliar a descrever nossas variáveis. O tipo de gráfico adequado muda conforme a classificação da variável. Para ilustrar a frequência da ocorrêcia de cada valor, por exemplo, podemos utilizar barras para as métricas discretas e histogramas para as métricas contínuas. A diferença é sutil e fundamental: para dar noção de continuidade nos dados, as barras são coladas umas nas outras para a representação dos histogramas. Por outro lado, para dar a noção de limite entre os valores discretos, as barras são separadas uma das outras.
+
+```{r}
+# Visualização de variáveis métricas
+
+library(tidyverse)
+
+# Discreta> barras
+meus.dados %>% 
+ggplot(aes(x=code_region))+
+  geom_bar()
+
+# Contínua 1: histograma
+meus.dados %>% 
+ggplot(aes(x=rpct))+
+  geom_histogram()
+```
+
+Há vários parâmetros que podemos ajustar na geração de gráficos com o GGPlot, alguns mais técnicos de representação, outros mais artísticos de estilo. Por hora, precisamos saber apenas que o GGplot recebe um dado de referência (antes do *pipe*), uma primeira camada (layer) com as variáveis (aesthetic - aes), e outra camada com o tipo de representação a ser produzida (barra, hisgrama etc.).
+
+A camada com o tipo da representação recebe os principais parâmetros técnicos do gráfico. Por exemplo, para o histograma, podemos definir a quantidade de barras (bins), que indicará as faixas de agregação dos valores contínuos.
+
+```{r}
+summary(meus.dados$rpct)
+
+# Contínua 1: histograma
+meus.dados %>% 
+ggplot(aes(x=rpct))+
+  geom_histogram(bins = 2)
+```
+
+Há outras possibilidades de representação de variáveis métricas contínuas. Podemos utilizar também o boxplot e o gráfico de desidade.
+
+```{r}
+# Contínua 1: boxplot
+meus.dados %>% 
+ggplot(aes(x=rpct))+
+  geom_boxplot()
+
+# Contínua 1: boxplot
+meus.dados %>% 
+ggplot(aes(x=rpct))+
+  geom_density()
+```
+
+O **boxplot** é um gráfico que resume a distribuição de dados contínuos usando cinco estatísticas principais: mínimo, primeiro quartil (Q1), mediana, terceiro quartil (Q3) e máximo, além de identificar outliers, que são as observações que distoam das medidas centrais.
+
+Já o **gráfico de densidade** representa a distribuição de uma variável contínua de forma suave, indicando concentrações e padrões, como assimetrias ou múltiplos picos. Ambos são ferramentas complementares para explorar distribuições de dados e identificar padrões de forma intuitiva. O valor da densidade representado no gráfico é calculado usando a estimativa de densidade kernel (KDE - Kernel Density Estimation). Esse método cria uma função suave que aproxima a distribuição de probabilidade dos dados.
+
+## Variáveis categóricas
+
+As variáveis categóricas também podem assumir dois tipos principais: as nominais e as ordinais. A diferença entre elas é que a segunda possui alguma ordem implícita às categorias. Além disso, elas podem ser também classificadas como dicotômicas, quando há apenas duas categorias, ou politômicas, quando há três ou mais.
+
+Para todas as variáveis categóricas, a única e principal forma de descrição é a tabela de frequência, que pode ser tanto uma frequência absoluta pela contagem de casos, quanto uma frequência relativa pela razão entre a contagem de casos e o total.
+
+```{r}
+# Tabela de frequência
+table(meus.dados$exemplo_dummy)
+```
+
+A função `table` também recebe argumentos de definição da tabela. Podemos optar por incluir ou não os valores ausentes (NAs) e os totais.
+
+```{r}
+table(meus.dados$exemplo_dummy,useNA = "ifany") %>% 
+  addmargins()
+```
+
+podemos também calcular a frequência relativa combinando a função table com a função prop.table.
+
+```{r}
+table(meus.dados$exemplo_dummy) %>% 
+  prop.table() %>% 
+  addmargins()
+```
+
+A função do R base para gerar tabelas não é muito boa no quesito formatação. O resultado que retorna é um dado estruturado no formato de tabela, semelhante ao formato de matriz. Há, porém, outros pacotes que auxiliam na geração de tabelas, como veremos mais a frente.
+
+Há diversas possibilidades de representação gráfica de variáveis categóricas. A mais simples e comum é a de barras. A única condição a ser respeitada é seguir a ordem quando houver, em variáveis que forem do tipo ordinal. A sintaxe é a mesma para métricas.
+
+```{r}
+# Variáveis categóricas nominais
+meus.dados %>% 
+  ggplot(aes(x = name_region))+
+  geom_bar()
+
+# Variáveis categóricas ordinais
+meus.dados %>% 
+  ggplot(aes(x = exemplo_dummy))+
+  geom_bar()
+```
+
+Essas são as principais medidas descritivas de dados, usuais para a primeira análise univariada. Desde esse ponto mais básico, é fundamental o desenvolvimento de um olhar técnico, entendendo quais tipos de medidas podem ser utilizadas a depender do tipo de variável.
+
+## Estilização de gráficos com GGPlot
+
+Agora que vimos as medidas descritivas, podemos explorar melhor a visualização com o GGPlot. A lógica da gramática deste pacote é a de desenho por camadas. As primeiras, como vimos, é o setup do gráfico, com dados, variáveis e especificação do gráfico. Depois, podemos definir as camadas dos eixos, e uma última camada para definir um tema de design para o gráfico, conforme abaixo.
+
+```{r}
+plt1 = meus.dados %>% 
+  ggplot(aes(x = name_region))+
+  geom_bar(fill="steelblue")
+
+plt = plt1 +
+  scale_x_discrete(name="Regiões do Brasil")+
+  scale_y_continuous(name="Frequêcia absoluta",
+                     limits = c(0,10),
+                     breaks = seq(0,10,2.5))+
+  theme_bw()
+
+plt
+```
+
+Repare que guardamos o gráfico em um objeto no R, ao qual fomos adicionando novas camadas. Há um universo a ser explorado em termos de representação gráfica e estilos com o GGPlot. Além das ferramentas auxiliares de IA generativa, como o chatGPT, temos as antigas colinhas na aba de Help \> Cheetsheats \> Data visualization with ggplot2.
+
+# Extra
+
+O pacote plotly, que funciona tanto com R quanto com Python, oferece uma biblioteca muito funcional para gráficos 3d. Além de criar gráficos, podemos converter os que geramos com GGPlot para gráficos interativos, usando a função `ggplotly`
+
+```{r}
+library(plotly)
+
+ggplotly(plt)
+```
+
+Também podemos explorar visualizações com mais de duas dimensões.
+
+```{r,message=F,warning=F}
+# Criar o gráfico 3D
+fig <- plot_ly(meus.dados, 
+               x = ~prop_renda_10_ricos, 
+               y = ~gini, 
+               z = ~rpct, 
+               type = 'scatter3d', 
+               mode = 'markers', 
+               marker = list(size = 5, color = ~rpct, colorscale = 'Heat', showscale = TRUE)) 
+
+# Personalizar o layout
+fig <- fig %>% layout(
+  title = "Gráfico 3D: p_renda_10_ricos vs Gini vs RPCT",
+  scene = list(
+    xaxis = list(title = 'p_renda_10_ricos'),
+    yaxis = list(title = 'Gini'),
+    zaxis = list(title = 'RPCT')
+  )
+)
+
+# Exibir o gráfico
+fig
+
+```
+
+```{r, message = F,warning =F}
+library(tidyverse)
+meus.dados <- meus.dados %>% mutate(.,
+                          renda = cut(rpct,
+                                      breaks = c(0,600,900,max(rpct)),
                                       labels = c("RPCT baixa","RPCT média","RPCT alta")
                                       )
                           )
 
-mydta <- mydta %>% relocate(renda,.after = renda_pc)
+meus.dados <- meus.dados %>% relocate(renda,.after = rpct)
+
 ```
 
-
-```{r}
-{r, message=F,warning=F, echo=FALSE}
+```{r, message=F,warning=F}
 # Preparar os dados para o gráfico
-mydta <- mydta %>%
+meus.dados <- meus.dados %>%
   mutate(prop_pop_urb = (pop_urb / pop) * 100 ) # Calcula a proporção da população urbana
 
 # Criar o gráfico de dispersão
-plt1 <- ggplot(mydta, aes(y = prop_renda_40_pobres, x = rpct, label = uf)) +
+plt1 <- ggplot(meus.dados, aes(y = prop_renda_40_pobres, x = rpct, label = uf)) +
   geom_smooth(method = "lm",formula = y~x,alpha=.2,col="grey")+
   geom_point(aes(size = gini, color = -gini), alpha = 0.7) +
   geom_text(vjust = -1.5,hjust=.5, size = 2,fontface="bold") + # Adiciona as siglas das UFs
@@ -48,7 +379,4 @@ library(plotly)
 
 plt2 <- ggplotly(plt1)
 plt2
-
-
 ```
-
