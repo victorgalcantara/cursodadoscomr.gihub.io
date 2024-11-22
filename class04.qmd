@@ -52,7 +52,7 @@ meus.dados$exemplo_dummy <- ifelse(meus.dados$gini > 0.6,
                                    yes = "Muito desigual",
                                    no = "Desigual")
 
-View( meus.dados[,c("uf","gini","exemplo_dummy")] )
+meus.dados[,c("uf","gini","exemplo_dummy")]
 ```
 
 ## Outras estruturas de dados
@@ -183,7 +183,6 @@ Conforme vimos, uma imagem pode falar mais que mil palavras e, neste sentido, os
 
 ```{r}
 # Visualização de variáveis métricas
-
 library(tidyverse)
 
 # Discreta> barras
@@ -292,6 +291,18 @@ plt
 ```
 
 Repare que guardamos o gráfico em um objeto no R, ao qual fomos adicionando novas camadas. Há um universo a ser explorado em termos de representação gráfica e estilos com o GGPlot. Além das ferramentas auxiliares de IA generativa, como o chatGPT, temos as antigas colinhas na aba de Help \> Cheetsheats \> Data visualization with ggplot2.
+
+## Group by
+
+A função **`group_by()`** em R, do pacote **dplyr**, é utilizada para agrupar os dados de um **data frame** com base em uma ou mais variáveis. Isso permite realizar operações de agregação, como cálculo de médias ou somas, por grupo. Após agrupar os dados com **`group_by()`**, você pode aplicar funções de agregação, como **`summarize()`**, para obter resumos dos dados por grupo.
+
+Exemplo: agrupar os dados por uma variável e calcular a média de outra.
+
+```{r}
+meus.dados %>% select(!geometry) %>% 
+  group_by(name_region) %>% 
+  summarise( m_rpct = mean(rpct))
+```
 
 # Extra
 
