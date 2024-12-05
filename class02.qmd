@@ -292,7 +292,7 @@ Em primeiro lugar, temos um conjunto de funções muito úteis para olhar para a
 ```{r}
 dim( br_uf_data )
 
-# O Saeb 2021 tem 70.897 linhas e 137 colunas
+# A base de dados tem 27 linhas e 11 colunas
 
 names( br_uf_data )
 ```
@@ -306,7 +306,7 @@ str( br_uf_data )
 Embora não seja recomendado olhar para a planilha de dados quando o volume é muito grande, podemos utilizar recursos para observar apenas uma parte dos dados.
 
 ```{r}
-View( head( br_uf_data ) )
+head( br_uf_data )
 ```
 
 Após observar a estrutura dos dados, temos uma ideia de quais variáveis e casos a base de dados guarda.
@@ -361,7 +361,7 @@ br_uf_data <- br_uf_data %>% select(sigla_uf,
                                     indice_gini,prop_renda_10_ricos,
                                     prop_renda_40_pobres)
 
-# Filtro para escolas que tiveram mais de 80% (0.8) dos estudantes matriculados participando da prova
+# Filtro UF com Gini maior ou igual a zero (todas, no caso)
 br_uf_data <- br_uf_data %>% filter(indice_gini >= 0)
 ```
 

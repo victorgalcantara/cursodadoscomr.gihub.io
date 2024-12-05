@@ -2,7 +2,7 @@
 
 ## É de comer?
 
-O R é uma linguagem de programação, o que significa que podemos utilizá-la para nos comunicar com o computador. Isto é, seguimos a sintaxe da linguagem para usar comandos que orientam o computador a executar operações. Uma definição mais específica do R é a de linguagem voltada a objetos. Isso porque o R fuciona muito direcionado às informações guardadas como objetos na memória.
+O R é uma linguagem de programação, o que significa que podemos utilizá-la para nos comunicar com o computador. Isto é, seguimos a sintaxe da linguagem para usar comandos que orientam o computador a executar operações. Uma definição mais específica do R é a de linguagem voltada a objetos, porque fuciona direcionado às informações que são guardadas como objetos na memória.
 
 Como uma linguagem, o R tem uma sintaxe e para dominá-la precisamos praticar. Por isso este livro é mesclado entre explicações e exemplos práticos. Não é pavê, nem pacumê. É pa praticar!
 
@@ -10,17 +10,13 @@ Como uma linguagem, o R tem uma sintaxe e para dominá-la precisamos praticar. P
 
 O que torna o R especial para a pesquisa é ter sido desenvolvido para fins estatísticos, que ao longo do tempo tomou a forma de Ciência de Dados. Os autores da linguagem são os estatísticos Ross Ihaka (neozelandês) e Robert Gentleman (canadense). Eles iniciaram o projeto em meados dos anos 1990, tendo circulado a primeira cópia do arquivo binário, embrião do R, em uma lista de e-mails de pesquisadores que trabalhavam com a linguagem S, chamada *s-news*.
 
-Com a circulação do projeto, Ross e Robert receberam uma indicação de Martin Mächler, professor no Departamento de Matemática da Universidade de Zurique (Suiça), para associarem o software ao projeto GNU, de desenvolvimento de softwares livres. Os autores acataram a ideia e em junho de 1995 estava disponível o código fonte do R sob licença da *GNU Free Software Foundation.* Essa história foi contada no artigo *R: A Language for Data Analysis and Graphics* [@ihaka_r_1996], onde os autores apresentaram o projeto publicamente para a comunidade acadêmica. Depois disso o projeto ganhou adesão e força. No ano seguinte, em 1997, foi fundado o *R Core Group*, composto por pessoas responsáveis pelo controle da versão do código fonte, que atualmente gere o *Comprehensive R Archive Network* ([CRAN](https://cran.r-project.org/)), onde são registradas e distribuídas as atualizações do R. A versão 1.0 do R foi divulgada em 2002 e passou por diversas atualizações até chegar a atual 4.4.1.
+Com a circulação do projeto, Ross e Robert receberam uma indicação de Martin Mächler, professor no Departamento de Matemática da Universidade de Zurique (Suiça), para associarem o software ao projeto GNU, de softwares livres. Os autores acataram a ideia e em junho de 1995 estava disponível o código fonte do R sob licença da *GNU Free Software Foundation.* Essa história foi contada no artigo *R: A Language for Data Analysis and Graphics* [@ihaka_r_1996], onde os autores apresentaram o projeto publicamente para a comunidade acadêmica. Depois disso o projeto ganhou adesão e força. No ano seguinte, em 1997, foi fundado o *R Core Group*, composto por pessoas responsáveis pelo controle da versão do código fonte, que atualmente gere o *Comprehensive R Archive Network* ([CRAN](https://cran.r-project.org/)), onde são registradas e distribuídas as atualizações do R. A versão 1.0 do R foi divulgada em 2002 e passou por diversas atualizações até chegar na atual.
 
-Até 2009, o R era usado por estatísticos, cientistas da computação e pesquisadores engajados com este tipo de expertise. O cenário mudou com o desenvolvimento de um ambiente integrado de trabalho, o RStudio, que facilitou o fluxo. Além disso, em 2016, o então cientista chefe da empresa RStudio, Hadley Wickham, em colaboração com Garrett Grolemund, concretizou o projeto *Tidy Data* [@wickham2014], visando aprimorar o manuseio de dados, publicando um conjunto de funções em pacotes voltados para a análise de dados, todos integrados ao *Tidyverse*. O projeto foi costruído por quatro princípios: 1. reutilização de estrutura de dados existentes; 2. composição de funções simples com o *pipe*; 3. incetivar programação que seja funcional e; 4. códigos que seja interpretáveis para humanos. Por enquanto estamos conhecendo a história, mas a transformação que isso causou será percebida quando começarmos a utilizar o pacote *tidyverse*.
+Até 2009, o R era usado por estatísticos, cientistas da computação e pesquisadores engajados com este tipo de expertise. O cenário mudou com o desenvolvimento de um ambiente integrado de trabalho, o RStudio, que facilitou o fluxo. Além disso, em 2016, o então cientista chefe da empresa RStudio, Hadley Wickham, em colaboração com Garrett Grolemund, concretizou o projeto *Tidy Data* [@wickham2014], visando aprimorar o manuseio de dados, publicando um conjunto de funções em pacotes voltados para a análise de dados, todos integrados ao *Tidyverse*. O projeto foi costruído por quatro princípios: 1. reutilização de estrutura de dados existentes; 2. composição de funções simples com o *pipe*; 3. incetivar programação que seja funcional e; 4. códigos que sejam interpretáveis por humanos. Por enquanto estamos conhecendo a história, mas a transformação que isso causou será percebida quando começarmos a utilizar o pacote *tidyverse*.
 
 > > > > *It is often said that 80% of data analysis is spent on the process of cleaning and preparing the data (Dasu and Johnson 2003). Data preparation is not just a first step, but must be repeated many times over the course of analysis as new problems come to light or new data is collected. Despite the amount of time it takes, there has been surprisingly little research on how to clean data well. Part of the challenge is the breadth of activities it encompasses: from outlier checking, to date parsing, to missing value imputation. To get a handle on the problem, this paper focuses on a small, but important, aspect of data cleaning that I call data tidying: structuring datasets to facilitate analysis.* [@wickham2014, p. 1]
 
-Perceba que toda a história do R foi construída na contramão dos softwares de mercado, como o *Statistical Package for Social Sciences* (SPSS), produto da IBM, e o Pacote Office, produto da Microsoft. Trata-se de um projeto conduzido por pesquisas acadêmicas de ponta, visando facilitar o trabalho com a análise de dados. Trabalhar com o R, portanto, implica em um outro paradigma. Ao invés de ter o software como um produto administrado por uma empresa, onde as funções já estão programadas e disponíveis por botões e comandos, temos uma linguagem a partir da qual podemos programar funções e executar comandos diversos. Há diversas implicações nessa mudança que transformaram completamente o trabalho com dados nas Ciências Sociais, permitindo maior abertura para a criatividade e replicabilidade. Todo o nosso fluxo de trabalho é escrito em um documento, que pode ser compartilhado com outras pessoas, que podem verificar o passo-a-passo e replicar. Além disso, a forma como utilizamos o software possibilita eficiência nos processamentos, com baixo custo de tempo e recursos de hardware. Veremos isso ao longo o curso.
-
-### O uso de linguagem de programação nas Ciências Sociais
-
-Dados e metodologias são os principais elementos para o trabalho com pesquisa e operacionalização de teorias. Em geral, formulamos hipóteses sobre o mundo informadas por literaturas específicas, e testamos essas hipóteses coletando dados e utilizando metodologias. As linguagens de programação nos ajudam na parte operacional de tratamento e análise dos dados.
+Perceba que toda a história do R foi construída na contramão dos softwares de mercado, como o *Statistical Package for Social Sciences* (SPSS), produto da IBM, e o Pacote Office, produto da Microsoft. Trata-se de um projeto conduzido por pesquisas acadêmicas de ponta, visando facilitar o trabalho com a análise de dados. Trabalhar com o R, portanto, implica em um outro paradigma de software e de trabalho. Ao invés de ter um produto controlado e administrado por uma empresa, onde as funções já estão programadas e disponíveis por botões e comandos, temos uma linguagem estruturada a partir da qual podemos programar funções e executar comandos diversos. Há diversas implicações nessa mudança que transformaram completamente o trabalho com dados, permitindo maior abertura para a criatividade e replicabilidade. Todo o nosso fluxo de trabalho é escrito em um documento, que pode ser registrado e compartilhado com outras pessoas, que podem verificar o passo-a-passo e replicar. Além disso, a forma como utilizamos o software possibilita eficiência nos processamentos, com baixo custo de tempo e recursos de hardware. Veremos isso ao longo o curso.
 
 Ser parte do Projeto GNU de softwares livres é o primeiro ponto forte do R. Além disso, podemos destacar outros pontos importantes do R, como:
 
@@ -34,9 +30,13 @@ Ser parte do Projeto GNU de softwares livres é o primeiro ponto forte do R. Al�
 
 -   **Popularidade:** movido por uma comunidade internacional extensa, que desenvolve e acompanha o software. Cada vez mais adotado em instituições (principalmente públicas) e pela comunidade acadêmica.
 
+### O uso de linguagem de programação nas Ciências Sociais
+
+Dados e metodologias são os principais elementos para o trabalho com pesquisa e operacionalização de teorias. Em geral, formulamos hipóteses sobre o mundo informadas por literaturas específicas, e testamos essas hipóteses coletando dados e utilizando metodologias. As linguagens de programação nos ajudam na parte operacional de tratamento e análise dos dados.
+
 O manuseio e a análise de dados é um desafio de longa data. Do ponto de vista do armazenamento e processamento, a principal pesquisa nacional, o Censo Demográfico, já era um desafio desde, pelo menos, 1960 [ver @barbosa2013]. Uma área que emergiu diante desses desafios é a de Ciências Sociais Computacionais, que aborda desde o desenvolvimento de algoritmos para a extração e análise de dados até a discussão teórica sobre ambientes digitais.
 
-Ainda que a programação esteja relacionada com lógica e cálculo, não se trata apenas de informações quantitativas. Podemos tratar, além dos famosos *surveys*, também dados não estruturados, textos, imagens, sons e tudo o mais que puder ser registrado. Tudo isso torna mais atraente a análise de dados com uso de programação.
+Ainda que a programação esteja relacionada com lógica e cálculo, não se trata apenas de informações quantitativas. Podemos tratar, além dos famosos *surveys*, também dados não estruturados, como textos, imagens, sons e tudo o mais que puder ser registrado. Tudo isso torna mais atraente a análise de dados com uso de programação, amplicando o leque de possibilidades para as Ciências Sociais.
 
 Se você é uma pessoa curiosa e que quer explorar a criatividade, a sofisticação e a elegância em seu trabalho, está no lugar certo.
 
@@ -44,9 +44,9 @@ Se você é uma pessoa curiosa e que quer explorar a criatividade, a sofisticaç
 
 Como vimos, o R é pa praticar! Então vamos colocar nossas ferramentas em mãos.
 
-É fudamental saber que o R é a linguagem, e o RStudio é o ambiente de desenvolvimento. Não adianta tentar usar o RStudio sem o R. Portanto, faça a instalação do R e RStudio de acordo com as especificações do seu computador.
+É fudamental saber que o **R é a linguagem**, e o **RStudio é o ambiente de desenvolvimento**. Não adianta tentar usar o RStudio sem o R. Portanto, faça a instalação do R e RStudio de acordo com as especificações do seu computador.
 
-Para começar a usar o R, é preciso entender o que são e como funcionam as operações básicas. Toda linguagem de programação tem uma sintaxe e as mesmas operações básicas. Neste capítulo, veremos os comandos básicos para guardar valores na memória e manuseá-los, operações com vetores e data.frames (dados estruturados) e como usar funções e operações de lógica.
+Para começar a usar o R, é preciso entender o que são e como funcionam as operações básicas. Toda linguagem de programação tem uma sintaxe e as mesmas operações básicas de lógica, relações condicionais, iterações etc. Neste capítulo, veremos os comandos básicos para guardar valores na memória e manuseá-los, operações com vetores e data.frames (dados estruturados), funções e operações de lógica.
 
 Como uma experiência antropológica ~~e de choque~~ , abra o R (não o RStudio!). Caso tenha dificuldade em encontrar o software, digite na busca do seu computador apenas a letra "R" e procure em aplicativos.
 
@@ -94,7 +94,7 @@ Com o tempo, vamos escrevendo códigos (*scripts*) que compilam um conjunto sequ
 
 Como exercício, escreva um comentário e execute no console do R base. Depois escreva o mesmo sem a marcação de comentário.
 
-Você vai perceber que, sem indicar que e um comentário (#), o R tenta computar os valores e retorna erro, porque não consegue identificar nada associado.
+Você vai perceber que, sem indicar que é um comentário (#), o R tenta computar os valores e retorna erro, porque não consegue identificar nada associado.
 
 Em geral, números, caracteres, valores lógicos e comentários compõem a base fundamental da linguagem R.
 
@@ -138,7 +138,7 @@ resultado <- 1+2
 resultado
 ```
 
-No exemplo acima, guardamos o cálculo 1+2 no objeto "resultado", armazenado na memória. Perceba que estamos interpretando a linha de código. O que o R interpreta é o mesmo. Podemos ler como: atribua ao objeto "resultado" o valor da conta 1+2.
+No exemplo acima, guardamos o cálculo 1+2 no objeto "resultado", armazenado na memória. Perceba que estamos interpretando a linha de código. O que o R interpreta é o mesmo. Podemos ler como: atribua ao objeto "resultado" o valor 1+2.
 
 Uma vez guardado na memória, podemos nos referir ao objeto para acessar o valor, conforme ilustra o exemplo abaixo.
 
@@ -146,7 +146,7 @@ Uma vez guardado na memória, podemos nos referir ao objeto para acessar o valor
 resultado + 1
 ```
 
-Para guardar mais de um valor em um objeto, devemos utilizar uma função para concatenar os valores, expressa por um "c" seguido de parêteses e os valores contidos, separados por vírgula.
+Para guardar mais de um valor em um objeto, devemos utilizar uma função para concatenar os valores, expressa por um "c" seguido de parênteses e os valores contidos, separados por vírgula.
 
 ```{r}
 valores_num <- c(1,2,3,4,5)
@@ -164,15 +164,15 @@ Podemos fazer operações com nosso vetor, como no exemplo abaixo.
 
 Toda vez que nos referirmos ao nome do objeto guardado, sem o uso de aspas, o R vai entender que estamos nos referindo a todos os valores guardados no vetor. Por isso a soma 1 + vetor tem como resultado todos os valores + 1.
 
-Para acessar um valor específico em um vetor, podemos indicar a localização do valor utilizando colchetes \[ \].
+Para acessar um valor específico em um vetor, indicamos a localização do valor utilizando colchetes \[ \].
 
-vetor\[ posição do valor \]
+vetor\[ *posição do valor* \]
 
 ```{r}
 valores_num[3] # Obtendo o valor guardado na posição 3
 ```
 
-Um vetor guarda sempre um tipo ou classe de valores. Podemos fazer operações que sejam adequadas a cada tipo de valor contido. Por exemplo, para vetores que guardam textos, não podemos fazer cálculos (o R retornará como erro).
+Um vetor guarda sempre um tipo ou classe de valores. Podemos fazer operações que sejam adequadas a cada tipo de valor contido. Por exemplo, para vetores que guardam textos, não podemos fazer cálculos (o R retornará erro).
 
 ```{r}
 valores_chr <- c("A","B","C","D","E")
@@ -188,21 +188,21 @@ valores_chr + 1
 
 Não se assuste com a mensagem de erro. Ela sempre aparecerá com alguma explicação que te ajudará a entender. Neste caso, ele está dizendo que o argumento não é um valor numérico para fazer cálculo. O R se esforça para ser nosso amigo e muitas vezes, quando notar que pode ter algo errado, vai nos avisar com *Warning*.
 
-Embora tente ser nosso amigo, ele pode te frustrar com a quantidade de problemas e erros que aparecerão no seu caminho. Mas nunca se esqueça de que o R é burro e o inteligente é você.
+Embora tente ser nosso amigo, ele pode te frustrar com a quantidade de problemas e erros que aparecerão no seu caminho. Mas nunca se esqueça de que o R é burro e o inteligente é você!
 
 Há uma outra função para concatenar objetos e valores que é muito útil e pode ser incorporada entre os comandos básicos: a função *paste*.
 
 ```{r}
-paste("O primeiro valor guardado no vetor de caracteres é",valores_chr[1])
+paste("O primeiro valor guardado no vetor de caracteres é", valores_chr[1])
 ```
 
-O que a função *paste* faz, simplesmente, é colar textos com valores guardados em objetos. Há também uma versão semelhante, que cola os valores sem adicionar espaçamento: *paste0.*
+O que a função *paste* faz, simplesmente, é colar textos com valores guardados em objetos. Há também uma versão semelhante, que cola os valores sem adicionar espaçamento: *`paste0`.*
 
 ```{r}
 paste0("O primeiro valor guardado no vetor de caracteres é",valores_chr[1])
 ```
 
-A diferença é sutil, mas pode muito importante. Quando queremos construir o endereço do arquivo no nosso computador, por exemplo, não é usual adicionar espaços; pode ocasionar em erro.
+A diferença é sutil, mas muito importante. Quando queremos construir o endereço do arquivo no nosso computador, por exemplo, não é usual adicionar espaços; pode ocasionar em erro. Por isso, a função `paste0` torna-se mais usual.
 
 ```{r}
 nome_arquivo <- "meusdados.csv"

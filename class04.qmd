@@ -6,9 +6,9 @@ Nos capítulos II e III, vimos as funções mais importantes para o manuseio de 
 
 ## Relações condicionais
 
-as relações condicionais permitem o retorno de um resultado caso determinada condição seja verificada. A condição a ser verificada pode ser definida com testes lógicos e relacionais (e/ou), conforme veremos adiante. As funções mais usadas para isso são if e else.
+As relações condicionais permitem o retorno de um resultado caso determinada condição seja verificada. A condição a ser verificada pode ser definida com testes lógicos e relacionais (e/ou), conforme veremos adiante. As funções mais usadas para isso são if e else.
 
-A lógica é simples: se uma condição for verdadeira (TRUE), um bloco de código é executado; caso contrário, outra ação pode ser realizada.
+O funcionamento é simples: se uma condição for verdadeira (TRUE), um bloco de código é executado; caso contrário, outra ação pode ser realizada.
 
 No R, a estrutura do comando é a seguinte:
 
@@ -101,9 +101,11 @@ minha.lista[[3]][,1] # primeira coluna da base de dados guardada
 
 ```
 
+Com a bagagem construída até aqui (manuseio, comandos básicos, estruturas de dados etc.), temos condições de começar a pensar sobre análise de dados. É o que faremos adiante.
+
 # Análise descritiva de dados
 
-A análise de dados com R combina o domínio dos comandos básicos da linguagem, da estatística e das funções aplicadas no R. A estatística é dividida em, pelo menos, duas grandes áreas: i) análise exploratória/descritiva dos dados; ii) análise inferencial/preditiva.​
+A análise de dados com R combina o domínio dos comandos básicos da linguagem, da estatística e das funções aplicadas no R. A estatística é dividida em, pelo menos, duas grandes áreas: i) análise exploratória/descritiva dos dados e; ii) análise inferencial/preditiva.​
 
 Usamos a estatística para:
 
@@ -125,9 +127,9 @@ Usamos a estatística para:
 
 -   Simular valores não observados na realidade (dados faltantes, contrafactuais etc.)​
 
-A **classificação** das variáveis orienta todos os procedimentos estatísticos possíveis, desde a análise descritiva exploratória até a parte inferencial. Há técnicas específicas para lidar com cada tipo de variável. Por exemplo, para variáveis que são métricas (numéricas), podemos utilizar medidas de tendência central e de dispersão para descrevê-las. Para variáveis categóricas, no entanto, não podemos calcular as mesmas medidas, o que nos direciona a outras medidas descritivas.
+A **classificação** das variáveis orienta todos os procedimentos estatísticos possíveis, desde a análise descritiva exploratória até a parte inferencial. Há técnicas específicas para lidar com cada tipo de variável. Por exemplo, para variáveis que são métricas (numéricas), podemos utilizar medidas de tendência central e de dispersão para descrevê-las. Para variáveis categóricas, no entanto, não podemos calcular as mesmas medidas, o que nos direciona a outras medidas descritivas, como as frequências absolutas (contagem) e relativas (proporções ou percentuais). A [Figura @varclasses] ilustra a classificação das variáveis.
 
-![Classificação das variáveis](images/Escala%20variáveis%20-%20Bussab%20e%20Morettin.png)
+![Classificação das variáveis](images/Escala%20variáveis%20-%20Bussab%20e%20Morettin.png){#varclasses}
 
 Uma imagem pode comunicar mais do que mil palavras, e este é o sentido da representação gráfica das nossas variáveis. Por mais que toda a análise estatística tenha um véu de tecnicismo, parte fundamental da narrativa sobre os dados é construída pela apresentação e comunicação. A visualização gráfica da distribuição das variáveis permite uma boa descrição, sendo uma técnica poderosa de explorar as informações. Os bons gráficos guardam a elegância na simplicidade; são capazes de apresentar muita informação de forma concisa, coerente e simples. Os ruins dificultam o entendimento, distorcem informações e enviesam a interpretação.
 
@@ -179,7 +181,7 @@ library(psych)
 describe(var_metrica_continua)
 ```
 
-Conforme vimos, uma imagem pode falar mais que mil palavras e, neste sentido, os gráficos podem nos auxiliar a descrever nossas variáveis. O tipo de gráfico adequado muda conforme a classificação da variável. Para ilustrar a frequência da ocorrêcia de cada valor, por exemplo, podemos utilizar barras para as métricas discretas e histogramas para as métricas contínuas. A diferença é sutil e fundamental: para dar noção de continuidade nos dados, as barras são coladas umas nas outras para a representação dos histogramas. Por outro lado, para dar a noção de limite entre os valores discretos, as barras são separadas uma das outras.
+Uma imagem pode falar mais que mil palavras e, neste sentido, os gráficos podem nos auxiliar a descrever nossas variáveis. O tipo de gráfico adequado muda conforme a classificação da variável. Para ilustrar a frequência da ocorrêcia de cada valor, por exemplo, podemos utilizar barras para as métricas discretas e histogramas para as métricas contínuas. A diferença é sutil e fundamental: para dar noção de continuidade nos dados, as barras são coladas umas nas outras para a representação dos histogramas. Por outro lado, para dar a noção de limite entre os valores discretos, as barras são separadas uma das outras.
 
 ```{r}
 # Visualização de variáveis métricas

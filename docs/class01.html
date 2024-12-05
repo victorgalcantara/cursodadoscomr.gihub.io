@@ -249,13 +249,13 @@ div.csl-indent {
 
 <section id="é-de-comer" class="level2">
 <h2 class="anchored" data-anchor-id="é-de-comer">É de comer?</h2>
-<p>O R é uma linguagem de programação, o que significa que podemos utilizá-la para nos comunicar com o computador. Isto é, seguimos a sintaxe da linguagem para usar comandos que orientam o computador a executar operações. Uma definição mais específica do R é a de linguagem voltada a objetos. Isso porque o R fuciona muito direcionado às informações guardadas como objetos na memória.</p>
+<p>O R é uma linguagem de programação, o que significa que podemos utilizá-la para nos comunicar com o computador. Isto é, seguimos a sintaxe da linguagem para usar comandos que orientam o computador a executar operações. Uma definição mais específica do R é a de linguagem voltada a objetos, porque fuciona direcionado às informações que são guardadas como objetos na memória.</p>
 <p>Como uma linguagem, o R tem uma sintaxe e para dominá-la precisamos praticar. Por isso este livro é mesclado entre explicações e exemplos práticos. Não é pavê, nem pacumê. É pa praticar!</p>
 <section id="mas-por-que-o-r-e-não-outro" class="level3">
 <h3 class="anchored" data-anchor-id="mas-por-que-o-r-e-não-outro">Mas… por que o R e não outro?</h3>
 <p>O que torna o R especial para a pesquisa é ter sido desenvolvido para fins estatísticos, que ao longo do tempo tomou a forma de Ciência de Dados. Os autores da linguagem são os estatísticos Ross Ihaka (neozelandês) e Robert Gentleman (canadense). Eles iniciaram o projeto em meados dos anos 1990, tendo circulado a primeira cópia do arquivo binário, embrião do R, em uma lista de e-mails de pesquisadores que trabalhavam com a linguagem S, chamada <em>s-news</em>.</p>
-<p>Com a circulação do projeto, Ross e Robert receberam uma indicação de Martin Mächler, professor no Departamento de Matemática da Universidade de Zurique (Suiça), para associarem o software ao projeto GNU, de desenvolvimento de softwares livres. Os autores acataram a ideia e em junho de 1995 estava disponível o código fonte do R sob licença da <em>GNU Free Software Foundation.</em> Essa história foi contada no artigo <em>R: A Language for Data Analysis and Graphics</em> <span class="citation" data-cites="ihaka_r_1996">(<a href="references.html#ref-ihaka_r_1996" role="doc-biblioref">1</a>)</span>, onde os autores apresentaram o projeto publicamente para a comunidade acadêmica. Depois disso o projeto ganhou adesão e força. No ano seguinte, em 1997, foi fundado o <em>R Core Group</em>, composto por pessoas responsáveis pelo controle da versão do código fonte, que atualmente gere o <em>Comprehensive R Archive Network</em> (<a href="https://cran.r-project.org/">CRAN</a>), onde são registradas e distribuídas as atualizações do R. A versão 1.0 do R foi divulgada em 2002 e passou por diversas atualizações até chegar a atual 4.4.1.</p>
-<p>Até 2009, o R era usado por estatísticos, cientistas da computação e pesquisadores engajados com este tipo de expertise. O cenário mudou com o desenvolvimento de um ambiente integrado de trabalho, o RStudio, que facilitou o fluxo. Além disso, em 2016, o então cientista chefe da empresa RStudio, Hadley Wickham, em colaboração com Garrett Grolemund, concretizou o projeto <em>Tidy Data</em> <span class="citation" data-cites="wickham2014">(<a href="references.html#ref-wickham2014" role="doc-biblioref">2</a>)</span>, visando aprimorar o manuseio de dados, publicando um conjunto de funções em pacotes voltados para a análise de dados, todos integrados ao <em>Tidyverse</em>. O projeto foi costruído por quatro princípios: 1. reutilização de estrutura de dados existentes; 2. composição de funções simples com o <em>pipe</em>; 3. incetivar programação que seja funcional e; 4. códigos que seja interpretáveis para humanos. Por enquanto estamos conhecendo a história, mas a transformação que isso causou será percebida quando começarmos a utilizar o pacote <em>tidyverse</em>.</p>
+<p>Com a circulação do projeto, Ross e Robert receberam uma indicação de Martin Mächler, professor no Departamento de Matemática da Universidade de Zurique (Suiça), para associarem o software ao projeto GNU, de softwares livres. Os autores acataram a ideia e em junho de 1995 estava disponível o código fonte do R sob licença da <em>GNU Free Software Foundation.</em> Essa história foi contada no artigo <em>R: A Language for Data Analysis and Graphics</em> <span class="citation" data-cites="ihaka_r_1996">(<a href="references.html#ref-ihaka_r_1996" role="doc-biblioref">1</a>)</span>, onde os autores apresentaram o projeto publicamente para a comunidade acadêmica. Depois disso o projeto ganhou adesão e força. No ano seguinte, em 1997, foi fundado o <em>R Core Group</em>, composto por pessoas responsáveis pelo controle da versão do código fonte, que atualmente gere o <em>Comprehensive R Archive Network</em> (<a href="https://cran.r-project.org/">CRAN</a>), onde são registradas e distribuídas as atualizações do R. A versão 1.0 do R foi divulgada em 2002 e passou por diversas atualizações até chegar na atual.</p>
+<p>Até 2009, o R era usado por estatísticos, cientistas da computação e pesquisadores engajados com este tipo de expertise. O cenário mudou com o desenvolvimento de um ambiente integrado de trabalho, o RStudio, que facilitou o fluxo. Além disso, em 2016, o então cientista chefe da empresa RStudio, Hadley Wickham, em colaboração com Garrett Grolemund, concretizou o projeto <em>Tidy Data</em> <span class="citation" data-cites="wickham2014">(<a href="references.html#ref-wickham2014" role="doc-biblioref">2</a>)</span>, visando aprimorar o manuseio de dados, publicando um conjunto de funções em pacotes voltados para a análise de dados, todos integrados ao <em>Tidyverse</em>. O projeto foi costruído por quatro princípios: 1. reutilização de estrutura de dados existentes; 2. composição de funções simples com o <em>pipe</em>; 3. incetivar programação que seja funcional e; 4. códigos que sejam interpretáveis por humanos. Por enquanto estamos conhecendo a história, mas a transformação que isso causou será percebida quando começarmos a utilizar o pacote <em>tidyverse</em>.</p>
 <blockquote class="blockquote">
 <blockquote class="blockquote">
 <blockquote class="blockquote">
@@ -265,11 +265,7 @@ div.csl-indent {
 </blockquote>
 </blockquote>
 </blockquote>
-<p>Perceba que toda a história do R foi construída na contramão dos softwares de mercado, como o <em>Statistical Package for Social Sciences</em> (SPSS), produto da IBM, e o Pacote Office, produto da Microsoft. Trata-se de um projeto conduzido por pesquisas acadêmicas de ponta, visando facilitar o trabalho com a análise de dados. Trabalhar com o R, portanto, implica em um outro paradigma. Ao invés de ter o software como um produto administrado por uma empresa, onde as funções já estão programadas e disponíveis por botões e comandos, temos uma linguagem a partir da qual podemos programar funções e executar comandos diversos. Há diversas implicações nessa mudança que transformaram completamente o trabalho com dados nas Ciências Sociais, permitindo maior abertura para a criatividade e replicabilidade. Todo o nosso fluxo de trabalho é escrito em um documento, que pode ser compartilhado com outras pessoas, que podem verificar o passo-a-passo e replicar. Além disso, a forma como utilizamos o software possibilita eficiência nos processamentos, com baixo custo de tempo e recursos de hardware. Veremos isso ao longo o curso.</p>
-</section>
-<section id="o-uso-de-linguagem-de-programação-nas-ciências-sociais" class="level3">
-<h3 class="anchored" data-anchor-id="o-uso-de-linguagem-de-programação-nas-ciências-sociais">O uso de linguagem de programação nas Ciências Sociais</h3>
-<p>Dados e metodologias são os principais elementos para o trabalho com pesquisa e operacionalização de teorias. Em geral, formulamos hipóteses sobre o mundo informadas por literaturas específicas, e testamos essas hipóteses coletando dados e utilizando metodologias. As linguagens de programação nos ajudam na parte operacional de tratamento e análise dos dados.</p>
+<p>Perceba que toda a história do R foi construída na contramão dos softwares de mercado, como o <em>Statistical Package for Social Sciences</em> (SPSS), produto da IBM, e o Pacote Office, produto da Microsoft. Trata-se de um projeto conduzido por pesquisas acadêmicas de ponta, visando facilitar o trabalho com a análise de dados. Trabalhar com o R, portanto, implica em um outro paradigma de software e de trabalho. Ao invés de ter um produto controlado e administrado por uma empresa, onde as funções já estão programadas e disponíveis por botões e comandos, temos uma linguagem estruturada a partir da qual podemos programar funções e executar comandos diversos. Há diversas implicações nessa mudança que transformaram completamente o trabalho com dados, permitindo maior abertura para a criatividade e replicabilidade. Todo o nosso fluxo de trabalho é escrito em um documento, que pode ser registrado e compartilhado com outras pessoas, que podem verificar o passo-a-passo e replicar. Além disso, a forma como utilizamos o software possibilita eficiência nos processamentos, com baixo custo de tempo e recursos de hardware. Veremos isso ao longo o curso.</p>
 <p>Ser parte do Projeto GNU de softwares livres é o primeiro ponto forte do R. Além disso, podemos destacar outros pontos importantes do R, como:</p>
 <ul>
 <li><strong>Eficiência:</strong> o fluxo de trabalho com funções reduz o custo de memória e processamento.</li>
@@ -280,16 +276,20 @@ div.csl-indent {
 <li><p><strong>Replicabilidade e transparência:</strong> os procedimentos são registrados em código, portando mais transparentes e possíveis de serem replicados. Práticas fundamentais e cada vez mais impulsionadas por revistas e instituições acadêmicas.</p></li>
 <li><p><strong>Popularidade:</strong> movido por uma comunidade internacional extensa, que desenvolve e acompanha o software. Cada vez mais adotado em instituições (principalmente públicas) e pela comunidade acadêmica.</p></li>
 </ul>
+</section>
+<section id="o-uso-de-linguagem-de-programação-nas-ciências-sociais" class="level3">
+<h3 class="anchored" data-anchor-id="o-uso-de-linguagem-de-programação-nas-ciências-sociais">O uso de linguagem de programação nas Ciências Sociais</h3>
+<p>Dados e metodologias são os principais elementos para o trabalho com pesquisa e operacionalização de teorias. Em geral, formulamos hipóteses sobre o mundo informadas por literaturas específicas, e testamos essas hipóteses coletando dados e utilizando metodologias. As linguagens de programação nos ajudam na parte operacional de tratamento e análise dos dados.</p>
 <p>O manuseio e a análise de dados é um desafio de longa data. Do ponto de vista do armazenamento e processamento, a principal pesquisa nacional, o Censo Demográfico, já era um desafio desde, pelo menos, 1960 <span class="citation" data-cites="barbosa2013">(ver <a href="references.html#ref-barbosa2013" role="doc-biblioref">3</a>)</span>. Uma área que emergiu diante desses desafios é a de Ciências Sociais Computacionais, que aborda desde o desenvolvimento de algoritmos para a extração e análise de dados até a discussão teórica sobre ambientes digitais.</p>
-<p>Ainda que a programação esteja relacionada com lógica e cálculo, não se trata apenas de informações quantitativas. Podemos tratar, além dos famosos <em>surveys</em>, também dados não estruturados, textos, imagens, sons e tudo o mais que puder ser registrado. Tudo isso torna mais atraente a análise de dados com uso de programação.</p>
+<p>Ainda que a programação esteja relacionada com lógica e cálculo, não se trata apenas de informações quantitativas. Podemos tratar, além dos famosos <em>surveys</em>, também dados não estruturados, como textos, imagens, sons e tudo o mais que puder ser registrado. Tudo isso torna mais atraente a análise de dados com uso de programação, amplicando o leque de possibilidades para as Ciências Sociais.</p>
 <p>Se você é uma pessoa curiosa e que quer explorar a criatividade, a sofisticação e a elegância em seu trabalho, está no lugar certo.</p>
 </section>
 </section>
 <section id="entendi.-então-como-eu-uso" class="level2">
 <h2 class="anchored" data-anchor-id="entendi.-então-como-eu-uso">Entendi. Então como eu uso?</h2>
 <p>Como vimos, o R é pa praticar! Então vamos colocar nossas ferramentas em mãos.</p>
-<p>É fudamental saber que o R é a linguagem, e o RStudio é o ambiente de desenvolvimento. Não adianta tentar usar o RStudio sem o R. Portanto, faça a instalação do R e RStudio de acordo com as especificações do seu computador.</p>
-<p>Para começar a usar o R, é preciso entender o que são e como funcionam as operações básicas. Toda linguagem de programação tem uma sintaxe e as mesmas operações básicas. Neste capítulo, veremos os comandos básicos para guardar valores na memória e manuseá-los, operações com vetores e data.frames (dados estruturados) e como usar funções e operações de lógica.</p>
+<p>É fudamental saber que o <strong>R é a linguagem</strong>, e o <strong>RStudio é o ambiente de desenvolvimento</strong>. Não adianta tentar usar o RStudio sem o R. Portanto, faça a instalação do R e RStudio de acordo com as especificações do seu computador.</p>
+<p>Para começar a usar o R, é preciso entender o que são e como funcionam as operações básicas. Toda linguagem de programação tem uma sintaxe e as mesmas operações básicas de lógica, relações condicionais, iterações etc. Neste capítulo, veremos os comandos básicos para guardar valores na memória e manuseá-los, operações com vetores e data.frames (dados estruturados), funções e operações de lógica.</p>
 <p>Como uma experiência antropológica <del>e de choque</del> , abra o R (não o RStudio!). Caso tenha dificuldade em encontrar o software, digite na busca do seu computador apenas a letra “R” e procure em aplicativos.</p>
 <p>Você deve abrir algo parecido com a janela da <a href="#fig-rconsole" class="quarto-xref">Figura&nbsp;<span>1</span></a>.</p>
 <div id="fig-rconsole" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -346,7 +346,7 @@ Figure&nbsp;1: Console R
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Este comentário não é executado. Simples assim.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Como exercício, escreva um comentário e execute no console do R base. Depois escreva o mesmo sem a marcação de comentário.</p>
-<p>Você vai perceber que, sem indicar que e um comentário (#), o R tenta computar os valores e retorna erro, porque não consegue identificar nada associado.</p>
+<p>Você vai perceber que, sem indicar que é um comentário (#), o R tenta computar os valores e retorna erro, porque não consegue identificar nada associado.</p>
 <p>Em geral, números, caracteres, valores lógicos e comentários compõem a base fundamental da linguagem R.</p>
 <p>Vamos fazer um exercício didático para introduzir o uso de códigos. Copie as linhas de comando abaixo e cole na janela console, no R base. Você pode ir colando linha a linha e executado os comandos para observar o que acontece.</p>
 <div class="cell">
@@ -387,7 +387,7 @@ Figure&nbsp;1: Console R
 <pre><code>[1] 3</code></pre>
 </div>
 </div>
-<p>No exemplo acima, guardamos o cálculo 1+2 no objeto “resultado”, armazenado na memória. Perceba que estamos interpretando a linha de código. O que o R interpreta é o mesmo. Podemos ler como: atribua ao objeto “resultado” o valor da conta 1+2.</p>
+<p>No exemplo acima, guardamos o cálculo 1+2 no objeto “resultado”, armazenado na memória. Perceba que estamos interpretando a linha de código. O que o R interpreta é o mesmo. Podemos ler como: atribua ao objeto “resultado” o valor 1+2.</p>
 <p>Uma vez guardado na memória, podemos nos referir ao objeto para acessar o valor, conforme ilustra o exemplo abaixo.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>resultado <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -395,7 +395,7 @@ Figure&nbsp;1: Console R
 <pre><code>[1] 4</code></pre>
 </div>
 </div>
-<p>Para guardar mais de um valor em um objeto, devemos utilizar uma função para concatenar os valores, expressa por um “c” seguido de parêteses e os valores contidos, separados por vírgula.</p>
+<p>Para guardar mais de um valor em um objeto, devemos utilizar uma função para concatenar os valores, expressa por um “c” seguido de parênteses e os valores contidos, separados por vírgula.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>valores_num <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>)</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -413,15 +413,15 @@ Figure&nbsp;1: Console R
 </div>
 </div>
 <p>Toda vez que nos referirmos ao nome do objeto guardado, sem o uso de aspas, o R vai entender que estamos nos referindo a todos os valores guardados no vetor. Por isso a soma 1 + vetor tem como resultado todos os valores + 1.</p>
-<p>Para acessar um valor específico em um vetor, podemos indicar a localização do valor utilizando colchetes [ ].</p>
-<p>vetor[ posição do valor ]</p>
+<p>Para acessar um valor específico em um vetor, indicamos a localização do valor utilizando colchetes [ ].</p>
+<p>vetor[ <em>posição do valor</em> ]</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>valores_num[<span class="dv">3</span>] <span class="co"># Obtendo o valor guardado na posição 3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 3</code></pre>
 </div>
 </div>
-<p>Um vetor guarda sempre um tipo ou classe de valores. Podemos fazer operações que sejam adequadas a cada tipo de valor contido. Por exemplo, para vetores que guardam textos, não podemos fazer cálculos (o R retornará como erro).</p>
+<p>Um vetor guarda sempre um tipo ou classe de valores. Podemos fazer operações que sejam adequadas a cada tipo de valor contido. Por exemplo, para vetores que guardam textos, não podemos fazer cálculos (o R retornará erro).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>valores_chr <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"A"</span>,<span class="st">"B"</span>,<span class="st">"C"</span>,<span class="st">"D"</span>,<span class="st">"E"</span>)</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>valores_chr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -444,22 +444,22 @@ Figure&nbsp;1: Console R
 </div>
 </div>
 <p>Não se assuste com a mensagem de erro. Ela sempre aparecerá com alguma explicação que te ajudará a entender. Neste caso, ele está dizendo que o argumento não é um valor numérico para fazer cálculo. O R se esforça para ser nosso amigo e muitas vezes, quando notar que pode ter algo errado, vai nos avisar com <em>Warning</em>.</p>
-<p>Embora tente ser nosso amigo, ele pode te frustrar com a quantidade de problemas e erros que aparecerão no seu caminho. Mas nunca se esqueça de que o R é burro e o inteligente é você.</p>
+<p>Embora tente ser nosso amigo, ele pode te frustrar com a quantidade de problemas e erros que aparecerão no seu caminho. Mas nunca se esqueça de que o R é burro e o inteligente é você!</p>
 <p>Há uma outra função para concatenar objetos e valores que é muito útil e pode ser incorporada entre os comandos básicos: a função <em>paste</em>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(<span class="st">"O primeiro valor guardado no vetor de caracteres é"</span>,valores_chr[<span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(<span class="st">"O primeiro valor guardado no vetor de caracteres é"</span>, valores_chr[<span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "O primeiro valor guardado no vetor de caracteres é A"</code></pre>
 </div>
 </div>
-<p>O que a função <em>paste</em> faz, simplesmente, é colar textos com valores guardados em objetos. Há também uma versão semelhante, que cola os valores sem adicionar espaçamento: <em>paste0.</em></p>
+<p>O que a função <em>paste</em> faz, simplesmente, é colar textos com valores guardados em objetos. Há também uma versão semelhante, que cola os valores sem adicionar espaçamento: <em><code>paste0</code>.</em></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste0</span>(<span class="st">"O primeiro valor guardado no vetor de caracteres é"</span>,valores_chr[<span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "O primeiro valor guardado no vetor de caracteres éA"</code></pre>
 </div>
 </div>
-<p>A diferença é sutil, mas pode muito importante. Quando queremos construir o endereço do arquivo no nosso computador, por exemplo, não é usual adicionar espaços; pode ocasionar em erro.</p>
+<p>A diferença é sutil, mas muito importante. Quando queremos construir o endereço do arquivo no nosso computador, por exemplo, não é usual adicionar espaços; pode ocasionar em erro. Por isso, a função <code>paste0</code> torna-se mais usual.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>nome_arquivo <span class="ot">&lt;-</span> <span class="st">"meusdados.csv"</span></span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>endereco_pasta <span class="ot">&lt;-</span> <span class="st">"G://meucomputador/pasta/"</span></span>
@@ -552,8 +552,8 @@ Figure&nbsp;2: RStudio Layout
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gc</span>()  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>          used (Mb) gc trigger (Mb) max used (Mb)
-Ncells  599981 32.1    1361120 72.7  1361120 72.7
-Vcells 1112798  8.5    8388608 64.0  1876245 14.4</code></pre>
+Ncells  599981 32.1    1360968 72.7  1360968 72.7
+Vcells 1113154  8.5    8388608 64.0  1876245 14.4</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">

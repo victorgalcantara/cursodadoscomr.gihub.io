@@ -12,6 +12,7 @@ book:
     - class02.qmd
     - class03.qmd
     - class04.qmd
+    - class05.qmd
     - references.qmd
 
 bibliography: references.bib

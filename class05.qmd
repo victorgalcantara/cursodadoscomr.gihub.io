@@ -1,0 +1,275 @@
+# Capítulo 5 {.unnumbered}
+
+## Análise
+
+No capítulo anterior, vimos sobre as relações condicionais `if else` e as estruturas de dados matriz e lista. Com isso, fechamos a bagagem necessária para iniciar a análise de dados. Começamos com definições da estatística e partimos para a parte exploratória e descritiva de dados, seguindo as técnicas adequadas para cada tipo de variável. Neste capítulo, avançaremos na parte descritiva com a análise de mais de uma dimensão/variável, isto é, observando e medindo a relação entre elas.
+
+### Análise bidimensional
+
+Depois de descrever as variáveis da nossa base de dados, podemos usar medidas estatísticas e visualizações gráficas para analisar a associação entre elas. Para isso, começamos estudando a relação entre duas variáveis. As formas de estudar essa relação depende do tipo da variável. Temos as seguintes combinações:
+
+Métricas x Métricas = correlação de Pearson e gráfico de dispersão (*scatterplot*)
+
+Métricas x Categóricas = comparação de distribuições por categoria e diferença entre médias
+
+Categórias x Categóricas = tabela de contingência e Qui-Quadrado de Pearson
+
+### Métricas x Métricas
+
+Para analisar a associação entre variáveis métricas, utilizamos a medida de correlação de Pearson e o gráfico de dispersão.
+
+Vamos criar duas variáveis métricas aleatórias que sejam independentes. Para isso, usaremos a função `rnorm`, que cria valores numéricos contínuos que seguem uma distribuição normal. Precisamos apenas indicar quantos valores queremos (n), a média e o desvio-padrão que a distribuição vai assumir. Para fins didáticos, vamos chamar as variáveis de "renda" e "sorte".
+
+```{r}
+renda <- rnorm(n = 1000,mean = 1420,sd = 1200)
+sorte <- rnorm(n = 1000,mean = 52,sd = 7)
+
+df <- data.frame(renda,sorte)
+```
+
+Agora, temos as variáveis 'renda' e 'sorte', que foram criadas por uma distribuição aleatória e independentes uma da outra.
+
+```{r}
+library(pacman)
+p_load(rio,tidyverse)
+
+plt_renda = df %>% 
+ggplot(aes()) +
+  geom_histogram(aes(x=renda),fill="steelblue")
+
+plt_sorte = df %>% 
+ggplot(aes()) +
+  geom_histogram(aes(x=sorte),fill="green")
+
+library(patchwork)
+
+plt_renda + plt_sorte
+```
+
+Agora, vamos observar a associação entre essas variáveis com um gráfico de dispersão.
+
+```{r}
+plt_assoc_nula <- df %>% 
+ggplot(aes(y = renda, x = sorte)) +
+  geom_point()+
+  labs(title = "Nula")
+
+plt_assoc_nula
+```
+
+É possível identificar algum padrão de associação entre as variáveis pelo gráfico? Não. E sabemos que elas foram criadas assim, independentes uma da outra.
+
+Agora, vamos criar uma nova variável, chamada oportunidades, e fazer com que a variável renda seja uma função da variável oportunidades e, assim, tenha uma associação. Para isso, definimos um efeito fixo de oportunidades sobre a renda.
+
+```{r}
+oportunidades = rnorm(n = 1000,mean = 66,sd = 15)
+
+renda = oportunidades * 18
+
+df <- data.frame(renda,sorte,oportunidades)
+
+df %>% 
+ggplot(aes(y = renda, x = oportunidades)) +
+  geom_point()
+```
+
+Acima, temos uma associação perfeita entre renda e oportunidades. Isto é, quando sabemos o ponto das oportunidades, podemos saber exatamente qual é o ponto da renda (basta multiplicar o ponto das oportunidades por 2.8, que foi o efeito fixo que adicionamos). Mas sabemos que no mundo não é assim. As variáveis que usamos em Ciências Sociais não têm associação perfeita, porque os fenômenos são multidimensionais. Há outros fatores além das oportunidades que incidem sobre a renda. Para isso, vamos adicionar um termo de erro aleatório, que é a variabilidade da renda não explicada pelas oportunidades.
+
+```{r}
+e = rnorm(n = 1000,mean = 300,sd = 80)
+
+renda = oportunidades * 18 + e
+
+df <- data.frame(renda,sorte,oportunidades,e)
+
+plt_assoc_positiva <- df %>% 
+ggplot(aes(y = renda, x = oportunidades)) +
+  geom_point()+
+  labs(title = "Positiva")
+
+plt_assoc_positiva
+```
+
+Mesmo com o erro adicionado, percebemos uma associação entre as variáveis. Neste caso, podemos assumir que, em geral, a renda é maior conforme aumentam as oportunidades.
+
+A associação pode também ser negativa, isto é, uma variável pode ser menor conforme maior é a outra. Podemos criar uma nova variável aleatória, discriminação, e adicionar com um efeito fixo negativo sobre a renda.
+
+```{r}
+discriminacao = rnorm(n = 1000,mean = 60,sd = 15)
+
+renda = oportunidades * 18 - discriminacao * 12 + e
+
+df <- data.frame(renda,sorte,oportunidades,discriminacao,e)
+
+plt_assoc_negativa = df %>% 
+ggplot(aes(y = renda, x = discriminacao)) +
+  geom_point()+
+  labs(title = "Negativa")
+
+plt_assoc_negativa
+```
+
+Neste terceiro caso, a associação é mais fraca porque temos, além do termo de erro, também uma parte da variabilidade dada pelo efeito das oportunidades. Mas, ainda assim, podemos observar que há uma associação negativa entre renda e discriminação, conforme estabelecemos previamente.
+
+Assim, há três tipos lineares de associação que podem ser observados entre variáveis métricas: negativa, nula e positiva.
+
+```{r}
+plt_assoc_positiva + plt_assoc_nula + plt_assoc_negativa + plot_annotation(title = "Tipos de associação linear")
+```
+
+A correlação de Pearson é uma medida da associação entre duas variáveis métricas, e varia de -1 (associação negativa perfeita) a 1 (associação positiva perfeita), sendo o zero a ausência de associação (nula). Para calcular essa medida, usamos a função `cor` e inserimos como argumentos as variáveis de interesse.
+
+```{r}
+# Correlação entre renda e sorte
+cor(df$renda,df$sorte)
+
+# Correlação entre renda e oportunidades
+cor(df$renda,df$oportunidades)
+
+# Correlação entre renda e discriminação
+cor(df$renda,df$discriminacao)
+```
+
+Agora, vamos ver uma aplicação com nossos dados.
+
+```{r, message=F,warning=F}
+meus.dados <- import("G:/Meu Drive/02 - GitHub/R-Intro/A02 - Explore II/0 - data/mydata.RDS")
+```
+
+```{r}
+# Criar o gráfico de dispersão
+plt1 <- meus.dados %>% 
+  ggplot(aes(y = prop_renda_40_pobres, x = rpct)) +
+  geom_point(alpha = 0.7,size = 3) +
+  scale_y_continuous(limits = c(5,15),breaks = seq(5,20,2.5))
+  
+plt1 <- plt1 + labs(
+    title = "Desigualdade de renda por UF",
+    subtitle = "Censo Demográfico, Brasil, 2010",
+    y = "Proporção da renda acumulada pelos 40% Mais Pobres",
+    x = "Média da Renda Per Capta (R$)",
+    size = "Índice Gini",
+    color = "Índice Gini",
+    caption = "     Fonte: basedosdados.org"
+  ) +
+  theme_minimal()
+
+plt1
+```
+
+Se tratando de correlação, a primeira coisa que observamos é se há algum padrão entre as duas variáveis. Isto é, se elas variam juntas (covariam) seguindo algum sentido. No gráfico acima, podemos observar que a proporção da renda acumulada pelos mais pobres é maior conforme aumenta a média da renda per capta das UF's. Temos, portanto, uma associação positiva. Podemos mensurar o grau da associação com a medida de Correlação de Pearson. Além disso, se desenharmos uma reta que cruze a menor distância entre os pontos, ela indicaria a direção positiva da associação. Podemos fazer isso com uma reta estimada por mínimos quadrados, usando o comando `geom_smooth` e especificado o método estatístico para modelos lineares (lm).
+
+```{r}
+# Correlação de Pearson
+cor(meus.dados$prop_renda_40_pobres,meus.dados$rpct)
+
+plt1 <- plt1 + geom_smooth(method = "lm")
+
+plt1
+```
+A correlação de Pearson indica um grau não desprezível de associação positiva entre as variáveis. A reta tem uma leve inclinação para cima, o que também indica a associação positiva. Ela só não é mais forte, assim como a medida de correlação, porque há um caso que se distancia da tendêcia geral da distribuição e atrapalha um pouco a interpretação. O caso é o Distrito Federal, que tem renda média alta e menor concentração entre os mais pobres.
+
+Como vimos, a associação entre duas variáveis métricas pode também ser negativa, quando a variável no eixo vertical (y) diminui conforme aumenta a variável no eixo horizontal (x). Este é o caso do gráfico abaixo, da associação entre renda média e proporção da renda acumulada pelos 10% mais ricos nas UF's.
+
+```{r}
+# Criar o gráfico de dispersão
+plt2 <- meus.dados %>% 
+  ggplot(aes(y = prop_renda_10_ricos, x = rpct)) +
+  geom_point(alpha = 0.7,size = 3) 
+
+plt2 +
+  scale_y_continuous(limits = c(30,60),breaks = seq(30,60,5))+
+  labs(
+    title = "Desigualdade de renda por UF",
+    subtitle = "Censo Demográfico, Brasil, 2010",
+    y = "Proporção da renda acumulada pelos 10% Mais Ricos",
+    x = "Média da Renda Per Capta (R$)",
+    size = "Índice Gini",
+    color = "Índice Gini",
+    caption = "     Fonte: basedosdados.org"
+  ) +
+  theme_minimal()
+```
+
+As mesmas técnicas podemos aplicar quando a variável é métrica discreta (não assume continuidade, com valores pulando de 1 em 1).
+
+### Métricas x Categóricas
+
+Para verificar a associação entre variáveis métricas e categóricas, podemos comparar a distribuição da variável métrica para cada categoria. Graficamente, podemos representar as duas distribuições e observar se há algum padrão de associação.
+
+Para isso, vamos categorizar as UFs conforme o índice Gini, atribuindo baixo para as que estiverem abaixo do primeiro quartil, médio para as que tiverem entre o primeiro e o terceiro quartil, e alto para as que tiverem acima do terceiro quartil. Assim, teremos as UFs categorizadas segundo o Gini.
+
+```{r}
+quartis = quantile(meus.dados$gini,probs = seq(0,1,0.25))
+
+meus.dados <- meus.dados %>% mutate(
+  categorias_gini = case_when(
+  gini <= median(.$gini) ~ "Baixo",
+  gini > median(.$gini) ~ "Alto"
+))
+
+# Para definir a ordem
+meus.dados$categorias_gini <- factor(meus.dados$categorias_gini,
+                                     levels=c("Baixo","Alto"))
+
+table(meus.dados$categorias_gini)
+```
+```{r}
+meus.dados %>% 
+  ggplot(aes(y = rpct,fill = categorias_gini))+
+  geom_boxplot()
+```
+
+As medidas para a associação são as diferenças observadas pelas medidas de tendência central (média e mediana). No boxplot, podemos observar que as medianas dos grupos são substantivamente diferentes, com as UFs com Gini mais alto tendo menor renda média per capta. A interpretação que podemos fazer é que UFs mais pobres têm a renda mais concentrada entre os mais ricos.
+
+### Categóricas x Categóricas
+
+Entre variáveis categóricas, a forma de observar a associação é por tabelas cruzadas (ou de contingência). Por elas, podemos observar se a distribuição de uma categoria varia conforme outra. Vamos pensar em um caso simples para compreender a relação. Vamos criar um cruzamento entre duas variáveis categóricas dicotômicas: (i) se a pessoa é fumante; (ii) se chouveu ontem.
+
+```{r}
+fumante <- sample(x = c("Sim","Não"),size = 100,replace = T,prob = c(0.5,0.5))
+
+chuva <- sample(x = c("Sim","Não"),size = 100,replace = T,prob = c(0.5,0.5))
+
+tab = table(fumante,chuva)
+tab
+```
+Na tabela acima, temos a distribuição da frequência absoluta de fumantes e incidência de chuva. Para tabelas desse tipo, o ideal é indicar a frequência relativa direcionando o 100% segundo a pergunta que se procura responder. Por exemplo: há mais fumantes quando há indicência de chuva? Direcionamos os 100% para os fumantes e observamos a distribuição relativa ao evento da chuva.
+
+```{r}
+p_tab = prop.table( tab , margin = 1)
+p_tab
+```
+Agora, podemos observar, pela linha de fumantes, como está a distribuição com e sem a chuva. Vemos que tem mais fumantes quando há chuva. Mas também tem mais fumantes quando não há chuva. Portanto, devemos fazer uma comparação da proporção de fumantes e não fumantes quando ocorre a chuva (0.54 - 0.54 = 0). Assim, vemos que não há diferença na proporção de fumantes quando ocorre a chuva, isto é, não há evidências de que as duas coisas estejam associadas. 
+
+Há, pelo menos, duas medidas estatísticas para verificar a associação. A mais conhecida é o Qui-Quadrado, que mede a associação por um coeficiente (X-quadrado) e testa a hipótese de independência (ausência de associação) entre as variáveis.
+
+Quando o valor p for maior do que 0.05, não rejeitamos a hipótese nula de independêcia das variáveis. Quando é menor, rejeitamos a hipótese e assumimos que há uma relação entre elas.
+
+```{r}
+chisq.test(tab)
+```
+Como criamos a tabela com variáveis indendentes, o p valor estimado é igual a um, que indica a indendêcia entre elas. Como com o caso da associação linear perfeita, não vemos isso no mundo das Ciências Sociais. Mas devemos analisar a probabilidade de erro (p valor) e tomar uma decisão sobre a hipótese definida.
+
+No R, temos um pacote que auxilia na construção de tabelas de contingência, o `SjPlot`.
+
+```{r}
+library(sjPlot)
+
+meus.dados$categorias_rpct <- cut(meus.dados$rpct,
+                                  breaks = c(0,600,max(meus.dados$rpct)),
+                                  labels = c('Baixo','Alto')
+                                  )
+
+table(meus.dados$categorias_rpct)
+
+sjt.xtab(var.row = meus.dados$categorias_gini,
+         var.col = meus.dados$categorias_rpct,
+         var.labels = c("Gini","Rpct"),
+         show.row.prc = T,
+         show.summary = T)
+```
+
+Além de organizar a tabela, a função ainda retorna um sumário estatístico logo abaixo, com as medidas de associação entre as variáveis.
+
+
