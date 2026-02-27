@@ -16,7 +16,7 @@ book:
     - references.qmd
 
 bibliography: references.bib
-csl: associacao-brasileira-de-normas-tecnicas-numerico.csl
+csl: apa.csl
 format:
   html:
     theme: cosmo

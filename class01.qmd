@@ -2,7 +2,7 @@
 
 ## É de comer?
 
-> > > > *We often ignore the underlying mechanisms of computers while pursuing a solution for our computational problems. However, when programming, beneath the screen there is a complex structure operating. And even if you don’t like it, it’s important to have some idea of what computer is actually doing for us. After all, you are using programming language to instruct the machine to perform computational tasks (Myself, 2026).*
+> > > > *Frequentemente ignoramos os mecanismos subjacentes dos computadores enquanto buscamos soluções para nossos problemas computacionais. No entanto, ao programar, por trás da tela há uma estrutura complexa em pleno funcionamento. E, ainda que isso não seja do seu agrado, é fundamental ter alguma compreensão do que o computador de fato está fazendo por nós. Afinal, ao utilizar uma linguagem de programação, você está instruindo a máquina a executar tarefas computacionais para você (Eu mesmo, 2026).*
 
 O R é uma linguagem de programação, o que significa que podemos utilizá-la para nos comunicar com o computador e programá-lo a executar operações. Isto é, seguimos a sintaxe ou estrutura da linguagem para construir comandos que orientem o computador na execução de operações. 
 

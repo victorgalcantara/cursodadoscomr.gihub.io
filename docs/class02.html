@@ -59,7 +59,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
-  margin-bottom: 1em;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -166,7 +166,7 @@ div.csl-indent {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Introdução</span></a>
+ <span class="menu-text">Apresentação</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -259,13 +259,7 @@ div.csl-indent {
 <section id="mãos-na-massa" class="level2">
 <h2 class="anchored" data-anchor-id="mãos-na-massa">Mãos na massa</h2>
 <blockquote class="blockquote">
-<blockquote class="blockquote">
-<blockquote class="blockquote">
-<blockquote class="blockquote">
-<p><em>It is often said that 80% of data analysis is spent on the process of cleaning and preparing the data (Dasu and Johnson 2003). Data preparation is not just a first step, but must be repeated many times over the course of analysis as new problems come to light or new data is collected. Despite the amount of time it takes, there has been surprisingly little research on how to clean data well. Part of the challenge is the breadth of activities it encompasses: from outlier checking, to date parsing, to missing value imputation. To get a handle on the problem, this paper focuses on a small, but important, aspect of data cleaning that I call data tidying: structuring datasets to facilitate analysis.</em> <span class="citation" data-cites="wickham2014">(<a href="references.html#ref-wickham2014" role="doc-biblioref">1 p. 1</a>)</span></p>
-</blockquote>
-</blockquote>
-</blockquote>
+<p><em>Costuma-se dizer que 80% do trabalho em análise de dados é limpando e preparando bases (Dasu e Johnson, 2003). Eles estão certos. Talvez seja até mais. Mas o conceito <em>data tidy</em> e o pacote <em>tidyverse</em> vieram para nos ajudar com isso no universo do R</em> <span class="citation" data-cites="wickham2014">(<a href="references.html#ref-wickham2014" role="doc-biblioref">Wickham, 2014</a>, tradução livre, com muita liberdade mesmo, da p.&nbsp;1)</span></p>
 </blockquote>
 <p>No capítulo anterior, vimos sobre a história e o funcionamento do R e RStudio, introduzindo o fluxo de trabalho e as operações fundamentais. Vimos três tipos de valores que podemos utilizar na programação: números, caracteres/texto e lógica (TRUE/FALSE). Depois, como armazenar e manusear os valores em objetos na memória, em duas estrutura de dados: vetores e data.frame. Vimos como são estruturadas e como usar as funções e, por fim, manuseamos dados usando testes lógicos. Todas as operações foram feitas com a base do R, usando comandos e funções elementares.</p>
 <p>Até aqui, espero que você saiba os comandos básicos para inserir comentários e atribuir valores a objetos, manusear objetos que guardam vetores e data.frames, usar funções e fazer testes lógicos.</p>
@@ -401,8 +395,8 @@ div.csl-indent {
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">gc</span>() <span class="co"># Faz a limpeza da lixeira da memória</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>          used (Mb) gc trigger  (Mb) max used  (Mb)
-Ncells 1240319 66.3    2487792 132.9  2393022 127.9
-Vcells 2159325 16.5    8388608  64.0  3685900  28.2</code></pre>
+Ncells 1240319 66.3    2487824 132.9  2393161 127.9
+Vcells 2159098 16.5    8388608  64.0  3685769  28.2</code></pre>
 </div>
 </div>
 </section>
@@ -424,8 +418,8 @@ Vcells 2159325 16.5    8388608  64.0  3685900  28.2</code></pre>
 <span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="fu">gc</span>() <span class="co"># Faz a limpeza da lixeira da memória</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>          used (Mb) gc trigger  (Mb) max used  (Mb)
-Ncells 1250132 66.8    2487792 132.9  2393022 127.9
-Vcells 2179904 16.7    8388608  64.0  3685900  28.2</code></pre>
+Ncells 1250132 66.8    2487824 132.9  2393161 127.9
+Vcells 2179685 16.7    8388608  64.0  3685769  28.2</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Gestão de funções e pacotes</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("tidyverse") # Instala o pacote tidyverse como exemplo</span></span>
@@ -451,8 +445,8 @@ Vcells 2179904 16.7    8388608  64.0  3685900  28.2</code></pre>
 <span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="fu">gc</span>() <span class="co"># Faz a limpeza da lixeira da memória</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>          used (Mb) gc trigger  (Mb) max used  (Mb)
-Ncells 1250169 66.8    2487792 132.9  2393022 127.9
-Vcells 2180092 16.7    8388608  64.0  3685900  28.2</code></pre>
+Ncells 1250169 66.8    2487824 132.9  2393161 127.9
+Vcells 2179865 16.7    8388608  64.0  3685769  28.2</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Gestão de funções e pacotes</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("tidyverse") # Instala o pacote tidyverse como exemplo</span></span>
@@ -538,8 +532,8 @@ Vcells 2180092 16.7    8388608  64.0  3685900  28.2</code></pre>
 <span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a><span class="fu">gc</span>() <span class="co"># Faz a limpeza da lixeira da memória</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>          used (Mb) gc trigger  (Mb) max used  (Mb)
-Ncells 1250209 66.8    2487792 132.9  2393022 127.9
-Vcells 2180422 16.7    8388608  64.0  3685900  28.2</code></pre>
+Ncells 1250209 66.8    2487824 132.9  2393161 127.9
+Vcells 2180195 16.7    8388608  64.0  3685769  28.2</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Gestão de funções e pacotes</span></span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("tidyverse") # Instala o pacote tidyverse como exemplo</span></span>
@@ -847,9 +841,9 @@ Vcells 2180422 16.7    8388608  64.0  3685900  28.2</code></pre>
 </div>
 
 
-<div id="refs" class="references csl-bib-body" data-entry-spacing="1" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
 <div id="ref-wickham2014" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[1] </div><div class="csl-right-inline">WICKHAM, H. <a href="https://doi.org/10.18637/jss.v059.i10">Tidy data</a>. <strong>Journal of Statistical Software</strong>, v. 59, n. 10, p. 1–23, 2014. </div>
+Wickham, H. (2014). Tidy data. <em>Journal of Statistical Software</em>, <em>59</em>(10), 1–23. <a href="https://doi.org/10.18637/jss.v059.i10">https://doi.org/10.18637/jss.v059.i10</a>
 </div>
 </div>
 </section>
