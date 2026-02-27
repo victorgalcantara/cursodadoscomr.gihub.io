@@ -4,9 +4,9 @@
     "href": "index.html",
     "title": "Análise de dados com R",
     "section": "",
-    "text": "Introdução\nEste é um livro de introdução à análise de dados com R, voltado para cientistas sociais. O livro aborda o funcionamento da linguagem de programação R e do software de desenvolvimento RStudio/Posit, visando oferecer noções gerais e operações básicas para o domínio e a autonomia na análise de dados. O livro envolve desde a história sobre a origem dessa linguagem e dos softwares a operações fundamentais de importação, manuseio, análise, visualização, exportação e comunicação de dados. Uma referência importante é o livro  R for Data Science (1). Por seguir o livro de referência, os tópicos mesclam com o inglês para estimular a adaptação ao software, à comunidade de programadores internacionais e aos manuais, que têm a língua inglesa como padrão.\nA proposta é que seja um livro também de instruções, do gênero “mão na massa”. Para o bom funcionamento das aulas, portanto, é importante acompanhar o conteúdo e praticar executando os códigos de exemplo, fazendo os tutoriais e os exercícios. O livro é como um guia, mas recomendo que explorem o funcionamento desta ferramenta para ir conquistando o domínio.",
+    "text": "Apresentação\nNa falta de alguém que confie em mim o suficiente, apresentarei este livro eu mesmo. Este é um livro de introdução à análise de dados com R, voltado para cientistas sociais. O objetivo é oferecer um caminho para a compreensão do funcionamento desta linguagem de programação (R) e do software de desenvolvimento onde trabalhamos com ela (RStudio/Posit). Assim, o livro visa oferecer noções gerais e operações básicas para o domínio e a autonomia na análise de dados, especialmente para cientistas sociais.\nA proposta é que seja um material de instruções que auxilie nas atividades centrais para a análise de dados, quais sejam: de importação, manuseio, análise, visualização, exportação e comunicação de dados. Não é exatamente um manual, pois pretende contextualizar a ferramenta para cientistas sociais, abordando também a história e o contexto da linguagem R e o uso nas Ciências Sociais Computacionais. Mas não é também um livro de história e contextualização. Eu não sei exatamente o que é, na verdade. Mas pretende ser um guia do gênero “mão na massa”.\nO livro sofre atualizações contínuas. Caso queira contribuir com a causa, não precisa me enviar 10 centavos, pode me enviar um e-mail com sugestões ou apontamento para correções. Se quiser enviar 10 centavos, a chave pix é meu e-mail também. Diferente das críticas, 10 centavos nunca é demais.\nToda vez que faço uma atualização, eu penso: “dessa vez vou fazer diferente. Vou deixar mais objetivo e interessante”. Depois de um tempo, leio e chego à conclusão de que ainda não está legal. Talvez seja uma eterna frustração. Por isso decidi fazer diferente. Os capítulos começam com epígrafes, algumas excessivamente longas. E o leitor será treinado a ter o comportamento ideal para o livro: se for interessante e agregar em algo, leia. Se for confuso e longo, ignore e continue a leitura. Se por acaso você navegar nos capítulos ignorando tudo, de modo que sinta que esse livro/site não agrega em nada, passe para outro material. Mas não desista da programação.\nO livro (?) está organizado em cinco capítulos, pois foi pensado para um curso intensivo de 5 dias. Os capítulos seguem também a estrutura de uma das maiores referências na introdução, o livro R for Data Science (1). Por seguir o livro de referência, os tópicos mesclam com o inglês para estimular a adaptação ao software, à comunidade de programadores internacionais e aos manuais, que têm a língua inglesa como padrão. Mas graças à fé e à devoção de voluntários, o livro R para Ciência de Dados já está traduzido em português e podemos ignorar um pouco o anglicismo.\nDesejo-lhe um excelente início de jornada no universo da programação com R!",
     "crumbs": [
-      "Introdução"
+      "Apresentação"
     ]
   },
   {
@@ -26,7 +26,7 @@
     "section": "Download e instalação R e RStudio",
     "text": "Download e instalação R e RStudio\nO primeiro passo é baixar os softwares R e seu auxiliar RStudio/Posit, que serve como ambiente de desenvolvimento.",
     "crumbs": [
-      "Introdução"
+      "Apresentação"
     ]
   },
   {
@@ -36,7 +36,7 @@
     "section": "Instruções para o Google Colab",
     "text": "Instruções para o Google Colab\nUma alternativa aos softwares de Desktop é o ambiente de desenvolvimento da Google, o Google Colaboratory. Veremos sobre o uso deste recurso em aula.\n\n\n\n\n[1] WICKHAM, H.; GROLEMUND, G.; ÇETINKAYA-RUNDEL, M. R for Data Science. 2. ed. [s.l.] O’Reilly, 2024.",
     "crumbs": [
-      "Introdução"
+      "Apresentação"
     ]
   },
   {
