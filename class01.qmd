@@ -4,7 +4,7 @@
 
 > > > > *We often ignore the underlying mechanisms of computers while pursuing a solution for our computational problems. However, when programming, beneath the screen there is a complex structure operating. And even if you don’t like it, it’s important to have some idea of what computer is actually doing for us. After all, you are using programming language to instruct the machine to perform computational tasks (Myself, 2026).*
 
-O R é uma linguagem de programação, o que significa que podemos utilizá-la para nos comunicar com o computador. Isto é, seguimos a sintaxe ou estrutura da linguagem para construir comandos que orientem o computador na execução de operações. 
+O R é uma linguagem de programação, o que significa que podemos utilizá-la para nos comunicar com o computador e programá-lo a executar operações. Isto é, seguimos a sintaxe ou estrutura da linguagem para construir comandos que orientem o computador na execução de operações. 
 
 Uma definição mais específica do R é a de linguagem voltada a objetos, porque a estrutura é voltada a objetos guardados na memória do computador (mas isso é papo para depois).
 
