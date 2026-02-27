@@ -2,6 +2,8 @@
 
 ## Mãos na massa
 
+> > > > *It is often said that 80% of data analysis is spent on the process of cleaning and preparing the data (Dasu and Johnson 2003). Data preparation is not just a first step, but must be repeated many times over the course of analysis as new problems come to light or new data is collected. Despite the amount of time it takes, there has been surprisingly little research on how to clean data well. Part of the challenge is the breadth of activities it encompasses: from outlier checking, to date parsing, to missing value imputation. To get a handle on the problem, this paper focuses on a small, but important, aspect of data cleaning that I call data tidying: structuring datasets to facilitate analysis.* [@wickham2014, p. 1]
+
 No capítulo anterior, vimos sobre a história e o funcionamento do R e RStudio, introduzindo o fluxo de trabalho e as operações fundamentais. Vimos três tipos de valores que podemos utilizar na programação: números, caracteres/texto e lógica (TRUE/FALSE). Depois, como armazenar e manusear os valores em objetos na memória, em duas estrutura de dados: vetores e data.frame. Vimos como são estruturadas e como usar as funções e, por fim, manuseamos dados usando testes lógicos. Todas as operações foram feitas com a base do R, usando comandos e funções elementares.
 
 Até aqui, espero que você saiba os comandos básicos para inserir comentários e atribuir valores a objetos, manusear objetos que guardam vetores e data.frames, usar funções e fazer testes lógicos.

@@ -2,35 +2,52 @@
 
 ## É de comer?
 
-O R é uma linguagem de programação, o que significa que podemos utilizá-la para nos comunicar com o computador. Isto é, seguimos a sintaxe da linguagem para usar comandos que orientam o computador a executar operações. Uma definição mais específica do R é a de linguagem voltada a objetos, porque fuciona direcionado às informações que são guardadas como objetos na memória.
+> > > > *We often ignore the underlying mechanisms of computers while pursuing a solution for our computational problems. However, when programming, beneath the screen there is a complex structure operating. And even if you don’t like it, it’s important to have some idea of what computer is actually doing for us. After all, you are using programming language to instruct the machine to perform computational tasks (Myself, 2026).*
 
-Como uma linguagem, o R tem uma sintaxe e para dominá-la precisamos praticar. Por isso este livro é mesclado entre explicações e exemplos práticos. Não é pavê, nem pacumê. É pa praticar!
+O R é uma linguagem de programação, o que significa que podemos utilizá-la para nos comunicar com o computador. Isto é, seguimos a sintaxe ou estrutura da linguagem para construir comandos que orientem o computador na execução de operações. 
 
-### Mas... por que o R e não outro?
+Uma definição mais específica do R é a de linguagem voltada a objetos, porque a estrutura é voltada a objetos guardados na memória do computador (mas isso é papo para depois).
 
-O que torna o R especial para a pesquisa é ter sido desenvolvido para fins estatísticos, que ao longo do tempo tomou a forma de Ciência de Dados. Os autores da linguagem são os estatísticos Ross Ihaka (neozelandês) e Robert Gentleman (canadense). Eles iniciaram o projeto em meados dos anos 1990, tendo circulado a primeira cópia do arquivo binário, embrião do R, em uma lista de e-mails de pesquisadores que trabalhavam com a linguagem S, chamada *s-news*.
+Como uma linguagem, o R tem uma sintaxe e para dominá-la precisamos praticar. Por isso este livro é mesclado entre explicações e exemplos práticos. Não é pavê, nem pacumê. É pa praticá!
 
-Com a circulação do projeto, Ross e Robert receberam uma indicação de Martin Mächler, professor no Departamento de Matemática da Universidade de Zurique (Suiça), para associarem o software ao projeto GNU, de softwares livres. Os autores acataram a ideia e em junho de 1995 estava disponível o código fonte do R sob licença da *GNU Free Software Foundation.* Essa história foi contada no artigo *R: A Language for Data Analysis and Graphics* [@ihaka_r_1996], onde os autores apresentaram o projeto publicamente para a comunidade acadêmica. Depois disso o projeto ganhou adesão e força. No ano seguinte, em 1997, foi fundado o *R Core Group*, composto por pessoas responsáveis pelo controle da versão do código fonte, que atualmente gere o *Comprehensive R Archive Network* ([CRAN](https://cran.r-project.org/)), onde são registradas e distribuídas as atualizações do R. A versão 1.0 do R foi divulgada em 2002 e passou por diversas atualizações até chegar na atual.
+### A origem na estatística: inspiração da linguagem S instituída no Bell Labs
 
-Até 2009, o R era usado por estatísticos, cientistas da computação e pesquisadores engajados com este tipo de expertise. O cenário mudou com o desenvolvimento de um ambiente integrado de trabalho, o RStudio, que facilitou o fluxo. Além disso, em 2016, o então cientista chefe da empresa RStudio, Hadley Wickham, em colaboração com Garrett Grolemund, concretizou o projeto *Tidy Data* [@wickham2014], visando aprimorar o manuseio de dados, publicando um conjunto de funções em pacotes voltados para a análise de dados, todos integrados ao *Tidyverse*. O projeto foi costruído por quatro princípios: 1. reutilização de estrutura de dados existentes; 2. composição de funções simples com o *pipe*; 3. incetivar programação que seja funcional e; 4. códigos que sejam interpretáveis por humanos. Por enquanto estamos conhecendo a história, mas a transformação que isso causou será percebida quando começarmos a utilizar o pacote *tidyverse*.
+O que torna o R particularmente relevante para a pesquisa é o fato de ter sido concebido por estatísticos e orientado, desde sua origem, a finalidades estatísticas. Ao longo das últimas duas décadas, a linguagem também tem se consolidado no campo que passou a se estruturar como Ciência de Dados, entendido como a articulação entre estatística, computação e áreas substantivas do conhecimento, como as ciências sociais.
 
-> > > > *It is often said that 80% of data analysis is spent on the process of cleaning and preparing the data (Dasu and Johnson 2003). Data preparation is not just a first step, but must be repeated many times over the course of analysis as new problems come to light or new data is collected. Despite the amount of time it takes, there has been surprisingly little research on how to clean data well. Part of the challenge is the breadth of activities it encompasses: from outlier checking, to date parsing, to missing value imputation. To get a handle on the problem, this paper focuses on a small, but important, aspect of data cleaning that I call data tidying: structuring datasets to facilitate analysis.* [@wickham2014, p. 1]
+O R foi desenvolvido pelos estatísticos Ross Ihaka (neozelandês) e Robert Gentleman (canadense), que iniciaram o projeto em meados da década de 1990. A linguagem foi inspirada na linguagem S, criada por John Chambers e sua equipe no Bell Labs, que à época constituía uma das principais referências em computação estatística.
 
-Perceba que toda a história do R foi construída na contramão dos softwares de mercado, como o *Statistical Package for Social Sciences* (SPSS), produto da IBM, e o Pacote Office, produto da Microsoft. Trata-se de um projeto conduzido por pesquisas acadêmicas de ponta, visando facilitar o trabalho com a análise de dados. Trabalhar com o R, portanto, implica em um outro paradigma de software e de trabalho. Ao invés de ter um produto controlado e administrado por uma empresa, onde as funções já estão programadas e disponíveis por botões e comandos, temos uma linguagem estruturada a partir da qual podemos programar funções e executar comandos diversos. Há diversas implicações nessa mudança que transformaram completamente o trabalho com dados, permitindo maior abertura para a criatividade e replicabilidade. Todo o nosso fluxo de trabalho é escrito em um documento, que pode ser registrado e compartilhado com outras pessoas, que podem verificar o passo-a-passo e replicar. Além disso, a forma como utilizamos o software possibilita eficiência nos processamentos, com baixo custo de tempo e recursos de hardware. Veremos isso ao longo o curso.
+A primeira versão do R foi distribuída por meio de uma lista acadêmica de e-mails chamada _s-news_, que reunia pesquisadores e usuários da linguagem S. Foi nesse ambiente colaborativo que circularam os primeiros arquivos binários do que viria a se tornar o R, marcando o início de uma comunidade que rapidamente se expandiria para além daquele grupo inicial.
 
-Ser parte do Projeto GNU de softwares livres é o primeiro ponto forte do R. Além disso, podemos destacar outros pontos importantes do R, como:
+### Softwares de mercado _versus_ softwares livres
 
--   **Eficiência:** o fluxo de trabalho com funções reduz o custo de memória e processamento.
+Com a circulação do projeto através da _s-news_, Ross e Robert receberam uma indicação de Martin Mächler, professor no Departamento de Matemática da Universidade de Zurique (Suiça), para associarem o software ao projeto GNU, da _Free Software Foundation_. A proposta foi aceita e, em junho de 1995, o código-fonte do R passou a estar disponível sob licença GNU, consolidando sua natureza de software livre. 
 
-<!-- -->
+A história é contada em mais detalhes no artigo *R: A Language for Data Analysis and Graphics* [@ihaka_r_1996], também disponível em online [aqui](https://cran.r-project.org/doc/html/interface98-paper/paper.html), onde os autores apresentaram o projeto publicamente para a comunidade acadêmica. A partir desse momento, o R ganhou visibilidade e passou a atrair novos colaboradores. Em 1997 foi formado o R Core Group (atualmente R Core Team), responsável pela manutenção e evolução da linguagem. Esse grupo passou a coordenar o desenvolvimento do software e a gerir o Comprehensive R Archive Network (CRAN), repositório oficial onde são disponibilizadas as versões do R e os milhares de pacotes desenvolvidos pela comunidade. A versão 1.0 do R foi lançada em 2000, marcando um momento de maior estabilidade do projeto, que desde então vem sendo continuamente atualizado.
 
--   **Potência:** não estamos mais limitados às funções programadas no software, como é vendido. Podemos programar funções novas e fazer (quase) tudo com R. Excel e SPSS estão anos atrás!
+A história do R se desenvolveu na contramão dos softwares de mercado  amplamente difundidos no período, como o Statistical Package for the Social Sciences (SPSS), da IBM, e as ferramentas do pacote Microsoft Office. Enquanto esses produtos são controlados por empresas e estruturados a partir de interfaces fechadas, cujas licenças de uso são comercializadas, o R se organiza como uma linguagem de programação aberta e de livre acesso, na qual o usuário desenvolve scripts, cria novas funções e atua ativamente em uma rede integrada de usuários.
 
--   **Replicabilidade e transparência:** os procedimentos são registrados em código, portando mais transparentes e possíveis de serem replicados. Práticas fundamentais e cada vez mais impulsionadas por revistas e instituições acadêmicas.
+Essa diferença implica uma mudança de paradigma. Em vez de depender exclusivamente de funcionalidades previamente programadas e acessadas por menus e botões, o pesquisador passa a construir explicitamente o processo analítico por meio de códigos de programação. Isso amplia as possibilidades de personalização, documentação e compartilhamento dos procedimentos adotados. Há uma aproximação com o fluxo de trabalho com a ciência aberta. Todo o fluxo de trabalho pode ser registrado em um script ou relatório, permitindo verificação, replicação e adaptação por outros usuários.
 
--   **Popularidade:** movido por uma comunidade internacional extensa, que desenvolve e acompanha o software. Cada vez mais adotado em instituições (principalmente públicas) e pela comunidade acadêmica.
+Nesse sentido, a adesão ao projeto GNU constitui um dos pilares do R. Além disso, destacam-se alguns aspectos centrais:
 
-### O uso de linguagem de programação nas Ciências Sociais
+
+- **Eficiência**: o trabalho baseado em funções e objetos permite automatizar rotinas e reduzir retrabalho, favorecendo uso mais racional de tempo e recursos computacionais.
+
+- **Flexibilidade e potência**: por se tratar de uma linguagem de programação, o usuário não está restrito a um conjunto fixo de comandos. É possível desenvolver novas funções, adaptar métodos e integrar diferentes ferramentas.
+
+- **Replicabilidade e transparência**: os procedimentos são explicitamente registrados em código, o que facilita auditoria, reprodutibilidade e conformidade com boas práticas científicas.
+
+- **Comunidade e ecossistema**: o desenvolvimento colaborativo internacional sustenta a constante expansão do software, tanto no meio acadêmico quanto em instituições públicas e privadas.
+
+### Popularização, consolidação de comunidades e mercados
+
+Até o final da década de 2000, o R era predominantemente utilizado por estatísticos, pesquisadores acadêmicos e cientistas da computação com formação técnica específica. Esse cenário começou a se transformar com a criação do RStudio, em 2009, que ofereceu um ambiente integrado de desenvolvimento (IDE) mais acessível e intuitivo, facilitando o fluxo de trabalho e ampliando o alcance da linguagem.
+
+Em paralelo, Hadley Wickham desenvolveu o conceito de Tidy Data [@wickham2014], propondo uma padronização estrutural para organização de bases de dados. Essa proposta conceitual deu origem a um conjunto integrado de pacotes voltados à manipulação, análise e visualização de dados, posteriormente reunidos sob o nome tidyverse. O projeto foi estruturado a partir de quatro princípios centrais: (1) reutilização de estruturas de dados existentes; (2) composição de funções simples integradas por meio de pipelines; (3) incentivo à programação funcional; e (4) produção de código legível e orientado ao usuário humano.
+
+O impacto dessa infraestrutura foi significativo. A expansão da comunidade de usuários veio acompanhada da consolidação de um ecossistema profissional, incluindo consultorias, treinamentos e certificações. Mais do que uma mudança sintática, o RStudio e o tidyverse contribuíram para reconfigurar o posicionamento do R no mercado de usuários, especialmente na academia e em instituições de pesquisas.
+
+### O uso da linguagem de programação nas Ciências Sociais
 
 Dados e metodologias são os principais elementos para o trabalho com pesquisa e operacionalização de teorias. Em geral, formulamos hipóteses sobre o mundo informadas por literaturas específicas, e testamos essas hipóteses coletando dados e utilizando metodologias. As linguagens de programação nos ajudam na parte operacional de tratamento e análise dos dados.
 
