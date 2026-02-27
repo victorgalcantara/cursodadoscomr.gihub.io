@@ -176,7 +176,7 @@ library(tidyverse) # Carrega o pacote tidyverse como exemplo
 
 # Gestão do diretório
 getwd() # Verifica diretório principal de trabalho
-setwd(dir = "C:/Users/13477365/Documents/book-dadoscomr") # Define diretório principal de trabalho
+setwd(dir = "C:/Users/sn1101492/OneDrive/02 - GitHub/cursodadoscomr.gihub.io/") # Define diretório principal de trabalho
 # Atenção à posição das barras! Deve estar como "/"
 ```
 
@@ -255,7 +255,7 @@ library(tidyverse)
 
 # Gestão do diretório
 getwd() # Verifica diretório principal de trabalho
-setwd(dir = "C:/Users/13477365/Documents/book-dadoscomr") # Define diretório principal de trabalho
+setwd(dir = "C:/Users/sn1101492/OneDrive/02 - GitHub/cursodadoscomr.gihub.io/") # Define diretório principal de trabalho
 # Atenção à posição das barras! Deve estar como "/"
 ```
 
@@ -264,7 +264,7 @@ Agora, vamos importar nosso primeiro dado de trabalho.
 ```{r}
 # Import ---------------------------------------------------
 
-br_uf_data <- import( "G:/Meu Drive/02 - GitHub/R-Intro/000 - P&R/00 data/br_uf.csv" )
+br_uf_data <- import( "C:/Users/sn1101492/OneDrive/02 - GitHub/000 - P&R/00 data/br_uf.csv" )
 ```
 
 Há diversas funções que se adequam ao tipo de dado a ser lido com o R. Com o pacote *rio*, este comando fica mais simples e intuitivo. Basta utilizar a função *import*, indicando o local do arquivo e sua extensão (no exemplo acima é .csv).
@@ -396,7 +396,7 @@ Assim como a função *import*, basta inserir o endereço do diretório e, no fi
 
 ```{r}
 export(x = br_uf_data,
-       file = "G:/Meu Drive/02 - GitHub/R-Intro/A02 - Explore II/0 - data/mydata.RDS")
+       file = "C:/Users/sn1101492/OneDrive/02 - GitHub//R-Intro/A02 - Explore II/0 - data/mydata.RDS")
 ```
 
 # Extra: unir bases de dados com chave de identificação comum
@@ -422,7 +422,7 @@ mydta <- merge(x = geo_uf,y = br_uf_data,
 
 # Export
 export(x = mydta,
-       file = "G:/Meu Drive/02 - GitHub/R-Intro/A02 - Explore II/0 - data/mydata.RDS")
+       file = "C:/Users/sn1101492/OneDrive/02 - GitHub//R-Intro/A02 - Explore II/0 - data/mydata.RDS")
 ```
 
 # Desafio
