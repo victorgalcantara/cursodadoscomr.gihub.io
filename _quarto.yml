@@ -5,7 +5,8 @@ project:
 book:
   title: "Análise de dados com R"
   author: "Victor G Alcantara"
-  date: "30/10/2024"
+  date: last-modified
+  date-format: "DD/MM/YYYY"
   chapters:
     - index.qmd
     - class01.qmd
