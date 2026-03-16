@@ -507,14 +507,25 @@ Utilizado o RStudio ou Google Colab, exercite os conhecimentos tratados neste ca
 # 1. Crie três objetos que guardam vetores com valores 
 # de tipos diferentes (numérico, caracteres e lógicos)
 
-# 2. Verifique se os vetores têm a mesma quantidade de valores
+# 2. Verifique se os vetores têm o mesmo comprimento/
+# qtd. de valores
 
 # 3. Crie um data.frame/base de dados com os vetores
 
 # 4. Localize o valor guardado na posição 
-# seus_dados[2,1] : segunda linha e terceira coluna
+# seus_dados[2,1] : segunda linha e primeira coluna
 
 # 5. Faça um teste lógico para verificar se o primeiro valor do vetor
-# numérico é maior ou igual ao último valor do vetor numérico da sua
-# base de dados
+# numérico é maior ou igual ao último valor do mesmo vetor.
+# Faça para o vetor e para a base de dados
+
+# 6. Crie uma nova coluna para a sua base de dados
+# a quarta coluna deve ser um produto da 
+# coluna numérica multiplicada por 2
+
+# 7. Crie uma nova coluna para a sua base de dados
+# a quinta coluna deve ser uma combinação dos valores
+# formando a frase:
+# O valor X multiplicado por 2 é igual a Y
+
 ```
