@@ -1,6 +1,4 @@
-# Capítulo 4 {.unnumbered}
-
-## Análise
+# C4. Análise descritiva {.unnumbered}
 
 Nos capítulos II e III, vimos as funções mais importantes para o manuseio de bases de dados estruturadas. Agora, iniciaremos o estudo da análise dos dados. Partiremos do ponto mais básico e fundamental que é a descrição. Antes, porém, vamos avançar um pouco mais em comandos e estrutura de dados.
 

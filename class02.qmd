@@ -1,6 +1,4 @@
-# Capítulo 2 {.unnumbered}
-
-## Mãos na massa
+# C2. Mãos na massa {.unnumbered}
 
 >  *Costuma-se dizer que 80% do trabalho em análise de dados é limpando e preparando bases (Dasu e Johnson, 2003). Eles estão certos. Talvez seja até mais. Mas o conceito _data tidy_ e o pacote _tidyverse_ vieram para nos ajudar com isso* [@wickham2014, tradução livre, com muita liberdade mesmo, da p. 1]
 

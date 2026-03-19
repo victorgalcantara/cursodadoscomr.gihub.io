@@ -1,6 +1,4 @@
-# Capítulo 3 {.unnumbered}
-
-## Mão na massa - Parte II
+# C3. Mão na massa - Parte II {.unnumbered}
 
 No capítulo anterior, começamos a colocar a mão na massa trabalhando com dados estruturados. Revisamos as funções, vimos sobre comandos relacionais e como iniciar um código, com identificação no cabeçalho e setup que inclui gestão da memória, de pacotes e diretórios. Por fim, vimos as funções fundamentais de dois pacotes muito importantes para importar (pacote *rio*) e manusear (*tidyverse*) dados (import/export, select, filter e rename).
 
@@ -10,7 +8,7 @@ Neste capítulo, aprofundaremos sobre o manuseio de dados para tratar das modifi
 
 A função `mutate` é uma das principais ferramentas do `tidyverse` para manipulação de dados no R, usada para criar ou modificar colunas em uma base de dados. Com `mutate`, é possível adicionar novas variáveis, transformar variáveis existentes, e aplicar funções a colunas específicas de forma direta e intuitiva. Isso permite preparar e ajustar os dados de acordo com as necessidades de análise, tudo enquanto preserva a estrutura do conjunto de dados original. A importância do `mutate` está em sua capacidade de simplificar o processo de transformação de dados, tornando o código mais legível e eficiente ao combinar funções de forma flexível. Essa função segue a mesma estrutura das demais do *tidyverse*, como `select`, `filter` e `rename`.
 
-> > dados %\>% mutate( nova_variavel = variavel + modificacoes )
+> > dados %/>% mutate( nova_variavel = variavel + modificacoes )
 
 Vamos ver um exemplo com os dados das Unidades da Federação do Brasil.
 
@@ -29,7 +27,7 @@ library(dplyr)
 
 # Import ----
 
-br_uf_data <- import( "G:/Meu Drive/02 - GitHub/R-Intro/000 - P&R/00 data/br_uf.csv" )
+br_uf_data <- import( "C:/Users/victo/OneDrive/02 - GitHub/R-Intro/A03 - Mão na massa/00 data/br_uf.csv" )
 ```
 
 Como na última aula, faremos algumas operações de seleção e de renomear variáveis para limpar a base de dados. Para avançar, faremos um conjunto de manuseios aninhados com pipe.
@@ -69,15 +67,15 @@ Simples, não? Acontece que temos outras funções que podem ser utilizadas dent
 
 `case_when` é uma função muito usual para criar novos valores quando dada condição é verificada. Ela permite criar novos valores para uma coluna com base em condições lógicas, semelhantes a uma estrutura "se-então", ou "quando o caso estiver nessa condição, aplique isso". Ela é útil para categorizar dados ou aplicar diferentes transformações em uma coluna de acordo com regras específicas.
 
-> > dados %\>% mutate(
+> > dados %/>% mutate(
 > >
 > > nova_variavel =
 > >
 > > case_when(
 > >
-> > variavel == valor1 \~ "novo valor 1",
+> > variavel == valor1 /~ "novo valor 1",
 > >
-> > variavel == valor2 \~ "novo valor 2" )
+> > variavel == valor2 /~ "novo valor 2" )
 > >
 > > )
 
@@ -103,7 +101,7 @@ meus.dados %>%
 
 A função `recode` no R é usada para substituir valores específicos em uma coluna de dados. Ela permite mapear valores antigos para novos valores de forma direta, sem condições lógicas. É útil, por exemplo, para renomear categorias ou ajustar valores em uma variável.
 
-> > dados %\>% mutate(
+> > dados %/>% mutate(
 > >
 > > nova_variavel =
 > >
@@ -180,4 +178,74 @@ meus.dados <- meus.dados %>% mutate(
 
 meus.dados %>% 
   select(uf2,gini,sentenca,sentenca2) %>% head(3)
+```
+
+# Desafio
+
+```{r}
+# 1. Crie um novo script em R 
+# Inicie seu código com cabeçalho e setup
+
+# 2. Faça a importação dos seus dados
+
+# 3. Faça uma breve análise da estrutura dos dados
+# Dimensões (dim), nomes de colunas (names), visualize as primeiras linhas (head) e a estrutura (str)
+
+# Agora, como boa prática, vamos fazer o manuseio da base original guardando
+# uma "versão manuseada" em um novo objeto
+
+# Exemplo: se a sua base chama-se "escolas", você pode renomear como 
+# "escolas_tratada" ou simplesmente "mydata"
+
+# 4. Faça operações de seleção e filtragem encadeadas com pipe
+# mydata <- escolas %>% select() %>% filter()
+
+# 5. Compare as dimensões da base original com a base manuseada
+
+# 6. Renomeie as colunas para que fiquem mais intuitivas e mantenham seu código limpo
+
+# 7. Crie novas variáveis com transformações das originais utilizando R base e a função mutate
+# Utilize as funções auxiliares para a transformação
+
+# 7.1 recode
+# 7.2 case_when
+# 7.3 factor
+# 7.4 cut
+
+# 8. Visualize a estrutura da sua base manuseada
+
+# Estruturas condicionais (if, else, ifelse) e estruturas de repetição (for)
+
+# 9. Crie um loop for para printar na tela os números de 0-10 
+
+# Desafio!
+
+# 10.  Crie um loop for para iterar sobre um vetor
+# Exemplo: imprimir valores de uma coluna
+# for (valor in mydata$nota) {
+#   print(valor)
+# }
+
+# 11. Utilize um loop for para criar uma nova variável
+# Exemplo: identificar alunos aprovados e reprovados
+# 
+# for (i in 1:nrow(mydata)) {
+#   if (mydata$nota[i] >= 6) {
+#     situacao_final[i] <- "Aprovado"
+#   } else {
+#     situacao_final[i] <- "Reprovado"
+#   }
+# }
+
+# 12. Crie uma nova variável com base em uma condição simples usando ifelse()
+# Exemplo: classificar alunos como "Aprovado" ou "Reprovado"
+# mydata <- mydata %>%
+#   mutate(situacao_final = ifelse(nota >= 6, "Aprovado", "Reprovado"))
+
+# 13. Compare a abordagem com loop e com mutate para criar a situacao_final
+# Aprovado/Reprovado
+
+# Reflita: quando usar funções vetorizadas e quando usar for?
+# (Dica: prefira mutate/ifelse sempre que possível para melhor desempenho e legibilidade)
+
 ```
